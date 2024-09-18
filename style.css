@@ -267,6 +267,24 @@ button.button.btn-quizz-choice {
 	background-color: var(--clr-purple);
 }
 
+/*** Buttons with BG Icon Colors - Active ***/
+
+button.button:has(.icon-bg-orange):active {
+	border-color: var(--clr-orange);
+}
+
+button.button:has(.icon-bg-green):active {
+	border-color: var(--clr-green);
+}
+
+button.button:has(.icon-bg-blue):active {
+	border-color: var(--clr-blue);
+}
+
+button.button:has(.icon-bg-purple):active {
+	border-color: var(--clr-purple);
+}
+
 /*** Utility ***/
 
 .bold,
