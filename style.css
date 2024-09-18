@@ -64,6 +64,18 @@
 	}
 }
 
+@media (prefers-color-scheme: dark) and (min-width: 768px) {
+	body {
+		background-image: url(./assets/images/pattern-background-tablet-dark.svg);
+	}
+}
+
+@media (prefers-color-scheme: light) and (min-width: 768) {
+	body {
+		background-image: url(./assets/images/pattern-background-tablet-light.svg);
+	}
+}
+
 body {
 	display: flex;
 	flex-direction: column;
@@ -86,8 +98,10 @@ body {
 /*** Quiz Introduction ***/
 .quiz-intro-container {
 	display: flex;
-	align-items: center;
+	align-items: start;
 	justify-content: center;
+
+	gap: 4rem;
 
 	max-width: 1160px;
 	min-height: 456px;
@@ -101,7 +115,33 @@ body {
 /*** Lists ***/
 
 ul {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+
 	list-style-type: none;
+}
+
+/*** Buttons ***/
+
+button.button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	border: none;
+	border-radius: var(--radius);
+
+	background-color: var(--clr-surface-2);
+
+	min-width: 564px;
+	min-height: 96px;
+}
+
+button.button.btn-quizz-choice {
+	justify-content: start;
 }
 
 /*** Utility ***/
@@ -112,37 +152,37 @@ ul {
 }
 
 .heading-display {
-	font-size: 12rem;
+	font-size: 144px;
 }
 
 h1,
 h2,
 .heading-l {
-	font-size: 5.3334rem;
+	font-size: 64px;
 	font-weight: 300;
 }
 
 h3,
 h4,
 .heading-m {
-	font-size: 3rem;
+	font-size: 36px;
 	font-weight: 300;
 }
 
 h5,
 h6,
 .heading-s {
-	font-size: 2.3334rem;
+	font-size: 28px;
 }
 
 p,
 .body-m {
-	font-size: 1rem;
+	font-size: 24px;
 	line-height: 150%;
 }
 
 .body-s {
-	font-size: 1rem;
+	font-size: 20px;
 	font-style: italic;
 	line-height: 150%;
 	color: var(--clr-on-surface-2);
