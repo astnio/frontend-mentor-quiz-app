@@ -35,6 +35,8 @@
 	font-size: 12px;
 }
 
+/*** Light & Dark Color Schemes ***/
+
 @media (prefers-color-scheme: dark) {
 	:root {
 		--clr-on-surface-1: var(--clr-pure-white);
@@ -54,6 +56,8 @@
 		--clr-surface-2: var(--clr-pure-white);
 	}
 }
+
+/*** Background Images - Responsive with Light & Dark Versions ***/
 
 @media (prefers-color-scheme: dark) and (min-width: 1024px) {
 	body {
@@ -78,6 +82,8 @@
 		background-image: url(./assets/images/pattern-background-tablet-light.svg);
 	}
 }
+
+/*** General ***/
 
 body {
 	display: flex;
@@ -165,16 +171,18 @@ button.button::before {
 	transition: opacity 0.1s ease-in-out;
 }
 
-button.button.btn-quizz-choice {
-	justify-content: start;
-}
-
 button.button:hover {
 	cursor: pointer;
 }
 
 button.button:hover::before {
 	opacity: 0.1;
+}
+
+/*** Buttons - Other ***/
+
+button.button.btn-quizz-choice {
+	justify-content: start;
 }
 
 /*** Button Icon ***/
