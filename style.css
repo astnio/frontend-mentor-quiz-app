@@ -157,7 +157,7 @@ button.button {
 	align-items: center;
 	justify-content: center;
 
-	border: none;
+	border: 3px solid rgba(0, 0, 0, 0);
 	border-radius: var(--radius);
 
 	background-color: var(--clr-surface-2);
@@ -168,6 +168,8 @@ button.button {
 	padding: 20px;
 
 	overflow: hidden;
+
+	transition: border 0.1s ease-out;
 }
 
 button.button::before {
@@ -183,8 +185,10 @@ button.button::before {
 	background-color: white;
 	opacity: 0;
 
-	transition: opacity 0.1s ease-in-out;
+	transition: opacity 0.1s ease-out;
 }
+
+/*** Buttons - Hover ***/
 
 button.button:hover {
 	cursor: pointer;
@@ -192,6 +196,12 @@ button.button:hover {
 
 button.button:hover::before {
 	opacity: 0.1;
+}
+
+/*** Buttons - Active ***/
+
+button.button:active {
+	border: 3px solid white;
 }
 
 /*** Buttons - Other ***/
