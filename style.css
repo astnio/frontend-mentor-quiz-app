@@ -24,6 +24,10 @@
 	--clr-primary: var(--clr-purple);
 	--clr-success: var(--clr-green);
 	--clr-error: var(--clr-red);
+
+	--radius: 24px;
+
+	font-size: 12px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -58,4 +62,44 @@ body {
 	color: var(--clr-on-surface-1);
 
 	background-color: var(--clr-surface-1);
+}
+
+/*** Utility ***/
+
+.bold {
+	font-weight: 700;
+}
+
+.heading-display {
+	font-size: 12rem;
+}
+
+h1,
+h2,
+.heading-l {
+	font-size: 5.3334rem;
+}
+
+h3,
+h4,
+.heading-m {
+	font-size: 3rem;
+}
+
+h5,
+h6,
+.heading-s {
+	font-size: 2.3334rem;
+}
+
+p,
+.body-m {
+	font-size: 1rem;
+	line-height: 150%;
+}
+
+.body-s {
+	font-size: 1rem;
+	font-style: italic;
+	line-height: 150%;
 }
