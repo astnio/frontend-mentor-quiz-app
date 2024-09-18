@@ -168,9 +168,17 @@ ul {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	gap: 2rem;
+
+	/* gap: 2rem; */ /* Desktop */
+	gap: 12px; /* Mobile */
+
+	width: 100%;
 
 	list-style-type: none;
+}
+
+li {
+	width: 100%;
 }
 
 /*** Buttons ***/
