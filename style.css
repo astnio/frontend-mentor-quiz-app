@@ -57,42 +57,56 @@
 	}
 }
 
+/*** Adjusting Responsive Layout ***/
+
+/* @media screen and (max-width: 1160px) {
+	body {
+		background-size: contain;
+	}
+
+	header.quiz-intro-container {
+		flex-direction: column;
+		align-items: center;
+	}
+} */
+
 /*** Background Images - Responsive with Light & Dark Versions ***/
 
 /*** Desktop Color Scheme BG ***/
-@media (prefers-color-scheme: dark) and (min-width: 1024px) {
+@media (prefers-color-scheme: dark) {
 	body {
 		background-image: url(./assets/images/pattern-background-desktop-dark.svg);
 	}
 }
 
-@media (prefers-color-scheme: light) and (min-width: 1024px) {
+@media (prefers-color-scheme: light) {
 	body {
 		background-image: url(./assets/images/pattern-background-desktop-light.svg);
 	}
 }
 
 /*** Tablet Color Scheme BG ***/
-@media (prefers-color-scheme: dark) and (min-width: 768px) {
+
+@media (prefers-color-scheme: dark) and (max-width: 768px) {
 	body {
 		background-image: url(./assets/images/pattern-background-tablet-dark.svg);
 	}
 }
 
-@media (prefers-color-scheme: light) and (min-width: 768px) {
+@media (prefers-color-scheme: light) and (max-width: 768px) {
 	body {
 		background-image: url(./assets/images/pattern-background-tablet-light.svg);
 	}
 }
 
 /*** Mobile Color Scheme BG ***/
-@media (prefers-color-scheme: dark) and (min-width: 375px) {
+@media (prefers-color-scheme: dark) and (max-width: 375px) {
 	body {
 		background-image: url(./assets/images/pattern-background-mobile-dark.svg);
 	}
 }
 
-@media (prefers-color-scheme: light) and (min-width: 375px) {
+@media (prefers-color-scheme: light) and (max-width: 375px) {
 	body {
 		background-image: url(./assets/images/pattern-background-mobile-light.svg);
 	}
@@ -106,7 +120,10 @@ body {
 	align-items: center;
 	justify-content: center;
 
-	min-height: 100dvh;
+	min-height: 100vh;
+	width: 100%;
+
+	margin: 0;
 
 	font-family: 'Rubik', sans-serif;
 	color: var(--clr-on-surface-1);
@@ -116,13 +133,20 @@ body {
 	background-repeat: no-repeat;
 	/* background-position: 50%; */
 	background-attachment: fixed;
-	/* background-size: cover; */
+	background-size: cover;
+}
+
+header,
+main,
+footer {
+	padding-inline: 1rem;
 }
 
 /*** Quiz Introduction ***/
-.quiz-intro-container {
+header.quiz-intro-container {
 	display: flex;
-	align-items: start;
+	flex-direction: column;
+	align-items: center;
 	justify-content: space-between;
 
 	gap: 4rem;
@@ -144,7 +168,7 @@ ul {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	gap: 1rem;
+	gap: 2rem;
 
 	list-style-type: none;
 }
@@ -162,10 +186,14 @@ button.button {
 
 	background-color: var(--clr-surface-2);
 
-	min-width: 564px;
-	min-height: 96px;
+	width: 100%;
+	max-width: 564px;
 
-	padding: 20px;
+	min-height: 96px; /* Desktop */
+	min-height: 64px; /* Mobile */
+
+	padding: 20px; /* Desktop */
+	padding: 12px; /* Mobile */
 
 	overflow: hidden;
 
@@ -220,7 +248,8 @@ button.button.btn-quizz-choice {
 	align-items: center;
 	justify-content: center;
 
-	margin-right: 32px;
+	margin-right: 32px; /* Desktop */
+	margin-right: 16px; /* Mobile */
 	padding: 8px;
 
 	aspect-ratio: 1;
@@ -299,7 +328,8 @@ button.button:has(.icon-bg-purple):active {
 h1,
 h2,
 .heading-l {
-	font-size: 64px;
+	font-size: 64px; /* Desktop */
+	font-size: 40px; /* Mobile */
 	font-weight: 300;
 }
 
@@ -313,7 +343,8 @@ h4,
 h5,
 h6,
 .heading-s {
-	font-size: 28px;
+	font-size: 28px; /* Desktop */
+	font-size: 18px; /* Mobile */
 	font-weight: 600;
 }
 
@@ -324,7 +355,8 @@ p,
 }
 
 .body-s {
-	font-size: 20px;
+	font-size: 20px; /* Desktop */
+	font-size: 14px; /* Mobile */
 	font-style: italic;
 	line-height: 150%;
 	color: var(--clr-on-surface-2);
