@@ -16,6 +16,9 @@
 	--clr-purple: #a729f5;
 	--clr-green: #26d782;
 	--clr-red: #ee5454;
+	--clr-blue: #306aff;
+	--clr-orange: #ff7e35;
+
 	--clr-pure-white: #ffffff;
 	--clr-dark-navy: #313e51;
 	--clr-grey-navy: #626c7f;
@@ -99,12 +102,13 @@ body {
 .quiz-intro-container {
 	display: flex;
 	align-items: start;
-	justify-content: center;
+	justify-content: space-between;
 
 	gap: 4rem;
 
 	max-width: 1160px;
 	min-height: 456px;
+	width: 100%;
 }
 
 .title-container {
@@ -138,10 +142,50 @@ button.button {
 
 	min-width: 564px;
 	min-height: 96px;
+
+	padding: 20px;
 }
 
 button.button.btn-quizz-choice {
 	justify-content: start;
+}
+
+.btn-quizz-choice-icon-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	margin-right: 32px;
+	padding: 8px;
+
+	aspect-ratio: 1;
+
+	border-radius: 8px;
+
+	/* background-color: red; */
+}
+
+.btn-quizz-choice-icon-container > img {
+	width: 40px;
+	height: 40px;
+}
+
+/*** Button Icon Background Colors ***/
+
+.icon-bg-orange {
+	background-color: var(--clr-orange);
+}
+
+.icon-bg-green {
+	background-color: var(--clr-green);
+}
+
+.icon-bg-blue {
+	background-color: var(--clr-blue);
+}
+
+.icon-bg-purple {
+	background-color: var(--clr-purple);
 }
 
 /*** Utility ***/
@@ -173,6 +217,7 @@ h5,
 h6,
 .heading-s {
 	font-size: 28px;
+	font-weight: 600;
 }
 
 p,
