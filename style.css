@@ -11,6 +11,8 @@
 }
 
 :root {
+	color-scheme: light dark;
+
 	--clr-purple: #a729f5;
 	--clr-green: #26d782;
 	--clr-red: #ee5454;
