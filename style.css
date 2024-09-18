@@ -1,3 +1,15 @@
+@font-face {
+	font-family: 'Rubik';
+	src: url('./assets/fonts/Rubik-VariableFont_wght.ttf');
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Rubik';
+	src: url('./assets/fonts/Rubik-Italic-VariableFont_wght.ttf');
+	font-style: italic;
+}
+
 :root {
 	--clr-purple: #a729f5;
 	--clr-green: #26d782;
@@ -42,6 +54,7 @@ body {
 
 	min-height: 100dvh;
 
+	font-family: 'Rubik', sans-serif;
 	color: var(--clr-on-surface-1);
 
 	background-color: var(--clr-surface-1);
