@@ -131,6 +131,7 @@ ul {
 /*** Buttons ***/
 
 button.button {
+	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -144,11 +145,39 @@ button.button {
 	min-height: 96px;
 
 	padding: 20px;
+
+	overflow: hidden;
+}
+
+button.button::before {
+	content: '';
+
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 100%;
+
+	background-color: white;
+	opacity: 0;
+
+	transition: opacity 0.1s ease-in-out;
 }
 
 button.button.btn-quizz-choice {
 	justify-content: start;
 }
+
+button.button:hover {
+	cursor: pointer;
+}
+
+button.button:hover::before {
+	opacity: 0.1;
+}
+
+/*** Button Icon ***/
 
 .btn-quizz-choice-icon-container {
 	position: relative;
