@@ -80,21 +80,6 @@ li {
 	}
 }
 
-/*** Adjusting Responsive Layout ***/
-
-/* @media screen and (max-width: 1160px) {
-	body {
-		background-size: contain;
-	}
-
-	header.quiz-intro-container {
-		flex-direction: column;
-		align-items: center;
-	}
-} */
-
-/*** Background Images - Responsive with Light & Dark Versions ***/
-
 /*** General ***/
 
 body {
@@ -114,16 +99,29 @@ body {
 	background-color: var(--clr-surface-1);
 
 	background-repeat: no-repeat;
-	/* background-position: 50%; */
 	background-attachment: fixed;
 	background-size: cover;
 }
 
-header,
-main,
-footer {
-	/* padding-inline: 1rem; */
-	max-width: 320px;
+/*** App Header ***/
+
+.app-header {
+	position: fixed;
+	top: 0;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	width: 100%;
+
+	margin-top: 1rem;
+	padding-inline: 1rem;
+}
+
+.app-header-quiz-category {
+	display: flex;
+	align-items: center;
 }
 
 /*** Quiz Introduction ***/
@@ -142,9 +140,6 @@ header.quiz-intro-container {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-
-	/* min-width: 465px; */
-	/* min-height: 214px; */
 
 	min-height: 125px;
 }
@@ -242,9 +237,9 @@ button.button.btn-quizz-choice {
 	justify-content: start;
 }
 
-/*** Button Icon ***/
+/*** Quiz Category Icon ***/
 
-.btn-quizz-choice-icon-container {
+.quizz-category-icon-container {
 	position: relative;
 	isolation: isolate;
 
@@ -271,7 +266,7 @@ button.button.btn-quizz-choice {
 	overflow: hidden;
 }
 
-.btn-quizz-choice-icon-container::before {
+.quizz-category-icon-container::before {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -284,7 +279,7 @@ button.button.btn-quizz-choice {
 	opacity: 0.8;
 }
 
-.btn-quizz-choice-icon-container > img {
+.quizz-category-icon-container > img {
 	max-width: 100%;
 	z-index: 2;
 }
@@ -331,6 +326,10 @@ button.button:has(.icon-bg-purple):focus {
 
 /*** Utility ***/
 
+.max-width {
+	max-width: 327px;
+}
+
 .bold,
 .heading-l.bold {
 	font-weight: 700;
@@ -376,6 +375,8 @@ p,
 	line-height: 150%;
 	color: var(--clr-on-surface-2);
 }
+
+/*** Background Images - Responsive with Light & Dark Versions ***/
 
 /*** Desktop Color Scheme BG ***/
 @media (prefers-color-scheme: dark) {

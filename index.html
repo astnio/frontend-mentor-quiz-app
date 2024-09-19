@@ -4,30 +4,37 @@
 		<meta charset="UTF-8" />
 		<meta
 			name="viewport"
-			content="width=device-width, initial-scale=1.0"
-		/>
+			content="width=device-width, initial-scale=1.0" />
 
 		<link
 			rel="icon"
 			type="image/png"
 			sizes="32x32"
-			href="./assets/images/favicon-32x32.png"
-		/>
+			href="./assets/images/favicon-32x32.png" />
 
 		<title>Frontend Mentor | Frontend quiz app</title>
 
 		<link
 			rel="stylesheet"
-			href="style.css"
-		/>
+			href="style.css" />
 
 		<script
 			defer
-			src="./src/main.js"
-		></script>
+			src="./src/main.js"></script>
 	</head>
 	<body>
-		<header class="quiz-intro-container">
+		<nav class="app-header max-width">
+			<div class="app-header-quiz-category heading-s">
+				<span class="quizz-category-icon-container icon-bg-purple"
+					><img
+						src="./assets/images/icon-accessibility.svg"
+						alt="Accessibility"
+				/></span>
+				<span>Accessibility</span>
+			</div>
+			<div class="app-header-light-toggle">Light/Dark Mode Toggle</div>
+		</nav>
+		<header class="quiz-intro-container max-width">
 			<div class="title-container">
 				<h1 class="title">
 					<span class="heading-l">Welcome to the</span>
@@ -40,7 +47,7 @@
 				<ul class="quiz-choices-list">
 					<li>
 						<button class="button btn-quizz-choice heading-s">
-							<span class="btn-quizz-choice-icon-container icon-bg-orange"
+							<span class="quizz-category-icon-container icon-bg-orange"
 								><img
 									src="./assets/images/icon-html.svg"
 									alt=""
@@ -51,7 +58,7 @@
 					</li>
 					<li>
 						<button class="button btn-quizz-choice heading-s">
-							<span class="btn-quizz-choice-icon-container icon-bg-green"
+							<span class="quizz-category-icon-container icon-bg-green"
 								><img
 									src="./assets/images/icon-css.svg"
 									alt=""
@@ -62,7 +69,7 @@
 					</li>
 					<li>
 						<button class="button btn-quizz-choice heading-s">
-							<span class="btn-quizz-choice-icon-container icon-bg-blue"
+							<span class="quizz-category-icon-container icon-bg-blue"
 								><img
 									src="./assets/images/icon-js.svg"
 									alt=""
@@ -73,7 +80,7 @@
 					</li>
 					<li>
 						<button class="button btn-quizz-choice heading-s">
-							<span class="btn-quizz-choice-icon-container icon-bg-purple"
+							<span class="quizz-category-icon-container icon-bg-purple"
 								><img
 									src="./assets/images/icon-accessibility.svg"
 									alt=""
