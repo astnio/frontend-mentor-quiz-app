@@ -326,6 +326,14 @@ button.button:has(.icon-bg-purple):focus {
 
 /*** Light Toggle ***/
 
+.light-switch-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	gap: 8px;
+}
+
 .switch {
 	position: relative;
 	display: inline-block;
@@ -369,6 +377,21 @@ input:focus + .slider {
 
 input:checked + .slider:before {
 	transform: translateX(12px);
+}
+
+/*** Light Toggle Icons ***/
+
+.light-switch-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 16px;
+	height: 16px;
+
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-size: cover;
 }
 
 /* Rounded sliders */
@@ -439,11 +462,27 @@ p,
 	body {
 		background-image: url(./assets/images/pattern-background-desktop-dark.svg);
 	}
+
+	.light-switch-icon-dark {
+		background-image: url('./assets/images/icon-moon-light.svg');
+	}
+
+	.light-switch-icon-light {
+		background-image: url('./assets/images/icon-sun-light.svg');
+	}
 }
 
 @media (prefers-color-scheme: light) {
 	body {
 		background-image: url(./assets/images/pattern-background-desktop-light.svg);
+	}
+
+	.light-switch-icon-dark {
+		background-image: url('./assets/images/icon-moon-dark.svg');
+	}
+
+	.light-switch-icon-light {
+		background-image: url('./assets/images/icon-sun-dark.svg');
 	}
 }
 
