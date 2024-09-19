@@ -324,6 +324,62 @@ button.button:has(.icon-bg-purple):focus {
 	border-color: var(--clr-purple);
 }
 
+/*** Light Toggle ***/
+
+.switch {
+	position: relative;
+	display: inline-block;
+
+	width: 32px;
+	height: 20px;
+}
+
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	inset: 0;
+	background-color: var(--clr-purple);
+	transition: 0.1s ease-out;
+}
+
+.slider:before {
+	position: absolute;
+	content: '';
+	height: 12px;
+	width: 12px;
+	left: 4px;
+	bottom: 4px;
+	background-color: var(--clr-pure-white);
+	transition: 0.1s ease-out;
+}
+
+input:checked + .slider {
+	background-color: var(--clr-purple);
+}
+
+input:focus + .slider {
+	box-shadow: 0 0 1px var(--clr-purple);
+}
+
+input:checked + .slider:before {
+	transform: translateX(12px);
+}
+
+/* Rounded sliders */
+.slider.round {
+	border-radius: 34px;
+}
+
+.slider.round:before {
+	border-radius: 50%;
+}
+
 /*** Utility ***/
 
 .max-width {
