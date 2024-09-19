@@ -95,46 +95,6 @@ li {
 
 /*** Background Images - Responsive with Light & Dark Versions ***/
 
-/*** Desktop Color Scheme BG ***/
-@media (prefers-color-scheme: dark) {
-	body {
-		background-image: url(./assets/images/pattern-background-desktop-dark.svg);
-	}
-}
-
-@media (prefers-color-scheme: light) {
-	body {
-		background-image: url(./assets/images/pattern-background-desktop-light.svg);
-	}
-}
-
-/*** Tablet Color Scheme BG ***/
-
-@media (prefers-color-scheme: dark) and (max-width: 768px) {
-	body {
-		background-image: url(./assets/images/pattern-background-tablet-dark.svg);
-	}
-}
-
-@media (prefers-color-scheme: light) and (max-width: 768px) {
-	body {
-		background-image: url(./assets/images/pattern-background-tablet-light.svg);
-	}
-}
-
-/*** Mobile Color Scheme BG ***/
-@media (prefers-color-scheme: dark) and (max-width: 375px) {
-	body {
-		background-image: url(./assets/images/pattern-background-mobile-dark.svg);
-	}
-}
-
-@media (prefers-color-scheme: light) and (max-width: 375px) {
-	body {
-		background-image: url(./assets/images/pattern-background-mobile-light.svg);
-	}
-}
-
 /*** General ***/
 
 body {
@@ -263,6 +223,7 @@ button.button::before {
 
 button.button:hover {
 	cursor: pointer;
+	border: 3px solid rgba(255, 255, 255, 0.1);
 }
 
 button.button:hover::before {
@@ -414,4 +375,44 @@ p,
 	font-style: italic;
 	line-height: 150%;
 	color: var(--clr-on-surface-2);
+}
+
+/*** Desktop Color Scheme BG ***/
+@media (prefers-color-scheme: dark) {
+	body {
+		background-image: url(./assets/images/pattern-background-desktop-dark.svg);
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	body {
+		background-image: url(./assets/images/pattern-background-desktop-light.svg);
+	}
+}
+
+/*** Tablet Color Scheme BG ***/
+
+@media (prefers-color-scheme: dark) and (max-width: 768px) {
+	body {
+		background-image: url(./assets/images/pattern-background-tablet-dark.svg);
+	}
+}
+
+@media (prefers-color-scheme: light) and (max-width: 768px) {
+	body {
+		background-image: url(./assets/images/pattern-background-tablet-light.svg);
+	}
+}
+
+/*** Mobile Color Scheme BG ***/
+@media (prefers-color-scheme: dark) and (max-width: 375px) {
+	body {
+		background-image: url(./assets/images/pattern-background-mobile-dark.svg);
+	}
+}
+
+@media (prefers-color-scheme: light) and (max-width: 375px) {
+	body {
+		background-image: url(./assets/images/pattern-background-mobile-light.svg);
+	}
 }
