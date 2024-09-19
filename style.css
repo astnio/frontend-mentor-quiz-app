@@ -59,25 +59,20 @@ li {
 }
 
 /*** Light & Dark Color Schemes ***/
+:root:has(body[data-light-mode='dark']) {
+	--clr-on-surface-1: var(--clr-pure-white);
+	--clr-on-surface-2: var(--clr-light-bluish);
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--clr-on-surface-1: var(--clr-pure-white);
-		--clr-on-surface-2: var(--clr-light-bluish);
-
-		--clr-surface-1: var(--clr-dark-navy);
-		--clr-surface-2: var(--clr-navy);
-	}
+	--clr-surface-1: var(--clr-dark-navy);
+	--clr-surface-2: var(--clr-navy);
 }
 
-@media (prefers-color-scheme: light) {
-	:root {
-		--clr-on-surface-1: var(--clr-dark-navy);
-		--clr-on-surface-2: var(--clr-grey-navy);
+:root:has(body[data-light-mode='light']) {
+	--clr-on-surface-1: var(--clr-dark-navy);
+	--clr-on-surface-2: var(--clr-grey-navy);
 
-		--clr-surface-1: var(--clr-light-grey);
-		--clr-surface-2: var(--clr-pure-white);
-	}
+	--clr-surface-1: var(--clr-light-grey);
+	--clr-surface-2: var(--clr-pure-white);
 }
 
 /*** General ***/
@@ -181,6 +176,8 @@ button.button {
 
 	border: 3px solid rgba(0, 0, 0, 0);
 	border-radius: var(--radius);
+
+	color: var(--clr-on-surface-1);
 
 	background-color: var(--clr-surface-2);
 
@@ -458,7 +455,7 @@ p,
 /*** Background Images - Responsive with Light & Dark Versions ***/
 
 /*** Desktop Color Scheme BG ***/
-@media (prefers-color-scheme: dark) {
+body[data-light-mode='dark'] {
 	body {
 		background-image: url(./assets/images/pattern-background-desktop-dark.svg);
 	}
@@ -472,7 +469,7 @@ p,
 	}
 }
 
-@media (prefers-color-scheme: light) {
+body[data-light-mode='light'] {
 	body {
 		background-image: url(./assets/images/pattern-background-desktop-light.svg);
 	}
@@ -488,27 +485,23 @@ p,
 
 /*** Tablet Color Scheme BG ***/
 
-@media (prefers-color-scheme: dark) and (max-width: 768px) {
-	body {
+@media screen and (max-width: 768px) {
+	body[data-light-mode='dark'] {
 		background-image: url(./assets/images/pattern-background-tablet-dark.svg);
 	}
-}
 
-@media (prefers-color-scheme: light) and (max-width: 768px) {
-	body {
+	body[data-light-mode='light'] {
 		background-image: url(./assets/images/pattern-background-tablet-light.svg);
 	}
 }
 
 /*** Mobile Color Scheme BG ***/
-@media (prefers-color-scheme: dark) and (max-width: 375px) {
-	body {
+@media screen and (max-width: 375px) {
+	body[data-light-mode='dark'] {
 		background-image: url(./assets/images/pattern-background-mobile-dark.svg);
 	}
-}
 
-@media (prefers-color-scheme: light) and (max-width: 375px) {
-	body {
+	body[data-light-mode='light'] {
 		background-image: url(./assets/images/pattern-background-mobile-light.svg);
 	}
 }
