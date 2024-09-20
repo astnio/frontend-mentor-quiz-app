@@ -329,6 +329,8 @@ button.button:has(.icon-bg-purple):focus {
 	justify-content: center;
 
 	gap: 8px;
+
+	margin-left: auto;
 }
 
 .switch {
@@ -401,6 +403,10 @@ input:checked + .slider:before {
 }
 
 /*** Utility ***/
+
+.hidden {
+	display: none;
+}
 
 .max-width {
 	max-width: 327px;
