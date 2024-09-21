@@ -30,7 +30,7 @@
 	<body>
 		<nav class="app-header max-width">
 			<div class="app-header-quiz-category heading-s hidden">
-				<span class="quizz-category-icon-container icon-bg-purple"
+				<span class="quiz-category-icon-container icon-bg-purple"
 					><img
 						src="./assets/images/icon-accessibility.svg"
 						alt="Accessibility"
@@ -50,89 +50,97 @@
 				<span class="light-switch-icon light-switch-icon-dark"></span>
 			</div>
 		</nav>
-		<header class="quiz-intro-container max-width">
-			<div class="title-container">
-				<h1 class="title">
-					<span class="heading-l">Welcome to the</span>
-					<br />
-					<span class="heading-l bold">Frontend Quiz!</span>
-				</h1>
-				<p class="body-s subtitle">Pick a subject to get started.</p>
-			</div>
-			<nav class="quiz-choices-nav">
-				<ul class="quiz-choices-list">
-					<li>
-						<button class="button btn-quizz-choice heading-s">
-							<span class="quizz-category-icon-container icon-bg-orange"
-								><img
-									src="./assets/images/icon-html.svg"
-									alt=""
-									srcset=""
-							/></span>
-							<span>HTML</span>
-						</button>
-					</li>
-					<li>
-						<button class="button btn-quizz-choice heading-s">
-							<span class="quizz-category-icon-container icon-bg-green"
-								><img
-									src="./assets/images/icon-css.svg"
-									alt=""
-									srcset=""
-							/></span>
-							<span>CSS</span>
-						</button>
-					</li>
-					<li>
-						<button class="button btn-quizz-choice heading-s">
-							<span class="quizz-category-icon-container icon-bg-blue"
-								><img
-									src="./assets/images/icon-js.svg"
-									alt=""
-									srcset=""
-							/></span>
-							<span>JavaScript</span>
-						</button>
-					</li>
-					<li>
-						<button class="button btn-quizz-choice heading-s">
-							<span class="quizz-category-icon-container icon-bg-purple"
-								><img
-									src="./assets/images/icon-accessibility.svg"
-									alt=""
-									srcset=""
-							/></span>
-							<span>Accessibility</span>
-						</button>
-					</li>
-				</ul>
-			</nav>
-		</header>
-		<main style="display: none">
-			<h3>Question {number} of 10</h3>
-			<div>
-				<ul>
-					<li>
-						<button>A</button>
-					</li>
-					<li>
-						<button>B</button>
-					</li>
-					<li>
-						<button>C</button>
-					</li>
-					<li>
-						<button>D</button>
-					</li>
-				</ul>
-				<button>Submit answer</button>
-			</div>
-			<div>
-				Quiz completed You scored...
+		<div class="app">
+			<header
+				id="quiz-intro-container"
+				class="quiz-intro-container app-screen"
+			>
+				<div class="title-container max-width">
+					<h1 class="title">
+						<span class="heading-l">Welcome to the</span>
+						<br />
+						<span class="heading-l bold">Frontend Quiz!</span>
+					</h1>
+					<p class="body-s subtitle">Pick a subject to get started.</p>
+				</div>
+				<nav class="quiz-choices-nav max-width">
+					<ul class="quiz-choices-list">
+						<li>
+							<button class="button btn-quizz-choice heading-s">
+								<span class="quiz-category-icon-container icon-bg-orange"
+									><img
+										src="./assets/images/icon-html.svg"
+										alt=""
+										srcset=""
+								/></span>
+								<span>HTML</span>
+							</button>
+						</li>
+						<li>
+							<button class="button btn-quizz-choice heading-s">
+								<span class="quiz-category-icon-container icon-bg-green"
+									><img
+										src="./assets/images/icon-css.svg"
+										alt=""
+										srcset=""
+								/></span>
+								<span>CSS</span>
+							</button>
+						</li>
+						<li>
+							<button class="button btn-quizz-choice heading-s">
+								<span class="quiz-category-icon-container icon-bg-blue"
+									><img
+										src="./assets/images/icon-js.svg"
+										alt=""
+										srcset=""
+								/></span>
+								<span>JavaScript</span>
+							</button>
+						</li>
+						<li>
+							<button class="button btn-quizz-choice heading-s">
+								<span class="quiz-category-icon-container icon-bg-purple"
+									><img
+										src="./assets/images/icon-accessibility.svg"
+										alt=""
+										srcset=""
+								/></span>
+								<span>Accessibility</span>
+							</button>
+						</li>
+					</ul>
+				</nav>
+			</header>
+			<main
+				id="quiz-container"
+				class="quiz-container app-screen"
+			>
+				<h3 class="max-width">Question {number} of 10</h3>
+				<div class="max-width">
+					<ul>
+						<li>
+							<button>A</button>
+						</li>
+						<li>
+							<button>B</button>
+						</li>
+						<li>
+							<button>C</button>
+						</li>
+						<li>
+							<button>D</button>
+						</li>
+					</ul>
+					<button>Submit answer</button>
+				</div>
+				<div class="max-width">
+					Quiz completed You scored...
 
-				<!-- score -->
-				out of 10
-			</div>
-		</main>
+					<!-- score -->
+					out of 10
+				</div>
+			</main>
+		</div>
 	</body>
 </html>
