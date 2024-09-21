@@ -28,29 +28,29 @@
 		></script>
 	</head>
 	<body>
-		<nav class="app-header max-width">
-			<div class="app-header-quiz-category heading-s hidden">
-				<span class="quiz-category-icon-container icon-bg-purple"
-					><img
-						src="./assets/images/icon-accessibility.svg"
-						alt="Accessibility"
-				/></span>
-				<span>Accessibility</span>
-			</div>
-			<div class="light-switch-container">
-				<span class="light-switch-icon light-switch-icon-light"></span>
-				<label class="switch">
-					<input
-						type="checkbox"
-						id="light-toggle"
-						checked
-					/>
-					<span class="slider round"></span>
-				</label>
-				<span class="light-switch-icon light-switch-icon-dark"></span>
-			</div>
-		</nav>
 		<div class="app">
+			<nav class="app-header max-width auto-inline-margin">
+				<div class="app-header-quiz-category heading-s hidden">
+					<span class="quiz-category-icon-container icon-bg-purple"
+						><img
+							src="./assets/images/icon-accessibility.svg"
+							alt="Accessibility"
+					/></span>
+					<span>Accessibility</span>
+				</div>
+				<div class="light-switch-container">
+					<span class="light-switch-icon light-switch-icon-light"></span>
+					<label class="switch">
+						<input
+							type="checkbox"
+							id="light-toggle"
+							checked
+						/>
+						<span class="slider round"></span>
+					</label>
+					<span class="light-switch-icon light-switch-icon-dark"></span>
+				</div>
+			</nav>
 			<header
 				id="quiz-intro-container"
 				class="quiz-intro-container app-screen"
@@ -116,31 +116,75 @@
 				id="quiz-container"
 				class="quiz-container app-screen"
 			>
-				<h3 class="max-width">Question {number} of 10</h3>
-				<div class="max-width">
+				<h3 class="max-width auto-inline-margin body-s subtitle">
+					Question {number} of 10
+				</h3>
+				<p class="quiz-question-body max-width auto-inline-margin">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+					officiis cumque officia?
+				</p>
+				<div id="quiz-progress-bar-container" class="max-width auto-inline-margin">
+					<p>quizz progress</p>
+				</div>
+				<div class="max-width auto-inline-margin">
 					<ul>
 						<li>
-							<button>A</button>
+							<button class="button btn-quizz-choice heading-s">
+								<span class="quiz-category-icon-container icon-bg-purple"
+									><img
+										src="./assets/images/icon-accessibility.svg"
+										alt=""
+										srcset=""
+								/></span>
+								<span>Accessibility</span>
+							</button>
 						</li>
 						<li>
-							<button>B</button>
+							<button class="button btn-quizz-choice heading-s">
+								<span class="quiz-category-icon-container icon-bg-purple"
+									><img
+										src="./assets/images/icon-accessibility.svg"
+										alt=""
+										srcset=""
+								/></span>
+								<span>Accessibility</span>
+							</button>
 						</li>
 						<li>
-							<button>C</button>
+							<button class="button btn-quizz-choice heading-s">
+								<span class="quiz-category-icon-container icon-bg-purple"
+									><img
+										src="./assets/images/icon-accessibility.svg"
+										alt=""
+										srcset=""
+								/></span>
+								<span>Accessibility</span>
+							</button>
 						</li>
 						<li>
-							<button>D</button>
+							<button class="button btn-quizz-choice heading-s">
+								<span class="quiz-category-icon-container icon-bg-purple"
+									><img
+										src="./assets/images/icon-accessibility.svg"
+										alt=""
+										srcset=""
+								/></span>
+								<span>Accessibility</span>
+							</button>
 						</li>
 					</ul>
-					<button>Submit answer</button>
+					<button class="button btn-question-submit">Submit answer</button>
 				</div>
-				<div class="max-width">
+
+			</main>
+			<div class="quiz-end-screen app-screen" style="display: none;">
+				<div class="max-width auto-inline-margin"></div>
 					Quiz completed You scored...
 
 					<!-- score -->
 					out of 10
 				</div>
-			</main>
+			</div>
 		</div>
 	</body>
 </html>

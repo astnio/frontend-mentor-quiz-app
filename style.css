@@ -108,7 +108,7 @@ body {
 	overflow: hidden;
 
 	width: 100vw;
-	height: 100dvh;
+	min-height: 100vh;
 }
 
 .app-screen {
@@ -124,15 +124,6 @@ body {
 	width: 100%;
 
 	transition: transform 0.5s ease-out;
-}
-
-#quiz-container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-
-	transform: translateX(100%);
 }
 
 /*** App Header ***/
@@ -182,6 +173,34 @@ header.quiz-intro-container {
 	margin-bottom: auto;
 }
 
+/*** Quiz Container ***/
+
+#quiz-container {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	justify-content: stretch;
+
+	gap: 1rem;
+
+	margin-bottom: auto;
+
+	transform: translateX(100%);
+}
+
+#quiz-container > h3 {
+	margin-top: 6rem;
+}
+
+button.button.btn-question-submit {
+	margin-top: 1rem;
+
+	font-size: 18px;
+	font-weight: 700;
+
+	background-color: var(--clr-purple);
+}
+
 /*** Lists ***/
 
 ul {
@@ -226,8 +245,8 @@ button.button {
 	min-height: 96px; /* Desktop */
 	min-height: 64px; /* Mobile */
 
-	padding: 20px; /* Desktop */
-	padding: 12px; /* Mobile */
+	padding-inline: 20px; /* Desktop */
+	padding-inline: 12px; /* Mobile */
 
 	overflow: hidden;
 
@@ -447,6 +466,11 @@ input:checked + .slider:before {
 	display: none;
 }
 
+.auto-inline-margin {
+	margin-inline: auto;
+	width: 100%;
+}
+
 .max-width {
 	max-width: 327px;
 }
@@ -495,6 +519,11 @@ p,
 	font-style: italic;
 	line-height: 150%;
 	color: var(--clr-on-surface-2);
+}
+
+.quiz-question-body {
+	font-size: 20px;
+	line-height: 120%;
 }
 
 /*** Background Images - Responsive with Light & Dark Versions ***/
