@@ -5,6 +5,7 @@ import { initQuizChoiceButtons } from './screenTransitionManager.js';
 const appHeaderQuizCategory = document.querySelector(
 	'.app-header-quiz-category'
 );
+const currentQuizLabel = document.getElementById('current-category-label');
 const currentQuizImage = document.getElementById('current-quiz-label-image');
 
 const btnHTMLQuiz = document.getElementById('btn-quiz-choice-html');
@@ -27,21 +28,25 @@ function initQuizButtons() {
 	btnHTMLQuiz.addEventListener('click', () => {
 		setCurrentQuizImage(quizzes['HTML'].icon);
 		setAppHeaderCategoryIconBg('orange');
+		currentQuizLabel.innerText = 'HTML';
 	});
 
 	btnCSSQuiz.addEventListener('click', () => {
 		setCurrentQuizImage(quizzes['CSS'].icon);
 		setAppHeaderCategoryIconBg('green');
+		currentQuizLabel.innerText = 'CSS';
 	});
 
 	btnJSQuiz.addEventListener('click', () => {
 		setCurrentQuizImage(quizzes['JavaScript'].icon);
 		setAppHeaderCategoryIconBg('blue');
+		currentQuizLabel.innerText = 'JavaScript';
 	});
 
 	btnAccessibilityQuiz.addEventListener('click', () => {
 		setCurrentQuizImage(quizzes['Accessibility'].icon);
 		setAppHeaderCategoryIconBg('purple');
+		currentQuizLabel.innerText = 'Accessibility';
 	});
 }
 
