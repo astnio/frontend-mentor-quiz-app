@@ -532,7 +532,7 @@ input:checked + .slider:before {
 /*** Utility ***/
 
 .hidden {
-	display: none;
+	visibility: hidden;
 }
 
 .auto-inline-margin {
