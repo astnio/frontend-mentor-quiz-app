@@ -9,13 +9,13 @@ export class Quiz {
 		this._title = title;
 		this._icon = icon;
 
-		questions.forEach((element) => {
+		for (let element of questions) {
 			const newQuestion = new QuizQuestion(
 				element.question,
 				element.options,
 				element.answer
 			);
 			this._questions[element.question] = newQuestion;
-		});
+		}
 	}
 }
