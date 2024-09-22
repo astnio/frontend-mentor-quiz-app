@@ -145,6 +145,10 @@ body {
 	align-items: center;
 }
 
+.quiz-button-icon-container.quiz-category-icon-container {
+	border-radius: 4px;
+}
+
 /*** Quiz Introduction ***/
 header.quiz-intro-container {
 	display: flex;
@@ -266,6 +270,10 @@ button.button::before {
 	opacity: 0;
 
 	transition: opacity 0.1s ease-out;
+}
+
+.button.btn-question-submit {
+	color: var(--clr-pure-white);
 }
 
 /*** Buttons - Hover ***/
