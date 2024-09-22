@@ -293,7 +293,7 @@ button.button.btn-quizz-choice {
 
 /*** Quiz Category Icon ***/
 
-.quiz-category-icon-container {
+.quiz-button-icon-container {
 	position: relative;
 	isolation: isolate;
 
@@ -308,9 +308,9 @@ button.button.btn-quizz-choice {
 	padding: 4px; /* Mobile */
 
 	width: 56px; /* Desktop */
-	height: 56px; /* Desktop */
-
 	width: 40px; /* Mobile */
+
+	height: 56px; /* Desktop */
 	height: 40px; /* Mobile */
 
 	aspect-ratio: 1;
@@ -320,7 +320,7 @@ button.button.btn-quizz-choice {
 	overflow: hidden;
 }
 
-.quiz-category-icon-container::before {
+.quiz-button-icon-container::before {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -333,9 +333,32 @@ button.button.btn-quizz-choice {
 	opacity: 0.8;
 }
 
-.quiz-category-icon-container > img {
+.quiz-button-icon-container > img {
 	max-width: 100%;
 	z-index: 2;
+}
+
+/*** Buttons for Quiz Options ***/
+
+.quiz-button-option-icon::before {
+	content: 'A'; /* This should be dynamically changed in JS */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	font-size: 18px;
+	color: var(--clr-grey-navy);
+}
+
+.btn-quizz-choice:active > .quiz-button-icon-container::before,
+.btn-quizz-choice:focus > .quiz-button-icon-container::before {
+	background-color: var(--clr-purple);
+	color: var(--clr-pure-white);
+}
+
+button.button:has(.quiz-button-option-icon):active,
+button.button:has(.quiz-button-option-icon):focus {
+	border-color: var(--clr-purple);
 }
 
 /*** Button Icon Background Colors ***/
@@ -354,6 +377,10 @@ button.button.btn-quizz-choice {
 
 .icon-bg-purple {
 	background-color: var(--clr-purple);
+}
+
+.icon-bg-white {
+	background-color: var(--clr-pure-white);
 }
 
 /*** Buttons with BG Icon Colors - Active ***/
