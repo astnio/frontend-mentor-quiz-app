@@ -164,7 +164,7 @@ header.quiz-intro-container {
 
 	min-height: 125px;
 
-	margin-top: 6rem;
+	margin-top: 8.5rem;
 }
 
 .quiz-choices-nav {
@@ -188,7 +188,7 @@ header.quiz-intro-container {
 }
 
 .question-header {
-	margin-top: 6rem;
+	margin-top: 8.5rem;
 }
 
 button.button.btn-question-submit {
@@ -531,8 +531,17 @@ input:checked + .slider:before {
 
 /*** Utility ***/
 
-.hidden {
+[data-quiz-active='true'] {
+	visibility: visible;
+	opacity: 1;
+
+	transition: opacity 0.5s ease-in-out;
+}
+
+.hidden,
+[data-quiz-active='false'] {
 	visibility: hidden;
+	opacity: 0;
 }
 
 .auto-inline-margin {

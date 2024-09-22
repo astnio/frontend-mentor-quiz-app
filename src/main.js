@@ -19,7 +19,7 @@ function setAppHeaderCategoryIconBg(color) {
 }
 
 function setCurrentQuizImage(value) {
-	appHeaderQuizCategory.classList.remove('hidden');
+	appHeaderQuizCategory.dataset.quizActive = 'true';
 	currentQuizImage.src = `${value}`;
 }
 
