@@ -101,10 +101,6 @@ body {
 .app {
 	position: relative;
 
-	/* display: flex;
-	align-items: center;
-	justify-content: center; */
-
 	overflow: hidden;
 
 	width: 100vw;
