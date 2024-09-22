@@ -14,6 +14,14 @@ const btnAccessibilityQuiz = document.getElementById(
 	'btn-quiz-choice-accessibility'
 );
 
+function setAppHeaderCategoryIconBg(color) {
+	appHeaderQuizCategory.children[0].classList.remove('icon-bg-purple');
+	appHeaderQuizCategory.children[0].classList.remove('icon-bg-orange');
+	appHeaderQuizCategory.children[0].classList.remove('icon-bg-green');
+	appHeaderQuizCategory.children[0].classList.remove('icon-bg-blue');
+	appHeaderQuizCategory.children[0].classList.add(`icon-bg-${color}`);
+}
+
 function setCurrentQuizImage(value) {
 	appHeaderQuizCategory.classList.remove('hidden');
 	currentQuizImage.src = `${value}`;
@@ -22,18 +30,22 @@ function setCurrentQuizImage(value) {
 function initQuizButtons() {
 	btnHTMLQuiz.addEventListener('click', () => {
 		setCurrentQuizImage(quizzes['HTML'].icon);
+		setAppHeaderCategoryIconBg('orange');
 	});
 
 	btnCSSQuiz.addEventListener('click', () => {
 		setCurrentQuizImage(quizzes['CSS'].icon);
+		setAppHeaderCategoryIconBg('green');
 	});
 
 	btnJSQuiz.addEventListener('click', () => {
 		setCurrentQuizImage(quizzes['JavaScript'].icon);
+		setAppHeaderCategoryIconBg('blue');
 	});
 
 	btnAccessibilityQuiz.addEventListener('click', () => {
 		setCurrentQuizImage(quizzes['Accessibility'].icon);
+		setAppHeaderCategoryIconBg('purple');
 	});
 }
 
