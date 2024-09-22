@@ -133,9 +133,6 @@ body {
 	width: 100%;
 
 	margin-top: 1rem;
-	margin-bottom: 2rem;
-
-	padding-inline: 1rem;
 
 	z-index: 10;
 }
@@ -179,6 +176,9 @@ header.quiz-intro-container {
 /*** Quiz Container ***/
 
 #quiz-container {
+	visibility: hidden; /* Only doing this initially because the screen starts out in the middle then flys out when the page loads, and it looks bad.
+							This gets updated in the JavaScript when any button is clicked so it becomes visible right away and the user never knows! */
+
 	display: flex;
 	flex-direction: column;
 	align-items: start;

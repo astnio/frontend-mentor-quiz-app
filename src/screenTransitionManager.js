@@ -8,7 +8,6 @@ const submitButton = document.getElementById('quiz-submit-question');
 let isScreen1Visible = true;
 
 function slideScreens() {
-	console.log('me clicked');
 	if (isScreen1Visible) {
 		screen1.style.transform = 'translateX(-100%)';
 		screen2.style.transform = 'translateX(0)';
@@ -18,6 +17,7 @@ function slideScreens() {
 	}
 
 	isScreen1Visible = !isScreen1Visible;
+	screen2.style.visibility = 'visible';
 }
 
 export function initQuizChoiceButtons() {
