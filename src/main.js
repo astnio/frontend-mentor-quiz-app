@@ -15,11 +15,7 @@ const btnAccessibilityQuiz = document.getElementById(
 );
 
 function setAppHeaderCategoryIconBg(color) {
-	appHeaderQuizCategory.children[0].classList.remove('icon-bg-purple');
-	appHeaderQuizCategory.children[0].classList.remove('icon-bg-orange');
-	appHeaderQuizCategory.children[0].classList.remove('icon-bg-green');
-	appHeaderQuizCategory.children[0].classList.remove('icon-bg-blue');
-	appHeaderQuizCategory.children[0].classList.add(`icon-bg-${color}`);
+	appHeaderQuizCategory.children[0].dataset.bgColor = color;
 }
 
 function setCurrentQuizImage(value) {

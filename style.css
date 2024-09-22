@@ -363,23 +363,28 @@ button.button:has(.quiz-button-option-icon):focus {
 
 /*** Button Icon Background Colors ***/
 
-.icon-bg-orange {
+.icon-bg-orange,
+[data-bg-color='orange'] {
 	background-color: var(--clr-orange);
 }
 
-.icon-bg-green {
+.icon-bg-green,
+[data-bg-color='green'] {
 	background-color: var(--clr-green);
 }
 
-.icon-bg-blue {
+.icon-bg-blue,
+[data-bg-color='blue'] {
 	background-color: var(--clr-blue);
 }
 
-.icon-bg-purple {
+.icon-bg-purple,
+[data-bg-color='purple'] {
 	background-color: var(--clr-purple);
 }
 
-.icon-bg-white {
+.icon-bg-white,
+[data-bg-color='white'] {
 	background-color: var(--clr-pure-white);
 }
 
