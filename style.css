@@ -187,7 +187,7 @@ header.quiz-intro-container {
 	transform: translateX(100%);
 }
 
-#quiz-container > h3 {
+.question-header {
 	margin-top: 6rem;
 }
 
