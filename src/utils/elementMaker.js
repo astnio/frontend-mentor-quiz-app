@@ -1,75 +1,3 @@
-// export function createQuizSection(
-// 	currentQuestion,
-// 	totalQuestions,
-// 	question,
-// 	options,
-// 	answer
-// ) {
-// 	const quizSectionElement = document.createElement('section');
-// 	quizSectionElement.classList.add('auto-inline-margin');
-
-// 	const quizQuestionsList = document.createElement('ul');
-// 	for (let element of options) {
-// 		const newQuestion = createQuizQuestionElement(element);
-// 		quizQuestionsList.appendChild(newQuestion);
-// 	}
-
-// 	quizSectionElement.innerHTML = /* html */ `
-//     <div class="question-header max-width auto-inline-margin">
-//         <h3 class="body-s subtitle">
-//             Question <span>${currentQuestion}</span> of ${totalQuestions}
-//         </h3>
-//         <p class="quiz-question-body">
-//             ${question}
-//         </p>
-//         <div
-//             id="quiz-progress-bar-container"
-//             class=""
-//         >
-//             <div id="quiz-progress-bar"></div>
-//         </div>
-//     </div>
-
-//     <div id="quiz-section-questions-container" class="max-width auto-inline-margin">
-//         <button
-//             data-answer=${answer}
-//             id="quiz-submit-question"
-//             class="button btn-question-submit"
-//         >
-//             Submit answer
-//         </button>
-//     </div>
-// 	`;
-
-// 	console.log(typeof quizSectionElement);
-// 	console.log(quizSectionElement);
-
-// 	const quizSectionQuestionsContainer = quizSectionElement.getElementById(
-// 		'quiz-section-questions-container'
-// 	);
-// 	quizSectionQuestionsContainer.appendChild(quizQuestionsList);
-
-// 	return quizSectionElement;
-// }
-
-// const createQuizQuestionElement = (option) => {
-// 	const quizQuestionElement = document.createElement('li');
-
-// 	quizQuestionElement.innerHTML = /* html */ `
-//         <button
-//             data-quiz-option=${option}
-//             class="button btn-quiz-button btn-quiz-question-option heading-s"
-//         >
-//             <span
-//                 class="quiz-button-icon-container quiz-button-option-icon icon-bg-white"
-//             ></span>
-//             <span>${option}</span>
-//         </button>
-//     `;
-
-// 	return quizQuestionElement;
-// };
-
 export function QuizSection(
 	currentQuestion,
 	totalQuestions,
@@ -117,6 +45,9 @@ const createQuestionHeader = () => {
 };
 
 const createQuestionSubheading = (currentQuestion, totalQuestions) => {
+	// console.log(currentQuestion);
+	// console.log(totalQuestions);
+
 	const h3 = document.createElement('h3');
 	h3.className = 'body-s subtitle';
 	h3.innerHTML = `Question <span>${currentQuestion}</span> of ${totalQuestions}`;
@@ -190,6 +121,5 @@ const createSubmitButton = (answer) => {
 	submitButton.className = 'button btn-question-submit';
 	submitButton.textContent = 'Submit answer';
 	submitButton.dataset.answer = answer;
-	// quizSectionQuestionsContainer.appendChild(submitButton);
 	return submitButton;
 };

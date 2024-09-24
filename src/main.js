@@ -58,7 +58,7 @@ initQuizButtons();
 
 const test = quizzes['HTML'].quizSections[0];
 
-console.log(quizzes['HTML']);
-console.log(test.innerHTML);
+// console.log(quizzes['HTML']);
+// console.log(test.innerHTML);
 
 mainQuizContainer.append(test);

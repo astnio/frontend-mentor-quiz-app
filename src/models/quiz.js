@@ -10,8 +10,12 @@ export class Quiz {
 	constructor(title, icon, questions) {
 		this.title = title;
 		this.icon = icon;
+		this.questions = questions;
 
 		let questionCounter = 0;
+
+		console.log(`${this.title} Questions`);
+		console.log(questions);
 
 		for (let element of questions) {
 			const newQuestion = new QuizQuestion(
@@ -21,20 +25,12 @@ export class Quiz {
 			);
 			this.questions[questionCounter] = newQuestion;
 
-			// const newQuestionSectionElement = new QuizSection(
-			// 	element.question,
-			// 	Object.keys(this.questions).length,
-			// 	element.options,
-			// 	element.answer
-			// );
-			// this.questionSectionElements[questionCounter] = newQuestionSectionElement;
-
 			this.createQuizSection(
 				questionCounter,
+				questionCounter + 1,
+				Object.keys(questions).length,
 				element.question,
-				Object.keys(this.questions).length,
-				element.options,
-				element.answer
+				element.options
 			);
 
 			questionCounter++;
