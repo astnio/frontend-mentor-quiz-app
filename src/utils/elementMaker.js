@@ -100,6 +100,8 @@ export function QuizSection(
 	questionsContainer.appendChild(btnSubmit);
 
 	quizSection.appendChild(questionsContainer);
+
+	return quizSection;
 }
 
 const createQuizSection = () => {
@@ -165,22 +167,12 @@ const createQuizQuestionElement = (option) => {
 	quizQuestionButtonElement.appendChild(quizQuestionBtnIcon);
 	quizQuestionButtonElement.appendChild(quizQuestionBtnLabel);
 
-	quizQuestionElement.appendChild(quizQuestionButtonElement);
-
 	quizQuestionButtonElement.appendChild(quizQuestionBtnIcon);
 	quizQuestionButtonElement.appendChild(quizQuestionBtnLabel);
 
-	// quizQuestionElement.innerHTML = /* html */ `
-	//     <button
-	//         data-quiz-option=${option}
-	//         class="button btn-quiz-button btn-quiz-question-option heading-s"
-	//     >
-	//         <span
-	//             class="quiz-button-icon-container quiz-button-option-icon icon-bg-white"
-	//         ></span>
-	//         <span>${option}</span>
-	//     </button>
-	// `;
+	quizQuestionElement.appendChild(quizQuestionButtonElement);
+
+	return quizQuestionElement;
 };
 
 const createQuizQuestionsList = (options) => {
@@ -198,6 +190,6 @@ const createSubmitButton = (answer) => {
 	submitButton.className = 'button btn-question-submit';
 	submitButton.textContent = 'Submit answer';
 	submitButton.dataset.answer = answer;
-	quizSectionQuestionsContainer.appendChild(submitButton);
+	// quizSectionQuestionsContainer.appendChild(submitButton);
 	return submitButton;
 };

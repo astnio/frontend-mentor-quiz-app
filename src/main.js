@@ -54,4 +54,7 @@ initLightToggle();
 initQuizChoiceButtons();
 initQuizButtons();
 
-console.log(quizzes);
+const test = quizzes['HTML'].quizSections[0];
+
+console.log(quizzes['HTML']);
+console.log(test.innerHTML);
