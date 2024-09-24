@@ -7,3 +7,4 @@ data.quizzes.forEach((element) => {
 	const quiz = new Quiz(element.title, element.icon, element.questions);
 	quizzes[element.title] = quiz;
 });
+

@@ -1,6 +1,6 @@
-import { initLightToggle } from './lightswitch.js';
+import { initLightToggle } from './ui/lightswitch.js';
 import { quizzes } from './quizManager.js';
-import { initQuizChoiceButtons } from './screenTransitionManager.js';
+import { initQuizChoiceButtons } from './ui/screenTransitionManager.js';
 
 const appHeaderQuizCategory = document.querySelector(
 	'.app-header-quiz-category'
@@ -53,3 +53,5 @@ function initQuizButtons() {
 initLightToggle();
 initQuizChoiceButtons();
 initQuizButtons();
+
+console.log(quizzes);

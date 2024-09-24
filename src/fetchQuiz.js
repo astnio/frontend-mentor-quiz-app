@@ -1,5 +1,11 @@
-// const dataPath = '/frontend-mentor-time-tracking-dashboard/src/data.json';
-const dataPath = './src/data.json';
+const liveSiteDataPath =
+	'/frontend-mentor-time-tracking-dashboard/src/data.json';
+const localSiteDataPath = './src/data.json';
+
+/*** Set this to false if testing from local environment ***/
+const isSiteLive = false;
+
+const dataPath = isSiteLive ? liveSiteDataPath : localSiteDataPath;
 
 async function loadData(dataLocation) {
 	try {
