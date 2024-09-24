@@ -3,7 +3,7 @@ const screen2 = document.getElementById('quiz-container');
 const quizChoiceButtons = document.querySelectorAll(
 	'.btn-quiz-category-choice'
 );
-const submitButton = document.getElementById('quiz-submit-question');
+// const submitButton = document.getElementById('quiz-submit-question');
 
 let isScreen1Visible = true;
 
@@ -24,5 +24,5 @@ export function initQuizChoiceButtons() {
 	quizChoiceButtons.forEach((btn) => {
 		btn.addEventListener('click', slideScreens);
 	});
-	submitButton.addEventListener('click', slideScreens);
+	// submitButton.addEventListener('click', slideScreens);
 }

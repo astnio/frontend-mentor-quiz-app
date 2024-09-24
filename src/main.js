@@ -2,6 +2,8 @@ import { initLightToggle } from './ui/lightswitch.js';
 import { quizzes } from './quizManager.js';
 import { initQuizChoiceButtons } from './ui/screenTransitionManager.js';
 
+const mainQuizContainer = document.getElementById('quiz-container');
+
 const appHeaderQuizCategory = document.querySelector(
 	'.app-header-quiz-category'
 );
@@ -58,3 +60,5 @@ const test = quizzes['HTML'].quizSections[0];
 
 console.log(quizzes['HTML']);
 console.log(test.innerHTML);
+
+mainQuizContainer.append(test);
