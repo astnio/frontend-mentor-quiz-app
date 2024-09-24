@@ -70,15 +70,43 @@
 // 	return quizQuestionElement;
 // };
 
-export function createQuizSection(
+export function QuizSection(
 	currentQuestion,
 	totalQuestions,
 	question,
 	options,
 	answer
 ) {
-	//todo
+	const quizSection = createQuizSection();
+
+	const questionHeader = createQuestionHeader();
+	const questionSubheading = createQuestionSubheading(
+		currentQuestion,
+		totalQuestions
+	);
+	const questionBody = createQuestionBody(question);
+	const questionProgressBar = createQuestionProgressBar();
+	const questionsContainer = createQuizSectionQuestionsContainer();
+	const questionsList = createQuizQuestionsList(options);
+	const btnSubmit = createSubmitButton(answer);
+
+	questionHeader.appendChild(questionSubheading);
+	questionHeader.appendChild(questionBody);
+	questionHeader.appendChild(questionProgressBar);
+
+	quizSection.appendChild(questionHeader);
+
+	questionsContainer.appendChild(questionsList);
+	questionsContainer.appendChild(btnSubmit);
+
+	quizSection.appendChild(questionsContainer);
 }
+
+const createQuizSection = () => {
+	const quizSectionElement = document.createElement('section');
+	quizSectionElement.classList.add('auto-inline-margin');
+	return quizSectionElement;
+};
 
 const createQuestionHeader = () => {
 	const questionHeader = document.createElement('div');
@@ -93,7 +121,7 @@ const createQuestionSubheading = (currentQuestion, totalQuestions) => {
 	return h3;
 };
 
-const createQuestionBody = () => {
+const createQuestionBody = (question) => {
 	const questionBody = document.createElement('p');
 	questionBody.className = 'quiz-question-body';
 	questionBody.textContent = question;
