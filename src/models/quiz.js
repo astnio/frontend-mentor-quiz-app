@@ -1,9 +1,11 @@
+import { createQuizSection } from '../utils/elementMaker.js';
 import { QuizQuestion } from './quizQuestion.js';
 
 export class Quiz {
 	_title = '';
 	_icon = '';
 	_questions = {};
+	_questionSectionElements = {};
 
 	constructor(title, icon, questions) {
 		this.title = title;
@@ -18,6 +20,15 @@ export class Quiz {
 				element.answer
 			);
 			this.questions[questionCounter] = newQuestion;
+
+			const newQuestionSectionElement = new createQuizSection(
+				element.question,
+				Object.keys(this.questions).length,
+				element.options,
+				element.answer
+			);
+			this.questionSectionElements[questionCounter] = newQuestionSectionElement;
+
 			questionCounter++;
 		}
 	}
@@ -44,6 +55,14 @@ export class Quiz {
 
 	set questions(value) {
 		this._questions = value;
+	}
+
+	get questionSectionElements() {
+		return this._questionSectionElements;
+	}
+
+	set questionSectionElements(value) {
+		this._questionSectionElements = value;
 	}
 
 	addQuestion(value) {
