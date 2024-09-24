@@ -1,4 +1,4 @@
-import { createQuizSection } from '../utils/elementMaker.js';
+import { QuizSection } from '../utils/elementMaker.js';
 import { QuizQuestion } from './quizQuestion.js';
 
 export class Quiz {
@@ -21,7 +21,7 @@ export class Quiz {
 			);
 			this.questions[questionCounter] = newQuestion;
 
-			const newQuestionSectionElement = new createQuizSection(
+			const newQuestionSectionElement = new QuizSection(
 				element.question,
 				Object.keys(this.questions).length,
 				element.options,

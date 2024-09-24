@@ -144,6 +144,45 @@ const createQuizSectionQuestionsContainer = () => {
 	return quizSectionQuestionsContainer;
 };
 
+const createQuizQuestionElement = (option) => {
+	const quizQuestionElement = document.createElement('li');
+	const quizQuestionButtonElement = document.createElement('button');
+	const quizQuestionBtnIcon = document.createElement('span');
+	const quizQuestionBtnLabel = document.createElement('span');
+
+	quizQuestionButtonElement.classList.add('button');
+	quizQuestionButtonElement.classList.add('btn-quiz-button');
+	quizQuestionButtonElement.classList.add('btn-quiz-question-option');
+	quizQuestionButtonElement.classList.add('heading-s');
+	quizQuestionButtonElement.dataset.quizOption = option;
+
+	quizQuestionBtnIcon.classList.add('quiz-button-icon-container');
+	quizQuestionBtnIcon.classList.add('quiz-button-option-icon');
+	quizQuestionBtnIcon.classList.add('icon-bg-white');
+
+	quizQuestionBtnLabel.innerText = option;
+
+	quizQuestionButtonElement.appendChild(quizQuestionBtnIcon);
+	quizQuestionButtonElement.appendChild(quizQuestionBtnLabel);
+
+	quizQuestionElement.appendChild(quizQuestionButtonElement);
+
+	quizQuestionButtonElement.appendChild(quizQuestionBtnIcon);
+	quizQuestionButtonElement.appendChild(quizQuestionBtnLabel);
+
+	// quizQuestionElement.innerHTML = /* html */ `
+	//     <button
+	//         data-quiz-option=${option}
+	//         class="button btn-quiz-button btn-quiz-question-option heading-s"
+	//     >
+	//         <span
+	//             class="quiz-button-icon-container quiz-button-option-icon icon-bg-white"
+	//         ></span>
+	//         <span>${option}</span>
+	//     </button>
+	// `;
+};
+
 const createQuizQuestionsList = (options) => {
 	const quizQuestionsList = document.createElement('ul');
 	for (let element of options) {
