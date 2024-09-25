@@ -259,12 +259,16 @@ button.button.btn-question-submit {
 	height: 32px;
 }
 
-.btn-is-correct-icon[data-correct='true'] {
+.question-container[data-correct='true'] > .btn-is-correct-icon {
 	background-image: url('./assets/images/icon-correct.svg');
 }
 
-.btn-is-correct-icon[data-correct='false'] {
+.question-container[data-correct='false'] > .btn-is-correct-icon {
 	background-image: url('./assets/images/icon-incorrect.svg');
+}
+
+.question-container[data-correct='hidden'] > .btn-is-correct-icon {
+	background-image: none;
 }
 /*** Lists ***/
 

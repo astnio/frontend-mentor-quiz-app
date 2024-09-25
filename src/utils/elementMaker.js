@@ -119,9 +119,9 @@ const createQuizQuestionElement = (option, letter, currentQuestionNumber) => {
 
 	quizQuestionBtnLabel.classList.add('quiz-button-option-label');
 	quizQuestionBtnLabel.innerText = option;
+	quizQuestionLabelElement.dataset.correct = 'hidden';
 
 	quizQuestionIsCorrectIcon.classList.add('btn-is-correct-icon');
-	quizQuestionIsCorrectIcon.dataset.correct = true;
 
 	quizQuestionLabelElement.appendChild(quizQuestionRadioElement);
 	quizQuestionLabelElement.appendChild(quizQuestionBtnIcon);
