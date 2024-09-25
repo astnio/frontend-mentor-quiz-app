@@ -335,22 +335,24 @@ label.button::before,
 /*** Buttons - Hover ***/
 
 button.button:hover,
-label.button:hover,
-.question-container.button:hover {
+label.button:hover {
 	cursor: pointer;
 	border: 3px solid rgba(255, 255, 255, 0.1);
 }
 
+.question-container.button:hover {
+	cursor: pointer;
+	border: 3px solid var(--clr-purple);
+}
+
 button.button:hover::before,
-label.button:hover::before,
-.question-container.button:hover::before {
+label.button:hover::before {
 	opacity: 0.1;
 }
 
 /*** Buttons - Active ***/
 
-button.button:active,
-input.question-input:checked {
+button.button:active {
 	border: 3px solid white;
 }
 
@@ -421,17 +423,21 @@ button.button.btn-quiz-button {
 /*** Buttons for Quiz Options ***/
 
 .btn-quiz-question-option:active > .quiz-button-icon-container,
-.btn-quiz-question-option:focus > .quiz-button-icon-container {
+.btn-quiz-question-option:focus > .quiz-button-icon-container,
+.btn-quiz-question-option:has(input:checked) > .quiz-button-icon-container {
 	color: var(--clr-pure-white);
 }
 
 .btn-quiz-question-option:active > .quiz-button-icon-container::before,
-.btn-quiz-question-option:focus > .quiz-button-icon-container::before {
+.btn-quiz-question-option:focus > .quiz-button-icon-container::before,
+.btn-quiz-question-option:has(input:checked)
+	> .quiz-button-icon-container::before {
 	background-color: var(--clr-purple);
 }
 
 button.button:has(.quiz-button-option-icon):active,
-button.button:has(.quiz-button-option-icon):focus {
+button.button:has(.quiz-button-option-icon):focus,
+.btn-quiz-question-option:has(input:checked) {
 	border-color: var(--clr-purple);
 }
 
