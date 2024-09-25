@@ -240,6 +240,32 @@ button.button.btn-question-submit {
 	display: none;
 }
 
+/*** Quiz Questions Wrong/Correct Styling ***/
+
+.btn-is-correct-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	flex-shrink: 0;
+
+	margin-left: auto;
+
+	background-position: 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	width: 32px;
+	height: 32px;
+}
+
+.btn-is-correct-icon[data-correct='true'] {
+	background-image: url('./assets/images/icon-correct.svg');
+}
+
+.btn-is-correct-icon[data-correct='false'] {
+	background-image: url('./assets/images/icon-incorrect.svg');
+}
 /*** Lists ***/
 
 ul {

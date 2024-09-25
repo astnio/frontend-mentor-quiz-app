@@ -92,6 +92,7 @@ const createQuizQuestionElement = (option, letter, currentQuestionNumber) => {
 	const quizQuestionLabelElement = document.createElement('label');
 	const quizQuestionRadioElement = document.createElement('input');
 	const quizQuestionBtnIcon = document.createElement('span');
+	const quizQuestionIsCorrectIcon = document.createElement('span');
 	const quizQuestionBtnLabel = document.createElement('span');
 
 	quizQuestionRadioElement.type = 'radio';
@@ -119,9 +120,13 @@ const createQuizQuestionElement = (option, letter, currentQuestionNumber) => {
 	quizQuestionBtnLabel.classList.add('quiz-button-option-label');
 	quizQuestionBtnLabel.innerText = option;
 
+	quizQuestionIsCorrectIcon.classList.add('btn-is-correct-icon');
+	quizQuestionIsCorrectIcon.dataset.correct = true;
+
 	quizQuestionLabelElement.appendChild(quizQuestionRadioElement);
 	quizQuestionLabelElement.appendChild(quizQuestionBtnIcon);
 	quizQuestionLabelElement.appendChild(quizQuestionBtnLabel);
+	quizQuestionLabelElement.appendChild(quizQuestionIsCorrectIcon);
 
 	return quizQuestionLabelElement;
 };
