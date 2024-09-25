@@ -19,7 +19,7 @@ export function QuizSection(
 		totalQuestions
 	);
 	const questionsContainer = createQuizSectionQuestionsContainer();
-	const questionsList = createQuizQuestionsList(options);
+	const questionsList = createQuizQuestionsList(options, question);
 	const btnSubmit = createSubmitButton(answer);
 
 	questionHeader.appendChild(questionSubheading);
@@ -83,49 +83,111 @@ const createQuizSectionQuestionsContainer = () => {
 };
 
 const createQuizQuestionElement = (option, letter) => {
+	// const quizQuestionElement = document.createElement('li');
+	// const quizQuestionButtonElement = document.createElement('button');
+	// const quizQuestionBtnIcon = document.createElement('span');
+	// const quizQuestionBtnLabel = document.createElement('span');
+
+	// quizQuestionButtonElement.classList.add('button');
+	// quizQuestionButtonElement.classList.add('btn-quiz-button');
+	// quizQuestionButtonElement.classList.add('btn-quiz-question-option');
+	// quizQuestionButtonElement.classList.add('heading-s');
+	// quizQuestionButtonElement.dataset.quizOption = option;
+
+	// quizQuestionBtnIcon.classList.add('quiz-button-icon-container');
+	// quizQuestionBtnIcon.classList.add('quiz-button-option-icon');
+	// quizQuestionBtnIcon.classList.add('icon-bg-white');
+
+	// quizQuestionBtnIcon.innerText = letter;
+
+	// quizQuestionBtnLabel.classList.add('quiz-button-option-label');
+
+	// quizQuestionBtnLabel.innerText = option;
+
+	// quizQuestionButtonElement.appendChild(quizQuestionBtnIcon);
+	// quizQuestionButtonElement.appendChild(quizQuestionBtnLabel);
+
+	// quizQuestionButtonElement.appendChild(quizQuestionBtnIcon);
+	// quizQuestionButtonElement.appendChild(quizQuestionBtnLabel);
+
+	// quizQuestionElement.appendChild(quizQuestionButtonElement);
+
+	// return quizQuestionElement;
+
 	const quizQuestionElement = document.createElement('li');
-	const quizQuestionButtonElement = document.createElement('button');
+	const quizQuestionLabelElement = document.createElement('label');
+	const quizQuestionRadioElement = document.createElement('input');
 	const quizQuestionBtnIcon = document.createElement('span');
 	const quizQuestionBtnLabel = document.createElement('span');
 
-	quizQuestionButtonElement.classList.add('button');
-	quizQuestionButtonElement.classList.add('btn-quiz-button');
-	quizQuestionButtonElement.classList.add('btn-quiz-question-option');
-	quizQuestionButtonElement.classList.add('heading-s');
-	quizQuestionButtonElement.dataset.quizOption = option;
+	// Set up radio input
+	quizQuestionRadioElement.type = 'radio';
+	quizQuestionRadioElement.name = 'quiz-option';
+	quizQuestionRadioElement.value = option;
+	quizQuestionRadioElement.id = `quiz-option-${letter}`;
 
-	quizQuestionBtnIcon.classList.add('quiz-button-icon-container');
-	quizQuestionBtnIcon.classList.add('quiz-button-option-icon');
-	quizQuestionBtnIcon.classList.add('icon-bg-white');
+	// Set up label
+	quizQuestionLabelElement.htmlFor = `quiz-option-${letter}`;
+	quizQuestionLabelElement.classList.add(
+		'radio-label',
+		'btn-quiz-button',
+		'heading-s'
+	);
 
+	// Set up icon
+	quizQuestionBtnIcon.classList.add(
+		'quiz-button-icon-container',
+		'quiz-button-option-icon',
+		'icon-bg-white'
+	);
 	quizQuestionBtnIcon.innerText = letter;
 
+	// Set up label text
 	quizQuestionBtnLabel.classList.add('quiz-button-option-label');
-
 	quizQuestionBtnLabel.innerText = option;
 
-	quizQuestionButtonElement.appendChild(quizQuestionBtnIcon);
-	quizQuestionButtonElement.appendChild(quizQuestionBtnLabel);
-
-	quizQuestionButtonElement.appendChild(quizQuestionBtnIcon);
-	quizQuestionButtonElement.appendChild(quizQuestionBtnLabel);
-
-	quizQuestionElement.appendChild(quizQuestionButtonElement);
+	// Assemble the elements
+	quizQuestionLabelElement.appendChild(quizQuestionRadioElement);
+	quizQuestionLabelElement.appendChild(quizQuestionBtnIcon);
+	quizQuestionLabelElement.appendChild(quizQuestionBtnLabel);
+	quizQuestionElement.appendChild(quizQuestionLabelElement);
 
 	return quizQuestionElement;
 };
 
-const createQuizQuestionsList = (options) => {
-	const letterArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'];
-	const quizQuestionsList = document.createElement('ul');
+const createQuizQuestionsList = (options, question) => {
+	// const letterArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'];
+	// const quizQuestionsList = document.createElement('ul');
 
+	// for (let key in options) {
+	// 	const questionLetter = letterArray[key];
+	// 	const newQuestion = createQuizQuestionElement(options[key], questionLetter);
+	// 	quizQuestionsList.appendChild(newQuestion);
+	// }
+
+	// return quizQuestionsList;
+
+	const letterArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'];
+	const fieldset = document.createElement('fieldset');
+	const legend = document.createElement('legend');
+
+	// Set up fieldset
+	fieldset.classList.add('quiz-questions-fieldset');
+
+	// Set up legend (question text)
+	legend.textContent = question;
+	legend.classList.add('quiz-question-text');
+	legend.style.display = 'none';
+	fieldset.appendChild(legend);
+
+	// Create radio buttons
 	for (let key in options) {
 		const questionLetter = letterArray[key];
 		const newQuestion = createQuizQuestionElement(options[key], questionLetter);
-		quizQuestionsList.appendChild(newQuestion);
+		fieldset.appendChild(newQuestion);
 	}
 
-	return quizQuestionsList;
+	return fieldset;
 };
 
 const createSubmitButton = (answer) => {
