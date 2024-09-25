@@ -313,6 +313,7 @@ label.button::before,
 }
 
 .button.btn-question-submit {
+	justify-content: center;
 	color: var(--clr-pure-white);
 }
 
