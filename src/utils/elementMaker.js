@@ -119,8 +119,6 @@ const createQuizQuestionElement = (option, letter, currentQuestionNumber) => {
 
 	quizQuestionBtnLabel.classList.add('quiz-button-option-label');
 	quizQuestionBtnLabel.innerText = option;
-	quizQuestionLabelElement.dataset.correct = 'true'; //TODO: change when checking answer
-	quizQuestionLabelElement.dataset.userPicked = 'false'; //TODO: change when checking answer
 
 	quizQuestionIsCorrectIcon.classList.add('btn-is-correct-icon');
 
@@ -128,6 +126,9 @@ const createQuizQuestionElement = (option, letter, currentQuestionNumber) => {
 	quizQuestionLabelElement.appendChild(quizQuestionBtnIcon);
 	quizQuestionLabelElement.appendChild(quizQuestionBtnLabel);
 	quizQuestionLabelElement.appendChild(quizQuestionIsCorrectIcon);
+
+	quizQuestionLabelElement.dataset.correct = 'hidden'; //TODO: change when checking answer
+	quizQuestionLabelElement.dataset.userPicked = 'false'; //TODO: change when checking answer
 
 	return quizQuestionLabelElement;
 };
