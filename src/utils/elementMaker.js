@@ -130,6 +130,7 @@ const createQuizQuestionElement = (option, letter) => {
 	quizQuestionLabelElement.htmlFor = `quiz-option-${letter}`;
 	quizQuestionLabelElement.classList.add(
 		'radio-label',
+		'button',
 		'btn-quiz-button',
 		'heading-s'
 	);

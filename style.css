@@ -226,6 +226,36 @@ button.button.btn-question-submit {
 	background-color: var(--clr-purple);
 }
 
+/*** Quiz Questions Fieldset ***/
+
+.quiz-questions-fieldset {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	margin: 0;
+	padding: 0;
+
+	border: none;
+}
+
+.question-input {
+	display: none;
+}
+
+/* .question-container {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	gap: 1rem;
+
+	border-radius: var(--radius);
+
+	width: 100%;
+	min-height: 64px;
+	background-color: var(--clr-surface-2);
+} */
 /*** Lists ***/
 
 ul {
@@ -251,11 +281,13 @@ li {
 
 /*** Buttons ***/
 
-button.button {
+button.button,
+label.button,
+.question-container.button {
 	position: relative;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: start;
 
 	border: 3px solid rgba(0, 0, 0, 0);
 	border-radius: var(--radius);
@@ -278,7 +310,9 @@ button.button {
 	transition: border 0.1s ease-out;
 }
 
-button.button::before {
+button.button::before,
+label.button::before,
+.question-container.button::before {
 	content: '';
 
 	position: absolute;
@@ -288,7 +322,7 @@ button.button::before {
 	width: 100%;
 	height: 100%;
 
-	background-color: white;
+	background-color: var(--clr-pure-white);
 	opacity: 0;
 
 	transition: opacity 0.1s ease-out;
@@ -300,18 +334,23 @@ button.button::before {
 
 /*** Buttons - Hover ***/
 
-button.button:hover {
+button.button:hover,
+label.button:hover,
+.question-container.button:hover {
 	cursor: pointer;
 	border: 3px solid rgba(255, 255, 255, 0.1);
 }
 
-button.button:hover::before {
+button.button:hover::before,
+label.button:hover::before,
+.question-container.button:hover::before {
 	opacity: 0.1;
 }
 
 /*** Buttons - Active ***/
 
-button.button:active {
+button.button:active,
+input.question-input:checked {
 	border: 3px solid white;
 }
 

@@ -4,31 +4,36 @@
 		<meta charset="UTF-8" />
 		<meta
 			name="viewport"
-			content="width=device-width, initial-scale=1.0" />
+			content="width=device-width, initial-scale=1.0"
+		/>
 
 		<link
 			rel="icon"
 			type="image/png"
 			sizes="32x32"
-			href="./assets/images/favicon-32x32.png" />
+			href="./assets/images/favicon-32x32.png"
+		/>
 
 		<title>Frontend Mentor | Frontend quiz app</title>
 
 		<link
 			rel="stylesheet"
-			href="style.css" />
+			href="style.css"
+		/>
 
 		<script
 			defer
 			type="module"
-			src="./src/main.js"></script>
+			src="./src/main.js"
+		></script>
 	</head>
 	<body>
 		<div class="app">
 			<nav class="app-header max-width auto-inline-margin">
 				<div
 					data-quiz-active="false"
-					class="app-header-quiz-category heading-s">
+					class="app-header-quiz-category heading-s"
+				>
 					<span
 						data-bg-color="white"
 						class="quiz-button-icon-container quiz-category-icon-container"
@@ -45,7 +50,8 @@
 						<input
 							type="checkbox"
 							id="light-toggle"
-							checked />
+							checked
+						/>
 						<span class="slider round"></span>
 					</label>
 					<span class="light-switch-icon light-switch-icon-dark"></span>
@@ -53,7 +59,8 @@
 			</nav>
 			<header
 				id="quiz-intro-container"
-				class="quiz-intro-container app-screen">
+				class="quiz-intro-container app-screen"
+			>
 				<div class="title-container max-width">
 					<h1 class="title">
 						<span class="heading-l">Welcome to the</span>
@@ -67,7 +74,8 @@
 						<li>
 							<button
 								id="btn-quiz-choice-html"
-								class="button btn-quiz-category-choice btn-quiz-button heading-s">
+								class="button btn-quiz-category-choice btn-quiz-button heading-s"
+							>
 								<span
 									data-bg-color="orange"
 									class="quiz-button-icon-container"
@@ -82,7 +90,8 @@
 						<li>
 							<button
 								id="btn-quiz-choice-css"
-								class="button btn-quiz-category-choice btn-quiz-button heading-s">
+								class="button btn-quiz-category-choice btn-quiz-button heading-s"
+							>
 								<span
 									data-bg-color="green"
 									class="quiz-button-icon-container"
@@ -97,7 +106,8 @@
 						<li>
 							<button
 								id="btn-quiz-choice-js"
-								class="button btn-quiz-category-choice btn-quiz-button heading-s">
+								class="button btn-quiz-category-choice btn-quiz-button heading-s"
+							>
 								<span
 									data-bg-color="blue"
 									class="quiz-button-icon-container"
@@ -112,7 +122,8 @@
 						<li>
 							<button
 								id="btn-quiz-choice-accessibility"
-								class="button btn-quiz-category-choice btn-quiz-button heading-s">
+								class="button btn-quiz-category-choice btn-quiz-button heading-s"
+							>
 								<span
 									data-bg-color="purple"
 									class="quiz-button-icon-container"
@@ -125,18 +136,37 @@
 							</button>
 						</li>
 					</ul>
+					<fieldset class="quiz-questions-fieldset">
+						<legend>Question Group</legend>
+						<label class="question-container button btn-quiz-button heading-s">
+							<input
+								class="question-input"
+								type="radio"
+								name=""
+								id=""
+							/>
+							<span
+								data-bg-color="white"
+								class="question-icon quiz-button-icon-container"
+								>A</span
+							>
+							<span class="question-label">Hello</span>
+						</label>
+					</fieldset>
 				</nav>
 			</header>
 			<main
 				id="quiz-container"
-				class="quiz-container app-screen">
+				class="quiz-container app-screen"
+			>
 				<!-- ------------------- -->
 				<!--Quiz Sections Go Here-->
 				<!-- ------------------- -->
 			</main>
 			<div
 				class="quiz-end-screen app-screen"
-				style="display: none">
+				style="display: none"
+			>
 				<div class="max-width auto-inline-margin"></div>
 				Quiz completed You scored <span>{score}</span>out of 10
 			</div>
