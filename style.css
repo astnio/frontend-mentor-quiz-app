@@ -400,6 +400,8 @@ button.button.btn-quiz-button {
 
 	font-size: 18px;
 	color: var(--clr-grey-navy);
+
+	transition: background-color 0.15s ease-out;
 }
 
 .quiz-button-icon-container::before {
@@ -415,6 +417,8 @@ button.button.btn-quiz-button {
 	opacity: 0.8;
 
 	z-index: -1;
+
+	transition: background-color 0.15s ease-out;
 }
 
 .quiz-button-icon-container > img {
