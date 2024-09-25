@@ -19,7 +19,11 @@ export function QuizSection(
 		totalQuestions
 	);
 	const questionsContainer = createQuizSectionQuestionsContainer();
-	const questionsList = createQuizQuestionsList(options, question);
+	const questionsList = createQuizQuestionsList(
+		options,
+		question,
+		currentQuestionNumber
+	);
 	const btnSubmit = createSubmitButton(answer);
 
 	questionHeader.appendChild(questionSubheading);
@@ -82,7 +86,9 @@ const createQuizSectionQuestionsContainer = () => {
 	return quizSectionQuestionsContainer;
 };
 
-const createQuizQuestionElement = (option, letter) => {
+const createQuizQuestionElement = (option, letter, currentQuestionNumber) => {
+	const quizSectionId = `question-${currentQuestionNumber}-option-${letter.toLowerCase()}`;
+
 	const quizQuestionLabelElement = document.createElement('label');
 	const quizQuestionRadioElement = document.createElement('input');
 	const quizQuestionBtnIcon = document.createElement('span');
@@ -91,10 +97,10 @@ const createQuizQuestionElement = (option, letter) => {
 	quizQuestionRadioElement.type = 'radio';
 	quizQuestionRadioElement.name = 'quiz-option';
 	quizQuestionRadioElement.value = option;
-	quizQuestionRadioElement.id = `quiz-option-${letter}`;
+	quizQuestionRadioElement.id = quizSectionId;
 	quizQuestionRadioElement.classList.add('question-input');
 
-	quizQuestionLabelElement.htmlFor = `quiz-option-${letter}`;
+	quizQuestionLabelElement.htmlFor = quizSectionId;
 	quizQuestionLabelElement.classList.add(
 		'question-container',
 		'button',
@@ -120,7 +126,7 @@ const createQuizQuestionElement = (option, letter) => {
 	return quizQuestionLabelElement;
 };
 
-const createQuizQuestionsList = (options, question) => {
+const createQuizQuestionsList = (options, question, currentQuestionNumber) => {
 	const letterArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'];
 	const fieldset = document.createElement('fieldset');
 	const legend = document.createElement('legend');
@@ -134,7 +140,11 @@ const createQuizQuestionsList = (options, question) => {
 
 	for (let key in options) {
 		const questionLetter = letterArray[key];
-		const newQuestion = createQuizQuestionElement(options[key], questionLetter);
+		const newQuestion = createQuizQuestionElement(
+			options[key],
+			questionLetter,
+			currentQuestionNumber
+		);
 		fieldset.appendChild(newQuestion);
 	}
 
