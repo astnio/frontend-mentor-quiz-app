@@ -95,6 +95,8 @@ const createQuizQuestionElement = (option) => {
 	quizQuestionBtnIcon.classList.add('quiz-button-option-icon');
 	quizQuestionBtnIcon.classList.add('icon-bg-white');
 
+	quizQuestionBtnLabel.classList.add('quiz-button-option-label');
+
 	quizQuestionBtnLabel.innerText = option;
 
 	quizQuestionButtonElement.appendChild(quizQuestionBtnIcon);

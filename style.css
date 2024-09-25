@@ -321,7 +321,11 @@ button.button.btn-quiz-button {
 	justify-content: start;
 }
 
-/*** Quiz Category Icon ***/
+.quiz-button-option-label {
+	text-align: left;
+}
+
+/*** Quiz Button Icon ***/
 
 .quiz-button-icon-container {
 	position: relative;
@@ -330,6 +334,8 @@ button.button.btn-quiz-button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	flex-shrink: 0;
 
 	margin-right: 32px; /* Desktop */
 	margin-right: 16px; /* Mobile */
