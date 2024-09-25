@@ -259,15 +259,23 @@ button.button.btn-question-submit {
 	height: 32px;
 }
 
-.question-container[data-correct='true'] > .btn-is-correct-icon {
+label.question-container[data-correct='true'][data-user-picked='true'] {
+	border: 3px solid var(--clr-green);
+}
+
+label.question-container[data-correct='false'][data-user-picked='true'] {
+	border: 3px solid var(--clr-red);
+}
+
+label.question-container[data-correct='true'] > .btn-is-correct-icon {
 	background-image: url('./assets/images/icon-correct.svg');
 }
 
-.question-container[data-correct='false'] > .btn-is-correct-icon {
+label.question-container[data-correct='false'] > .btn-is-correct-icon {
 	background-image: url('./assets/images/icon-incorrect.svg');
 }
 
-.question-container[data-correct='hidden'] > .btn-is-correct-icon {
+label.question-container[data-correct='hidden'] > .btn-is-correct-icon {
 	background-image: none;
 }
 /*** Lists ***/

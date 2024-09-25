@@ -57,7 +57,18 @@ export class QuizQuestion {
 
 	checkCorrectAnswer = () => {
 		for (let element in this.optionElements) {
-			console.log(this.optionElements[element]);
+			const elInput = this.optionElements[element].querySelector('input');
+			const elInput2 = this.optionElements[element];
+			console.log('elInput');
+			console.log(elInput);
+			console.log('elInput2');
+			console.log(elInput2);
+			if (elInput.checked) {
+				console.log('Item checked!');
+				console.log(this.optionElements[element]);
+			} else {
+				console.log('No item checked!');
+			}
 		}
 	};
 }
