@@ -79,7 +79,7 @@ const createQuizSectionQuestionsContainer = () => {
 	return quizSectionQuestionsContainer;
 };
 
-const createQuizQuestionElement = (option) => {
+const createQuizQuestionElement = (option, letter) => {
 	const quizQuestionElement = document.createElement('li');
 	const quizQuestionButtonElement = document.createElement('button');
 	const quizQuestionBtnIcon = document.createElement('span');
@@ -95,7 +95,7 @@ const createQuizQuestionElement = (option) => {
 	quizQuestionBtnIcon.classList.add('quiz-button-option-icon');
 	quizQuestionBtnIcon.classList.add('icon-bg-white');
 
-	quizQuestionBtnIcon.innerText = 'A';
+	quizQuestionBtnIcon.innerText = letter;
 
 	quizQuestionBtnLabel.classList.add('quiz-button-option-label');
 
@@ -113,11 +113,17 @@ const createQuizQuestionElement = (option) => {
 };
 
 const createQuizQuestionsList = (options) => {
+	const letterArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'];
 	const quizQuestionsList = document.createElement('ul');
-	for (let element of options) {
-		const newQuestion = createQuizQuestionElement(element);
+
+	console.log(Object.keys(options));
+
+	for (let key in options) {
+		const questionLetter = letterArray[key];
+		const newQuestion = createQuizQuestionElement(options[key], questionLetter);
 		quizQuestionsList.appendChild(newQuestion);
 	}
+
 	return quizQuestionsList;
 };
 
