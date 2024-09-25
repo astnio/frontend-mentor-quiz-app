@@ -13,7 +13,10 @@ export function QuizSection(
 		totalQuestions
 	);
 	const questionBody = createQuestionBody(question);
-	const questionProgressBar = createQuestionProgressBar();
+	const questionProgressBar = createQuestionProgressBar(
+		currentQuestionNumber,
+		totalQuestions
+	);
 	const questionsContainer = createQuizSectionQuestionsContainer();
 	const questionsList = createQuizQuestionsList(options);
 	const btnSubmit = createSubmitButton(answer);
@@ -63,12 +66,17 @@ const createQuestionBody = (question) => {
 	return questionBody;
 };
 
-const createQuestionProgressBar = () => {
+const createQuestionProgressBar = (currentQuestion, totalQuestions) => {
 	const progressBarContainer = document.createElement('div');
 	progressBarContainer.id = 'quiz-progress-bar-container';
 	const progressBar = document.createElement('div');
 	progressBar.id = 'quiz-progress-bar';
 	progressBarContainer.appendChild(progressBar);
+
+	const currentProgress = (currentQuestion / totalQuestions) * 100;
+
+	progressBar.style.width = `${currentProgress}%`;
+
 	return progressBarContainer;
 };
 
@@ -115,8 +123,6 @@ const createQuizQuestionElement = (option, letter) => {
 const createQuizQuestionsList = (options) => {
 	const letterArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'];
 	const quizQuestionsList = document.createElement('ul');
-
-	console.log(Object.keys(options));
 
 	for (let key in options) {
 		const questionLetter = letterArray[key];
