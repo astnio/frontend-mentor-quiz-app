@@ -14,9 +14,6 @@ export class Quiz {
 
 		let questionCounter = 0;
 
-		// console.log(`${this.title} Questions`);
-		// console.log(questions);
-
 		for (let element of questions) {
 			const newQuestion = new QuizQuestion(
 				element.question,

@@ -1,5 +1,5 @@
 export function QuizSection(
-	currentQuestion,
+	currentQuestionNumber,
 	totalQuestions,
 	question,
 	options,
@@ -9,7 +9,7 @@ export function QuizSection(
 
 	const questionHeader = createQuestionHeader();
 	const questionSubheading = createQuestionSubheading(
-		currentQuestion,
+		currentQuestionNumber,
 		totalQuestions
 	);
 	const questionBody = createQuestionBody(question);
@@ -29,6 +29,11 @@ export function QuizSection(
 
 	quizSection.appendChild(questionsContainer);
 
+	quizSection.dataset.test = currentQuestionNumber;
+	quizSection.style.transform = `translateX(${
+		(currentQuestionNumber - 1) * 100
+	}%)`;
+
 	return quizSection;
 }
 
@@ -45,9 +50,6 @@ const createQuestionHeader = () => {
 };
 
 const createQuestionSubheading = (currentQuestion, totalQuestions) => {
-	// console.log(currentQuestion);
-	// console.log(totalQuestions);
-
 	const h3 = document.createElement('h3');
 	h3.className = 'body-s subtitle';
 	h3.innerHTML = `Question <span>${currentQuestion}</span> of ${totalQuestions}`;
