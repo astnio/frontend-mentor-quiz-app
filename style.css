@@ -234,6 +234,8 @@ button.button.btn-question-submit {
 	align-items: center;
 	justify-content: center;
 
+	gap: 1rem;
+
 	margin: 0;
 	padding: 0;
 

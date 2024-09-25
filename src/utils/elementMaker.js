@@ -114,7 +114,7 @@ const createQuizQuestionElement = (option, letter) => {
 
 	// return quizQuestionElement;
 
-	const quizQuestionElement = document.createElement('li');
+	// const quizQuestionElement = document.createElement('li');
 	const quizQuestionLabelElement = document.createElement('label');
 	const quizQuestionRadioElement = document.createElement('input');
 	const quizQuestionBtnIcon = document.createElement('span');
@@ -125,22 +125,24 @@ const createQuizQuestionElement = (option, letter) => {
 	quizQuestionRadioElement.name = 'quiz-option';
 	quizQuestionRadioElement.value = option;
 	quizQuestionRadioElement.id = `quiz-option-${letter}`;
+	quizQuestionRadioElement.classList.add('question-input');
 
 	// Set up label
 	quizQuestionLabelElement.htmlFor = `quiz-option-${letter}`;
 	quizQuestionLabelElement.classList.add(
-		'radio-label',
+		'question-container',
 		'button',
 		'btn-quiz-button',
+		'btn-quiz-question-option',
 		'heading-s'
 	);
 
 	// Set up icon
 	quizQuestionBtnIcon.classList.add(
 		'quiz-button-icon-container',
-		'quiz-button-option-icon',
-		'icon-bg-white'
+		'quiz-button-option-icon'
 	);
+	quizQuestionBtnIcon.dataset.bgColor = 'white';
 	quizQuestionBtnIcon.innerText = letter;
 
 	// Set up label text
@@ -151,9 +153,9 @@ const createQuizQuestionElement = (option, letter) => {
 	quizQuestionLabelElement.appendChild(quizQuestionRadioElement);
 	quizQuestionLabelElement.appendChild(quizQuestionBtnIcon);
 	quizQuestionLabelElement.appendChild(quizQuestionBtnLabel);
-	quizQuestionElement.appendChild(quizQuestionLabelElement);
+	// quizQuestionElement.appendChild(quizQuestionLabelElement);
 
-	return quizQuestionElement;
+	return quizQuestionLabelElement;
 };
 
 const createQuizQuestionsList = (options, question) => {
