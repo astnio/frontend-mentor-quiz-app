@@ -5,7 +5,8 @@ export function QuizSection(
 	options,
 	answer
 ) {
-	const quizSection = createQuizSection();
+	const quizSection = document.createElement('section');
+	quizSection.classList.add('auto-inline-margin');
 
 	const questionHeader = createQuestionHeader();
 	const questionSubheading = createQuestionSubheading(
@@ -32,19 +33,13 @@ export function QuizSection(
 
 	quizSection.appendChild(questionsContainer);
 
-	quizSection.dataset.test = currentQuestionNumber;
+	quizSection.dataset.sectionId = currentQuestionNumber;
+	quizSection.id = `section-${currentQuestionNumber}`;
 	quizSection.style.transform = `translateX(${
 		(currentQuestionNumber - 1) * 100
 	}%)`;
-
 	return quizSection;
 }
-
-const createQuizSection = () => {
-	const quizSectionElement = document.createElement('section');
-	quizSectionElement.classList.add('auto-inline-margin');
-	return quizSectionElement;
-};
 
 const createQuestionHeader = () => {
 	const questionHeader = document.createElement('div');
@@ -135,8 +130,7 @@ const createQuizQuestionsList = (options) => {
 
 const createSubmitButton = (answer) => {
 	const submitButton = document.createElement('button');
-	submitButton.id = 'quiz-submit-question';
-	submitButton.className = 'button btn-question-submit';
+	submitButton.className = 'button btn-question-submit quiz-submit-question';
 	submitButton.textContent = 'Submit answer';
 	submitButton.dataset.answer = answer;
 	return submitButton;

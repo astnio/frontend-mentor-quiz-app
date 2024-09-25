@@ -2,11 +2,14 @@ export class QuizQuestion {
 	_question = '';
 	_options = {};
 	_answer = '';
+	_btnSubmit = null;
 
-	constructor(question, options, answer) {
+	constructor(question, options, answer, btnSubmit) {
 		this.question = question;
 		this.options = options;
 		this.answer = answer;
+		this.btnSubmit = btnSubmit;
+		this.btnSubmit.addEventListener('click', this.checkCorrectAnswer);
 	}
 
 	get question() {
@@ -33,7 +36,15 @@ export class QuizQuestion {
 		this._answer = value;
 	}
 
+	get btnSubmit() {
+		return this._btnSubmit;
+	}
+
+	set btnSubmit(value) {
+		this._btnSubmit = value;
+	}
+
 	checkCorrectAnswer() {
-		//todo: implement this
+		console.log('click');
 	}
 }

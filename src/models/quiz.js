@@ -15,13 +15,6 @@ export class Quiz {
 		let questionCounter = 0;
 
 		for (let element of questions) {
-			const newQuestion = new QuizQuestion(
-				element.question,
-				element.options,
-				element.answer
-			);
-			this.questions[questionCounter] = newQuestion;
-
 			this.createQuizSection(
 				questionCounter,
 				questionCounter + 1,
@@ -30,6 +23,14 @@ export class Quiz {
 				element.options,
 				element.answer
 			);
+
+			const newQuestion = new QuizQuestion(
+				element.question,
+				element.options,
+				element.answer,
+				this.getQuizSectionSubmitButton(questionCounter)
+			);
+			this.questions[questionCounter] = newQuestion;
 
 			questionCounter++;
 		}
@@ -110,6 +111,12 @@ export class Quiz {
 			return true;
 		}
 		return false;
+	}
+
+	getQuizSectionSubmitButton(sectionKey) {
+		const selectedSection = this.getQuizSection(sectionKey);
+		const submitButton = selectedSection.querySelector('.quiz-submit-question');
+		return submitButton;
 	}
 
 	updateQuizSection(
