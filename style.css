@@ -101,7 +101,7 @@ body {
 .app {
 	position: relative;
 
-	overflow: hidden;
+	overflow-x: hidden;
 
 	width: 100vw;
 	min-height: 100vh;
@@ -114,7 +114,6 @@ body {
 
 	display: flex;
 	align-items: center;
-	justify-content: center;
 
 	height: 100%;
 	width: 100%;
@@ -151,7 +150,6 @@ header.quiz-intro-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
 
 	gap: 4rem;
 
@@ -177,10 +175,6 @@ header.quiz-intro-container {
 
 #quiz-container {
 	position: relative;
-	/* overflow: hidden; */
-
-	/* width: 100vw; */
-	/* height: 100%; */
 
 	visibility: hidden; /* Only doing this initially because the screen starts out in the middle then flys out when the page loads, and it looks bad.
 							This gets updated in the JavaScript when any button is clicked so it becomes visible right away and the user never knows! */
@@ -246,18 +240,6 @@ button.button.btn-question-submit {
 	display: none;
 }
 
-/* .question-container {
-	display: flex;
-	align-items: center;
-	justify-content: start;
-	gap: 1rem;
-
-	border-radius: var(--radius);
-
-	width: 100%;
-	min-height: 64px;
-	background-color: var(--clr-surface-2);
-} */
 /*** Lists ***/
 
 ul {
@@ -585,7 +567,7 @@ input:checked + .slider:before {
 	align-items: center;
 	justify-content: center;
 
-	margin-block: 1rem;
+	margin-block: 3rem;
 
 	height: 16px;
 	width: 100%;
