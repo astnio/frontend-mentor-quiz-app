@@ -83,51 +83,17 @@ const createQuizSectionQuestionsContainer = () => {
 };
 
 const createQuizQuestionElement = (option, letter) => {
-	// const quizQuestionElement = document.createElement('li');
-	// const quizQuestionButtonElement = document.createElement('button');
-	// const quizQuestionBtnIcon = document.createElement('span');
-	// const quizQuestionBtnLabel = document.createElement('span');
-
-	// quizQuestionButtonElement.classList.add('button');
-	// quizQuestionButtonElement.classList.add('btn-quiz-button');
-	// quizQuestionButtonElement.classList.add('btn-quiz-question-option');
-	// quizQuestionButtonElement.classList.add('heading-s');
-	// quizQuestionButtonElement.dataset.quizOption = option;
-
-	// quizQuestionBtnIcon.classList.add('quiz-button-icon-container');
-	// quizQuestionBtnIcon.classList.add('quiz-button-option-icon');
-	// quizQuestionBtnIcon.classList.add('icon-bg-white');
-
-	// quizQuestionBtnIcon.innerText = letter;
-
-	// quizQuestionBtnLabel.classList.add('quiz-button-option-label');
-
-	// quizQuestionBtnLabel.innerText = option;
-
-	// quizQuestionButtonElement.appendChild(quizQuestionBtnIcon);
-	// quizQuestionButtonElement.appendChild(quizQuestionBtnLabel);
-
-	// quizQuestionButtonElement.appendChild(quizQuestionBtnIcon);
-	// quizQuestionButtonElement.appendChild(quizQuestionBtnLabel);
-
-	// quizQuestionElement.appendChild(quizQuestionButtonElement);
-
-	// return quizQuestionElement;
-
-	// const quizQuestionElement = document.createElement('li');
 	const quizQuestionLabelElement = document.createElement('label');
 	const quizQuestionRadioElement = document.createElement('input');
 	const quizQuestionBtnIcon = document.createElement('span');
 	const quizQuestionBtnLabel = document.createElement('span');
 
-	// Set up radio input
 	quizQuestionRadioElement.type = 'radio';
 	quizQuestionRadioElement.name = 'quiz-option';
 	quizQuestionRadioElement.value = option;
 	quizQuestionRadioElement.id = `quiz-option-${letter}`;
 	quizQuestionRadioElement.classList.add('question-input');
 
-	// Set up label
 	quizQuestionLabelElement.htmlFor = `quiz-option-${letter}`;
 	quizQuestionLabelElement.classList.add(
 		'question-container',
@@ -137,7 +103,6 @@ const createQuizQuestionElement = (option, letter) => {
 		'heading-s'
 	);
 
-	// Set up icon
 	quizQuestionBtnIcon.classList.add(
 		'quiz-button-icon-container',
 		'quiz-button-option-icon'
@@ -145,45 +110,28 @@ const createQuizQuestionElement = (option, letter) => {
 	quizQuestionBtnIcon.dataset.bgColor = 'white';
 	quizQuestionBtnIcon.innerText = letter;
 
-	// Set up label text
 	quizQuestionBtnLabel.classList.add('quiz-button-option-label');
 	quizQuestionBtnLabel.innerText = option;
 
-	// Assemble the elements
 	quizQuestionLabelElement.appendChild(quizQuestionRadioElement);
 	quizQuestionLabelElement.appendChild(quizQuestionBtnIcon);
 	quizQuestionLabelElement.appendChild(quizQuestionBtnLabel);
-	// quizQuestionElement.appendChild(quizQuestionLabelElement);
 
 	return quizQuestionLabelElement;
 };
 
 const createQuizQuestionsList = (options, question) => {
-	// const letterArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'];
-	// const quizQuestionsList = document.createElement('ul');
-
-	// for (let key in options) {
-	// 	const questionLetter = letterArray[key];
-	// 	const newQuestion = createQuizQuestionElement(options[key], questionLetter);
-	// 	quizQuestionsList.appendChild(newQuestion);
-	// }
-
-	// return quizQuestionsList;
-
 	const letterArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'];
 	const fieldset = document.createElement('fieldset');
 	const legend = document.createElement('legend');
 
-	// Set up fieldset
 	fieldset.classList.add('quiz-questions-fieldset');
 
-	// Set up legend (question text)
 	legend.textContent = question;
 	legend.classList.add('quiz-question-text');
 	legend.style.display = 'none';
 	fieldset.appendChild(legend);
 
-	// Create radio buttons
 	for (let key in options) {
 		const questionLetter = letterArray[key];
 		const newQuestion = createQuizQuestionElement(options[key], questionLetter);
