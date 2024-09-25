@@ -56,19 +56,23 @@ export class QuizQuestion {
 	}
 
 	checkCorrectAnswer = () => {
-		for (let element in this.optionElements) {
-			const elInput = this.optionElements[element].querySelector('input');
-			const elInput2 = this.optionElements[element];
+		const elements = Array.from(this.optionElements).filter(
+			(node) => node instanceof Element
+		);
+
+		elements.forEach((element) => {
+			const elInput = element.querySelector('input');
+			const elLabel = element;
 			console.log('elInput');
 			console.log(elInput);
-			console.log('elInput2');
-			console.log(elInput2);
+			console.log('elLabel');
+			console.log(elLabel);
 			if (elInput.checked) {
 				console.log('Item checked!');
-				console.log(this.optionElements[element]);
+				console.log(element);
 			} else {
 				console.log('No item checked!');
 			}
-		}
+		});
 	};
 }
