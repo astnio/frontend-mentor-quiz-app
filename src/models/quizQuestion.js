@@ -3,12 +3,14 @@ export class QuizQuestion {
 	_options = {};
 	_answer = '';
 	_btnSubmit = null;
+	_optionElements = null;
 
-	constructor(question, options, answer, btnSubmit) {
+	constructor(question, options, answer, btnSubmit, optionElements) {
 		this.question = question;
 		this.options = options;
 		this.answer = answer;
 		this.btnSubmit = btnSubmit;
+		this.optionElements = optionElements;
 		this.btnSubmit.addEventListener('click', this.checkCorrectAnswer);
 	}
 
@@ -42,6 +44,14 @@ export class QuizQuestion {
 
 	set btnSubmit(value) {
 		this._btnSubmit = value;
+	}
+
+	get optionElements() {
+		return this._optionElements;
+	}
+
+	set optionElements(value) {
+		this._optionElements = value;
 	}
 
 	checkCorrectAnswer() {

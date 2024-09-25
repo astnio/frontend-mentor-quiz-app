@@ -28,7 +28,8 @@ export class Quiz {
 				element.question,
 				element.options,
 				element.answer,
-				this.getQuizSectionSubmitButton(questionCounter)
+				this.getQuizSectionSubmitButton(questionCounter),
+				this.getQuestionElements(questionCounter)
 			);
 			this.questions[questionCounter] = newQuestion;
 
@@ -138,5 +139,12 @@ export class Quiz {
 			return true;
 		}
 		return false;
+	}
+
+	getQuestionElements(sectionKey) {
+		const questionElements = this.getQuizSection(sectionKey).querySelectorAll(
+			'.btn-quiz-question-option'
+		);
+		return questionElements;
 	}
 }
