@@ -27,7 +27,8 @@ export class Quiz {
 				questionCounter + 1,
 				Object.keys(questions).length,
 				element.question,
-				element.options
+				element.options,
+				element.answer
 			);
 
 			questionCounter++;

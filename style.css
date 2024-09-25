@@ -354,6 +354,9 @@ button.button.btn-quiz-button {
 	border-radius: 8px;
 
 	overflow: hidden;
+
+	font-size: 18px;
+	color: var(--clr-grey-navy);
 }
 
 .quiz-button-icon-container::before {
@@ -367,6 +370,8 @@ button.button.btn-quiz-button {
 
 	background-color: #fff;
 	opacity: 0.8;
+
+	z-index: -1;
 }
 
 .quiz-button-icon-container > img {
@@ -376,20 +381,14 @@ button.button.btn-quiz-button {
 
 /*** Buttons for Quiz Options ***/
 
-.quiz-button-option-icon::before {
-	content: 'A'; /* This should be dynamically changed in JS */
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	font-size: 18px;
-	color: var(--clr-grey-navy);
+.btn-quiz-question-option:active > .quiz-button-icon-container,
+.btn-quiz-question-option:focus > .quiz-button-icon-container {
+	color: var(--clr-pure-white);
 }
 
 .btn-quiz-question-option:active > .quiz-button-icon-container::before,
 .btn-quiz-question-option:focus > .quiz-button-icon-container::before {
 	background-color: var(--clr-purple);
-	color: var(--clr-pure-white);
 }
 
 button.button:has(.quiz-button-option-icon):active,
