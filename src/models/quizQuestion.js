@@ -3,7 +3,7 @@ export class QuizQuestion {
 	_options = {};
 	_answer = '';
 	_btnSubmit = null;
-	_optionElements = null;
+	_optionElements = {};
 
 	constructor(question, options, answer, btnSubmit, optionElements) {
 		this.question = question;
@@ -11,6 +11,7 @@ export class QuizQuestion {
 		this.answer = answer;
 		this.btnSubmit = btnSubmit;
 		this.optionElements = optionElements;
+
 		this.btnSubmit.addEventListener('click', this.checkCorrectAnswer);
 	}
 
@@ -54,7 +55,9 @@ export class QuizQuestion {
 		this._optionElements = value;
 	}
 
-	checkCorrectAnswer() {
-		console.log('click');
-	}
+	checkCorrectAnswer = () => {
+		for (let element in this.optionElements) {
+			console.log(this.optionElements[element]);
+		}
+	};
 }
