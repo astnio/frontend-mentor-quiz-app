@@ -17,10 +17,10 @@ const btnAccessibilityQuiz = document.getElementById(
 	'btn-quiz-choice-accessibility'
 );
 
-const quizHTML = quizzes['HTML'].quizSections[0];
-const quizCSS = quizzes['CSS'].quizSections[0];
-const quizJavaScript = quizzes['JavaScript'].quizSections[0];
-const quizAccessibility = quizzes['Accessibility'].quizSections[0];
+const quizHTML = quizzes['HTML'].quizSections;
+const quizCSS = quizzes['CSS'].quizSections;
+const quizJavaScript = quizzes['JavaScript'].quizSections;
+const quizAccessibility = quizzes['Accessibility'].quizSections;
 
 function setAppHeaderCategoryIconBg(color) {
 	appHeaderQuizCategory.children[0].dataset.bgColor = color;
@@ -31,33 +31,39 @@ function setCurrentQuizImage(value) {
 	currentQuizImage.src = `${value}`;
 }
 
+function appendQuiz(quiz) {
+	for (let element in quiz) {
+		mainQuizContainer.append(quiz[element]);
+	}
+}
+
 function initQuizButtons() {
 	btnHTMLQuiz.addEventListener('click', () => {
 		setCurrentQuizImage(quizzes['HTML'].icon);
 		setAppHeaderCategoryIconBg('orange');
 		currentQuizLabel.innerText = 'HTML';
-		mainQuizContainer.append(quizHTML);
+		appendQuiz(quizHTML);
 	});
 
 	btnCSSQuiz.addEventListener('click', () => {
 		setCurrentQuizImage(quizzes['CSS'].icon);
 		setAppHeaderCategoryIconBg('green');
 		currentQuizLabel.innerText = 'CSS';
-		mainQuizContainer.append(quizCSS);
+		appendQuiz(quizCSS);
 	});
 
 	btnJSQuiz.addEventListener('click', () => {
 		setCurrentQuizImage(quizzes['JavaScript'].icon);
 		setAppHeaderCategoryIconBg('blue');
 		currentQuizLabel.innerText = 'JavaScript';
-		mainQuizContainer.append(quizJavaScript);
+		appendQuiz(quizJavaScript);
 	});
 
 	btnAccessibilityQuiz.addEventListener('click', () => {
 		setCurrentQuizImage(quizzes['Accessibility'].icon);
 		setAppHeaderCategoryIconBg('purple');
 		currentQuizLabel.innerText = 'Accessibility';
-		mainQuizContainer.append(quizAccessibility);
+		appendQuiz(quizAccessibility);
 	});
 }
 
