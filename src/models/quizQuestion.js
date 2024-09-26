@@ -83,8 +83,6 @@ export class QuizQuestion {
 
 	handleSubmit = () => {
 		if (!this.currentQuestionAnswered) {
-			console.log('Current question answered?');
-			console.log(this.currentQuestionAnswered);
 			this.checkCorrectAnswer();
 		} else {
 			console.log('other thing now');
@@ -118,9 +116,9 @@ export class QuizQuestion {
 					elLabel.dataset.userPicked = 'true';
 					this.currentQuestionAnswered = true;
 					correctButton.dataset.correct = 'true';
-					// console.log(correctButton);
 					this.disableRadioButtons();
 				}
+				this.btnSubmit.innerText = 'Next Question';
 			}
 		});
 		if (checkedCount <= 0) {
@@ -147,8 +145,6 @@ export class QuizQuestion {
 		for (let i = 0; i < elements.length; i++) {
 			const elInput = elements[i].querySelector('input');
 			if (elInput.value === this.answer) {
-				console.log('Found matching answer');
-				console.log(elements[i]);
 				return elements[i];
 			}
 		}
