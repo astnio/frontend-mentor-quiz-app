@@ -278,6 +278,34 @@ label.question-container[data-correct='false'] > .btn-is-correct-icon {
 label.question-container[data-correct='hidden'] > .btn-is-correct-icon {
 	background-image: none;
 }
+
+/*** No Answer Selected Label ***/
+
+div.no-answer-selected-label-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	margin-top: 1rem;
+
+	visibility: hidden;
+}
+
+div.no-answer-selected-label-container > p {
+	font-size: 18px;
+	font-weight: 400;
+}
+
+span.no-answer-selected-icon {
+	background-image: url('./assets/images/icon-incorrect.svg');
+	background-size: cover;
+
+	margin-right: 0.8rem;
+
+	width: 32px;
+	height: 32px;
+}
+
 /*** Lists ***/
 
 ul {

@@ -26,22 +26,37 @@ export function QuizSection(
 	);
 	const btnSubmit = createSubmitButton(answer);
 
+	const noAnswerSelectedLabelContainer = document.createElement('div');
+	const noAnswerSelectedLabel = document.createElement('p');
+	const noAnswerSelectedIcon = document.createElement('span');
+
+	noAnswerSelectedLabelContainer.classList.add(
+		'no-answer-selected-label-container'
+	);
+	noAnswerSelectedLabel.classList.add('no-answer-selected-label');
+	noAnswerSelectedLabel.innerText = 'Please select an answer';
+	noAnswerSelectedIcon.classList.add('no-answer-selected-icon');
+
+	noAnswerSelectedLabelContainer.appendChild(noAnswerSelectedIcon);
+	noAnswerSelectedLabelContainer.appendChild(noAnswerSelectedLabel);
+
 	questionHeader.appendChild(questionSubheading);
 	questionHeader.appendChild(questionBody);
 	questionHeader.appendChild(questionProgressBar);
 
 	quizSection.appendChild(questionHeader);
+	quizSection.appendChild(questionsContainer);
 
 	questionsContainer.appendChild(questionsList);
 	questionsContainer.appendChild(btnSubmit);
-
-	quizSection.appendChild(questionsContainer);
+	questionsContainer.appendChild(noAnswerSelectedLabelContainer);
 
 	quizSection.dataset.sectionId = currentQuestionNumber;
 	quizSection.id = `section-${currentQuestionNumber}`;
 	quizSection.style.transform = `translateX(${
 		(currentQuestionNumber - 1) * 100
 	}%)`;
+
 	return quizSection;
 }
 
