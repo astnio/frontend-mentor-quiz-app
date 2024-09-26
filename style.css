@@ -335,6 +335,16 @@ label.question-container.button[data-correct='hidden']:has(
 	border: 3px solid rgba(0, 0, 0, 0);
 }
 
+label.btn-quiz-question-option[data-correct='hidden']:has(input:disabled):active
+	> .quiz-button-icon-container {
+	color: var(--clr-grey-navy);
+}
+
+label.btn-quiz-question-option:has(input:disabled):active
+	> .quiz-button-icon-container::before {
+	background-color: inherit;
+}
+
 /*** Lists ***/
 
 ul {
