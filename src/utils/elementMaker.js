@@ -53,9 +53,6 @@ export function QuizSection(
 
 	quizSection.dataset.sectionId = currentQuestionNumber;
 	quizSection.id = `section-${currentQuestionNumber}`;
-	// quizSection.style.transform = `translateX(${
-	// 	(currentQuestionNumber - 1) * 100
-	// }%)`;
 
 	return quizSection;
 }

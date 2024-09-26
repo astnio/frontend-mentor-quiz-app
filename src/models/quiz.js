@@ -171,32 +171,26 @@ export class Quiz {
 	}
 
 	moveAllSections() {
-		console.log('moveAllSections called in Quiz', this._quizSections);
+		console.log('moveAllSections called in Quiz');
 
-		Object.values(this._quizSections).forEach((section, index) => {
-			const style = window.getComputedStyle(section);
-			const matrix = new DOMMatrix(style.transform);
-			const currentTranslateX = matrix.m41; // This is the translateX value
+		Object.entries(this._quizSections).forEach(([index, section]) => {
+			const currentPosition = this._quizSectionPositions[index];
+			const newPosition = currentPosition - 100;
+			this._quizSectionPositions[index] = newPosition;
 
-			console.log(currentTranslateX);
-			const newPosition = -100 * index;
-			console.log(`Section ${index} moved to position ${newPosition}`);
+			console.log(
+				`Section ${index} moving from ${currentPosition}% to ${newPosition}%`
+			);
 			section.style.transform = `translateX(${newPosition}%)`;
 		});
+
+		console.log('Updated section positions:', this._quizSectionPositions);
 	}
 
 	initMoveSections() {
-		// Object.values(this._quizSections).forEach((section, index) => {
-		// 	const newPosition = -100 * index;
-		// 	// this.quizSectionPositions.push(newPosition);
-
-		// 	console.log(`Section ${index} moved to position ${newPosition}`);
-		// 	section.style.transform = `translateX(${newPosition}%)`;
-		// });
-
 		Object.values(this._quizSections).forEach((section, index) => {
-			const newPosition = -100 * index;
-			this._quizSectionPositions[index] = newPosition;
+			const newPosition = 100 * index;
+			this.quizSectionPositions[index] = newPosition;
 			section.style.transform = `translateX(${newPosition}%)`;
 		});
 		console.log('Initial section positions:', this._quizSectionPositions);
