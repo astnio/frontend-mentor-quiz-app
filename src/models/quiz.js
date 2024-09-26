@@ -171,20 +171,12 @@ export class Quiz {
 	}
 
 	moveAllSections() {
-		console.log('moveAllSections called in Quiz');
-
 		Object.entries(this.quizSections).forEach(([index, section]) => {
 			const currentPosition = this.quizSectionPositions[index];
 			const newPosition = currentPosition - 100;
 			this.quizSectionPositions[index] = newPosition;
-
-			console.log(
-				`Section ${index} moving from ${currentPosition}% to ${newPosition}%`
-			);
 			section.style.transform = `translateX(${newPosition}%)`;
 		});
-
-		console.log('Updated section positions:', this.quizSectionPositions);
 	}
 
 	initMoveSections() {
@@ -193,6 +185,5 @@ export class Quiz {
 			this.quizSectionPositions[index] = newPosition;
 			section.style.transform = `translateX(${newPosition}%)`;
 		});
-		console.log('Initial section positions:', this.quizSectionPositions);
 	}
 }
