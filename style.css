@@ -335,7 +335,13 @@ label.question-container.button[data-correct='hidden']:has(
 	border: 3px solid rgba(0, 0, 0, 0);
 }
 
+label.question-container.button[data-correct='true'][data-user-picked='false']:hover {
+	border: 3px solid rgba(0, 0, 0, 0);
+}
+
 label.btn-quiz-question-option[data-correct='hidden']:has(input:disabled):active
+	> .quiz-button-icon-container,
+label.btn-quiz-question-option[data-correct='true'][data-user-picked='false']:active
 	> .quiz-button-icon-container {
 	color: var(--clr-grey-navy);
 }
