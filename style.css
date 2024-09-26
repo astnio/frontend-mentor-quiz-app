@@ -316,6 +316,25 @@ span.no-answer-selected-icon {
 	height: 32px;
 }
 
+/*** Disabled Labels ***/
+
+label:has(input:disabled):hover {
+	cursor: default;
+	border: none;
+}
+
+label:has(input:disabled):hover::before {
+	cursor: default;
+	border: none;
+	opacity: 0;
+}
+
+label.question-container.button[data-correct='hidden']:has(
+		input:disabled
+	):hover {
+	border: 3px solid rgba(0, 0, 0, 0);
+}
+
 /*** Lists ***/
 
 ul {

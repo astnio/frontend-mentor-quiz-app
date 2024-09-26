@@ -5,6 +5,7 @@ export class QuizQuestion {
 	_btnSubmit = null;
 	_optionElements = {};
 	_noAnswerWarningLabel = null;
+	_currentQuestionAnswered = false;
 
 	constructor(
 		question,
@@ -21,7 +22,7 @@ export class QuizQuestion {
 		this.optionElements = optionElements;
 		this.noAnswerWarningLabel = noAnswerWarningLabel;
 
-		this.btnSubmit.addEventListener('click', this.checkCorrectAnswer);
+		this.btnSubmit.addEventListener('click', this.handleSubmit);
 	}
 
 	get question() {
@@ -72,6 +73,24 @@ export class QuizQuestion {
 		this._noAnswerWarningLabel = value;
 	}
 
+	get currentQuestionAnswered() {
+		return this._currentQuestionAnswered;
+	}
+
+	set currentQuestionAnswered(value) {
+		this._currentQuestionAnswered = value;
+	}
+
+	handleSubmit = () => {
+		if (!this.currentQuestionAnswered) {
+			console.log('Current question answered?');
+			console.log(this.currentQuestionAnswered);
+			this.checkCorrectAnswer();
+		} else {
+			console.log('other thing now');
+		}
+	};
+
 	checkCorrectAnswer = () => {
 		const elements = Array.from(this.optionElements).filter(
 			(node) => node instanceof Element
@@ -89,10 +108,14 @@ export class QuizQuestion {
 					// CORRECT
 					elLabel.dataset.correct = 'true';
 					elLabel.dataset.userPicked = 'true';
+					this.currentQuestionAnswered = true;
+					this.disableRadioButtons();
 				} else {
 					// WRONG
 					elLabel.dataset.correct = 'false';
 					elLabel.dataset.userPicked = 'true';
+					this.currentQuestionAnswered = true;
+					this.disableRadioButtons();
 				}
 			}
 		});
@@ -100,4 +123,15 @@ export class QuizQuestion {
 			this.noAnswerWarningLabel.style.visibility = 'visible';
 		}
 	};
+
+	disableRadioButtons() {
+		const elements = Array.from(this.optionElements).filter(
+			(node) => node instanceof Element
+		);
+
+		elements.forEach((element) => {
+			const elInput = element.querySelector('input');
+			elInput.disabled = true;
+		});
+	}
 }
