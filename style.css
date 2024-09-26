@@ -174,7 +174,7 @@ header.quiz-intro-container {
 /*** Quiz Container ***/
 
 #quiz-container {
-	position: relative;
+	position: absolute;
 
 	visibility: hidden; /* Only doing this initially because the screen starts out in the middle then flys out when the page loads, and it looks bad.
 							This gets updated in the JavaScript when any button is clicked so it becomes visible right away and the user never knows! */
@@ -208,7 +208,7 @@ header.quiz-intro-container {
 }
 
 .question-header {
-	margin-top: 4rem;
+	margin-top: 8.5rem;
 }
 
 button.button.btn-question-submit {
@@ -348,7 +348,7 @@ label.btn-quiz-question-option[data-correct='true'][data-user-picked='false']:ac
 
 label.btn-quiz-question-option:has(input:disabled):active
 	> .quiz-button-icon-container::before {
-	background-color: inherit;
+	background-color: var(--clr-pure-white);
 }
 
 /*** Lists ***/
@@ -507,7 +507,7 @@ button.button.btn-quiz-button {
 	width: 100%;
 	height: 100%;
 
-	background-color: #fff;
+	background-color: var(--clr-pure-white);
 	opacity: 0.8;
 
 	z-index: -1;
@@ -526,6 +526,10 @@ button.button.btn-quiz-button {
 .btn-quiz-question-option:focus > .quiz-button-icon-container,
 .btn-quiz-question-option:has(input:checked) > .quiz-button-icon-container {
 	color: var(--clr-pure-white);
+}
+
+span.quiz-button-icon-container.quiz-button-option-icon {
+	background-color: var(--clr-light-bluish);
 }
 
 .btn-quiz-question-option:active > .quiz-button-icon-container::before,
