@@ -13,7 +13,8 @@ export class QuizQuestion {
 		answer,
 		btnSubmit,
 		optionElements,
-		noAnswerWarningLabel
+		noAnswerWarningLabel,
+		moveAllSectionsFunction
 	) {
 		this.question = question;
 		this.options = options;
@@ -21,8 +22,9 @@ export class QuizQuestion {
 		this.btnSubmit = btnSubmit;
 		this.optionElements = optionElements;
 		this.noAnswerWarningLabel = noAnswerWarningLabel;
+		this.moveAllSections = moveAllSectionsFunction;
 
-		this.btnSubmit.addEventListener('click', this.handleSubmit);
+		this.btnSubmit.addEventListener('click', this.handleSubmit.bind(this));
 	}
 
 	get question() {
@@ -85,7 +87,7 @@ export class QuizQuestion {
 		if (!this.currentQuestionAnswered) {
 			this.checkCorrectAnswer();
 		} else {
-			console.log('other thing now');
+			this.moveAllSections();
 		}
 	};
 
@@ -150,4 +152,6 @@ export class QuizQuestion {
 		}
 		return null;
 	}
+
+	transitionSection() {}
 }

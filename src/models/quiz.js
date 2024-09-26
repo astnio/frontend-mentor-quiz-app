@@ -6,11 +6,13 @@ export class Quiz {
 	_icon = '';
 	_questions = {};
 	_quizSections = {};
+	_quizSectionPositions = {};
 
 	constructor(title, icon, questions) {
 		this.title = title;
 		this.icon = icon;
 		this.questions = questions;
+		this.moveAllSections = this.moveAllSections.bind(this);
 
 		let questionCounter = 0;
 
@@ -30,11 +32,15 @@ export class Quiz {
 				element.answer,
 				this.getQuizSectionSubmitButton(questionCounter),
 				this.getQuestionElements(questionCounter),
-				this.getNoAnswerWarningLabel(questionCounter)
+				this.getNoAnswerWarningLabel(questionCounter),
+				this.moveAllSections
 			);
 			this.questions[questionCounter] = newQuestion;
 
 			questionCounter++;
+
+			this.initMoveSections();
+			console.log(this.quizSectionPositions);
 		}
 	}
 
@@ -70,6 +76,14 @@ export class Quiz {
 		this._quizSections = value;
 	}
 
+	get quizSectionPositions() {
+		return this._quizSectionPositions;
+	}
+
+	set quizSectionPositions(value) {
+		this._quizSectionPositions = value;
+	}
+
 	addQuestion(value) {
 		const newQuestion = new QuizQuestion(
 			value.question,
@@ -79,14 +93,14 @@ export class Quiz {
 		this.questions[value.question] = newQuestion;
 	}
 
-	createQuizSection(
+	createQuizSection = (
 		id,
 		currentQuestion,
 		totalQuestions,
 		question,
 		options,
 		answer
-	) {
+	) => {
 		const quizSection = new QuizSection(
 			currentQuestion,
 			totalQuestions,
@@ -97,7 +111,7 @@ export class Quiz {
 
 		this._quizSections[id] = quizSection;
 		return quizSection;
-	}
+	};
 
 	getQuizSection(id) {
 		return this._quizSections[id];
@@ -154,5 +168,37 @@ export class Quiz {
 			'.no-answer-selected-label-container'
 		);
 		return noAnswerWarningLabel;
+	}
+
+	moveAllSections() {
+		console.log('moveAllSections called in Quiz', this._quizSections);
+
+		Object.values(this._quizSections).forEach((section, index) => {
+			const style = window.getComputedStyle(section);
+			const matrix = new DOMMatrix(style.transform);
+			const currentTranslateX = matrix.m41; // This is the translateX value
+
+			console.log(currentTranslateX);
+			const newPosition = -100 * index;
+			console.log(`Section ${index} moved to position ${newPosition}`);
+			section.style.transform = `translateX(${newPosition}%)`;
+		});
+	}
+
+	initMoveSections() {
+		// Object.values(this._quizSections).forEach((section, index) => {
+		// 	const newPosition = -100 * index;
+		// 	// this.quizSectionPositions.push(newPosition);
+
+		// 	console.log(`Section ${index} moved to position ${newPosition}`);
+		// 	section.style.transform = `translateX(${newPosition}%)`;
+		// });
+
+		Object.values(this._quizSections).forEach((section, index) => {
+			const newPosition = -100 * index;
+			this._quizSectionPositions[index] = newPosition;
+			section.style.transform = `translateX(${newPosition}%)`;
+		});
+		console.log('Initial section positions:', this._quizSectionPositions);
 	}
 }
