@@ -77,21 +77,27 @@ export class QuizQuestion {
 			(node) => node instanceof Element
 		);
 
+		let checkedCount = 0;
+
 		elements.forEach((element) => {
 			const elInput = element.querySelector('input');
 			const elLabel = element;
-			console.log('elInput');
-			console.log(elInput);
-			console.log('elLabel');
-			console.log(elLabel);
+			// console.log('elInput');
+			// console.log(elInput);
+			// console.log('elLabel');
+			// console.log(elLabel);
 			if (elInput.checked) {
-				console.log('Item checked!');
-				console.log(element);
-			} else {
-				console.log('No item checked!');
+				this.noAnswerWarningLabel.style.visibility = 'hidden';
+				checkedCount++;
+				if (elInput.value === this.answer) {
+					console.log('Correct!');
+				} else {
+					console.log('wrong!!!!');
+				}
 			}
 		});
-
-		this.noAnswerWarningLabel.style.visibility = 'visible';
+		if (checkedCount <= 0) {
+			this.noAnswerWarningLabel.style.visibility = 'visible';
+		}
 	};
 }
