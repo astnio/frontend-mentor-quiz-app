@@ -82,17 +82,17 @@ export class QuizQuestion {
 		elements.forEach((element) => {
 			const elInput = element.querySelector('input');
 			const elLabel = element;
-			// console.log('elInput');
-			// console.log(elInput);
-			// console.log('elLabel');
-			// console.log(elLabel);
 			if (elInput.checked) {
 				this.noAnswerWarningLabel.style.visibility = 'hidden';
 				checkedCount++;
 				if (elInput.value === this.answer) {
-					console.log('Correct!');
+					// CORRECT
+					elLabel.dataset.correct = 'true';
+					elLabel.dataset.userPicked = 'true';
 				} else {
-					console.log('wrong!!!!');
+					// WRONG
+					elLabel.dataset.correct = 'false';
+					elLabel.dataset.userPicked = 'true';
 				}
 			}
 		});

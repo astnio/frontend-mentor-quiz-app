@@ -279,6 +279,16 @@ label.question-container[data-correct='hidden'] > .btn-is-correct-icon {
 	background-image: none;
 }
 
+.btn-quiz-question-option[data-correct='true']:has(input:checked)
+	> span.quiz-button-icon-container.quiz-button-option-icon::before {
+	background-color: var(--clr-green);
+}
+
+.btn-quiz-question-option[data-correct='false']:has(input:checked)
+	> span.quiz-button-icon-container.quiz-button-option-icon::before {
+	background-color: var(--clr-red);
+}
+
 /*** No Answer Selected Label ***/
 
 div.no-answer-selected-label-container {
