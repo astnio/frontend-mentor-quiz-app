@@ -4,13 +4,22 @@ export class QuizQuestion {
 	_answer = '';
 	_btnSubmit = null;
 	_optionElements = {};
+	_noAnswerWarningLabel = null;
 
-	constructor(question, options, answer, btnSubmit, optionElements) {
+	constructor(
+		question,
+		options,
+		answer,
+		btnSubmit,
+		optionElements,
+		noAnswerWarningLabel
+	) {
 		this.question = question;
 		this.options = options;
 		this.answer = answer;
 		this.btnSubmit = btnSubmit;
 		this.optionElements = optionElements;
+		this.noAnswerWarningLabel = noAnswerWarningLabel;
 
 		this.btnSubmit.addEventListener('click', this.checkCorrectAnswer);
 	}
@@ -55,6 +64,14 @@ export class QuizQuestion {
 		this._optionElements = value;
 	}
 
+	get noAnswerWarningLabel() {
+		return this._noAnswerWarningLabel;
+	}
+
+	set noAnswerWarningLabel(value) {
+		this._noAnswerWarningLabel = value;
+	}
+
 	checkCorrectAnswer = () => {
 		const elements = Array.from(this.optionElements).filter(
 			(node) => node instanceof Element
@@ -74,5 +91,7 @@ export class QuizQuestion {
 				console.log('No item checked!');
 			}
 		});
+
+		this.noAnswerWarningLabel.style.visibility = 'visible';
 	};
 }

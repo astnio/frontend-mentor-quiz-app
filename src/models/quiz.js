@@ -29,7 +29,8 @@ export class Quiz {
 				element.options,
 				element.answer,
 				this.getQuizSectionSubmitButton(questionCounter),
-				this.getQuestionElements(questionCounter)
+				this.getQuestionElements(questionCounter),
+				this.getNoAnswerWarningLabel(questionCounter)
 			);
 			this.questions[questionCounter] = newQuestion;
 
@@ -146,5 +147,12 @@ export class Quiz {
 			'.btn-quiz-question-option'
 		);
 		return questionElements;
+	}
+
+	getNoAnswerWarningLabel(sectionKey) {
+		const noAnswerWarningLabel = this.getQuizSection(sectionKey).querySelector(
+			'.no-answer-selected-label-container'
+		);
+		return noAnswerWarningLabel;
 	}
 }
