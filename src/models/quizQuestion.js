@@ -14,7 +14,8 @@ export class QuizQuestion {
 		btnSubmit,
 		optionElements,
 		noAnswerWarningLabel,
-		moveAllSectionsFunction
+		moveAllSectionsFunction,
+		addToScore
 	) {
 		this.question = question;
 		this.options = options;
@@ -23,6 +24,7 @@ export class QuizQuestion {
 		this.optionElements = optionElements;
 		this.noAnswerWarningLabel = noAnswerWarningLabel;
 		this.moveAllSections = moveAllSectionsFunction;
+		this.addToScore = addToScore;
 
 		this.btnSubmit.addEventListener('click', this.handleSubmit.bind(this));
 	}
@@ -112,6 +114,7 @@ export class QuizQuestion {
 					elLabel.dataset.userPicked = 'true';
 					this.currentQuestionAnswered = true;
 					this.disableRadioButtons();
+					this.addToScore();
 				} else {
 					// WRONG
 					elLabel.dataset.correct = 'false';

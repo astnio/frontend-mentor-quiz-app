@@ -7,12 +7,14 @@ export class Quiz {
 	_questions = {};
 	_quizSections = {};
 	_quizSectionPositions = {};
+	_quizSectionScore = 0;
 
 	constructor(title, icon, questions) {
 		this.title = title;
 		this.icon = icon;
 		this.questions = questions;
 		this.moveAllSections = this.moveAllSections.bind(this);
+		this.addToScore = this.addToScore.bind(this);
 
 		let questionCounter = 0;
 
@@ -33,14 +35,14 @@ export class Quiz {
 				this.getQuizSectionSubmitButton(questionCounter),
 				this.getQuestionElements(questionCounter),
 				this.getNoAnswerWarningLabel(questionCounter),
-				this.moveAllSections
+				this.moveAllSections,
+				this.addToScore
 			);
 			this.questions[questionCounter] = newQuestion;
 
 			questionCounter++;
 
 			this.initMoveSections();
-			console.log(this.quizSectionPositions);
 		}
 	}
 
@@ -82,6 +84,22 @@ export class Quiz {
 
 	set quizSectionPositions(value) {
 		this._quizSectionPositions = value;
+	}
+
+	get quizSectionScore() {
+		return this._quizSectionScore;
+	}
+
+	set quizSectionScore(value) {
+		this._quizSectionScore = value;
+	}
+
+	resetScore() {
+		this.quizSectionScore = 0;
+	}
+
+	addToScore() {
+		this.quizSectionScore++;
 	}
 
 	addQuestion(value) {
@@ -177,6 +195,7 @@ export class Quiz {
 			this.quizSectionPositions[index] = newPosition;
 			section.style.transform = `translateX(${newPosition}%)`;
 		});
+		console.log(this.quizSectionScore);
 	}
 
 	initMoveSections() {
