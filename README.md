@@ -20,8 +20,6 @@ This is a solution to the [Frontend quiz app challenge on Frontend Mentor](https
 
 ## Overview
 
-test
-
 ### The challenge
 
 Users should be able to:
