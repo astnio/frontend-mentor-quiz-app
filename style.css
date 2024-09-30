@@ -145,6 +145,35 @@ body {
 	border-radius: 4px;
 }
 
+/*** Quiz End Screen ***/
+
+.quiz-end-screen {
+	display: flex;
+	flex-direction: column;
+}
+
+.quiz-end-title-container {
+	text-align: start;
+}
+
+.quiz-end-content-container {
+	margin: auto;
+	text-align: center;
+}
+
+.quiz-end-score-reveal-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 16px;
+
+	background-color: var(--clr-surface-2);
+	border-radius: var(--radius);
+	padding-block: 2rem;
+	margin-block: 1rem;
+}
+
 /*** Quiz Introduction ***/
 header.quiz-intro-container {
 	display: flex;
@@ -742,6 +771,11 @@ input:checked + .slider:before {
 .bold,
 .heading-l.bold {
 	font-weight: 700;
+}
+
+.medium,
+p.medium {
+	font-weight: 500;
 }
 
 .heading-display {
