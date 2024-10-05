@@ -44,6 +44,8 @@ export class Quiz {
 
 			this.initMoveSections();
 		}
+		console.log('Last section:');
+		console.log(this.getLastSection());
 	}
 
 	get title() {
@@ -92,6 +94,11 @@ export class Quiz {
 
 	set quizSectionScore(value) {
 		this._quizSectionScore = value;
+	}
+
+	getLastSection() {
+		const lastKey = Object.keys(this.quizSections).length - 1;
+		return this.quizSections[lastKey];
 	}
 
 	resetScore() {
