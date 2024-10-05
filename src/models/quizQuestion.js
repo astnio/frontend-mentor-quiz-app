@@ -5,7 +5,7 @@ export class QuizQuestion {
 	_btnSubmit = null;
 	_optionElements = {};
 	_noAnswerWarningLabel = null;
-	_currentQuestionAnswered = false;
+	_currentQuestionAnswered = undefined;
 
 	constructor(
 		question,
@@ -83,6 +83,8 @@ export class QuizQuestion {
 
 	set currentQuestionAnswered(value) {
 		this._currentQuestionAnswered = value;
+		console.log('Setting currentQuestionAnswered...');
+		console.log(this.currentQuestionAnswered);
 	}
 
 	handleSubmit = () => {
@@ -110,16 +112,16 @@ export class QuizQuestion {
 				optionsChecked++;
 				if (optionInput.value === this.answer) {
 					// CORRECT
+					this.currentQuestionAnswered = true;
 					optionLabel.dataset.correct = 'true';
 					optionLabel.dataset.userPicked = 'true';
-					this.currentQuestionAnswered = true;
 					this.disableRadioButtons();
 					this.addToScore();
 				} else {
 					// WRONG
+					this.currentQuestionAnswered = true;
 					optionLabel.dataset.correct = 'false';
 					optionLabel.dataset.userPicked = 'true';
-					this.currentQuestionAnswered = true;
 					correctButton.dataset.correct = 'true';
 					this.disableRadioButtons();
 				}
@@ -128,6 +130,7 @@ export class QuizQuestion {
 		});
 
 		if (optionsChecked <= 0) {
+			this.currentQuestionAnswered = false;
 			this.noAnswerWarningLabel.style.visibility = 'visible';
 		}
 	};

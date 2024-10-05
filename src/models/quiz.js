@@ -46,8 +46,13 @@ export class Quiz {
 		}
 
 		const lastSectionSubmitBtn = this.getLastSectionSubmitButton();
+		console.log(this.getLastSection());
 		lastSectionSubmitBtn.addEventListener('click', () => {
-			console.log('Last section submit button clicked!');
+			if (this.getLastSection().currentQuestionAnswered) {
+				console.log('Last section question HAS BEEN answered!');
+			} else if (!this.getLastSection().currentQuestionAnswered) {
+				console.log('Last section question NOT answered!');
+			}
 		});
 	}
 
