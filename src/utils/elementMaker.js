@@ -65,7 +65,7 @@ const createQuestionHeader = () => {
 
 const createQuestionSubheading = (currentQuestion, totalQuestions) => {
 	const h3 = document.createElement('h3');
-	h3.className = 'body-s subtitle';
+	h3.className = 'body-s subtitle italic';
 	h3.innerHTML = `Question <span>${currentQuestion}</span> of ${totalQuestions}`;
 	return h3;
 };

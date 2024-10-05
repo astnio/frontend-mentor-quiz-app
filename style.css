@@ -170,8 +170,13 @@ body {
 
 	background-color: var(--clr-surface-2);
 	border-radius: var(--radius);
+
 	padding-block: 2rem;
 	margin-block: 1rem;
+}
+
+#final-score {
+	font-size: 88px;
 }
 
 /*** Quiz Introduction ***/
@@ -814,7 +819,6 @@ p,
 .body-s {
 	font-size: 20px; /* Desktop */
 	font-size: 14px; /* Mobile */
-	font-style: italic;
 	line-height: 150%;
 	color: var(--clr-on-surface-2);
 }
@@ -822,6 +826,12 @@ p,
 .quiz-question-body {
 	font-size: 20px;
 	line-height: 120%;
+}
+
+.italic,
+span.italic,
+p.italic {
+	font-style: italic;
 }
 
 /*** Background Images - Responsive with Light & Dark Versions ***/
