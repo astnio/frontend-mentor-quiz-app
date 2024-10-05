@@ -44,8 +44,11 @@ export class Quiz {
 
 			this.initMoveSections();
 		}
-		console.log('Last section:');
-		console.log(this.getLastSection());
+
+		const lastSectionSubmitBtn = this.getLastSectionSubmitButton();
+		lastSectionSubmitBtn.addEventListener('click', () => {
+			console.log('Last section submit button clicked!');
+		});
 	}
 
 	get title() {
@@ -99,6 +102,11 @@ export class Quiz {
 	getLastSection() {
 		const lastKey = Object.keys(this.quizSections).length - 1;
 		return this.quizSections[lastKey];
+	}
+
+	getLastSectionSubmitButton() {
+		const lastKey = Object.keys(this.quizSections).length - 1;
+		return this.getQuizSectionSubmitButton(lastKey);
 	}
 
 	resetScore() {

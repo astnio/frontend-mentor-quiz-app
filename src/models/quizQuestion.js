@@ -94,31 +94,31 @@ export class QuizQuestion {
 	};
 
 	checkCorrectAnswer = () => {
-		const elements = Array.from(this.optionElements).filter(
+		const options = Array.from(this.optionElements).filter(
 			(node) => node instanceof Element
 		);
 
 		const correctButton = this.getCorrectQuestionButton();
 
-		let checkedCount = 0;
+		let optionsChecked = 0;
 
-		elements.forEach((element) => {
-			const elInput = element.querySelector('input');
-			const elLabel = element;
-			if (elInput.checked) {
+		options.forEach((option) => {
+			const optionInput = option.querySelector('input');
+			const optionLabel = option;
+			if (optionInput.checked) {
 				this.noAnswerWarningLabel.style.visibility = 'hidden';
-				checkedCount++;
-				if (elInput.value === this.answer) {
+				optionsChecked++;
+				if (optionInput.value === this.answer) {
 					// CORRECT
-					elLabel.dataset.correct = 'true';
-					elLabel.dataset.userPicked = 'true';
+					optionLabel.dataset.correct = 'true';
+					optionLabel.dataset.userPicked = 'true';
 					this.currentQuestionAnswered = true;
 					this.disableRadioButtons();
 					this.addToScore();
 				} else {
 					// WRONG
-					elLabel.dataset.correct = 'false';
-					elLabel.dataset.userPicked = 'true';
+					optionLabel.dataset.correct = 'false';
+					optionLabel.dataset.userPicked = 'true';
 					this.currentQuestionAnswered = true;
 					correctButton.dataset.correct = 'true';
 					this.disableRadioButtons();
@@ -126,7 +126,8 @@ export class QuizQuestion {
 				this.btnSubmit.innerText = 'Next Question';
 			}
 		});
-		if (checkedCount <= 0) {
+
+		if (optionsChecked <= 0) {
 			this.noAnswerWarningLabel.style.visibility = 'visible';
 		}
 	};
