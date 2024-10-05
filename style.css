@@ -210,8 +210,12 @@ header.quiz-intro-container {
 #quiz-container {
 	position: absolute;
 
-	visibility: hidden; /* Only doing this initially because the screen starts out in the middle then flys out when the page loads, and it looks bad.
-							This gets updated in the JavaScript when any button is clicked so it becomes visible right away and the user never knows! */
+	/*
+	Only doing this initially because the screen starts out in the middle then flys out when the
+	page loads, and it looks bad. This gets updated in the JavaScript when any button is clicked
+	so it becomes visible right away and the user never knows!
+	*/
+	visibility: hidden;
 
 	display: flex;
 	flex-direction: column;

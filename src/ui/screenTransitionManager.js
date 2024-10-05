@@ -1,23 +1,16 @@
-const screen1 = document.getElementById('quiz-intro-container');
-const screen2 = document.getElementById('quiz-container');
+const quizIntro = document.getElementById('quiz-intro-container');
+const quizContainer = document.getElementById('quiz-container');
 const quizChoiceButtons = document.querySelectorAll(
 	'.btn-quiz-category-choice'
 );
-// const submitButton = document.getElementById('quiz-submit-question');
-
-let isScreen1Visible = true;
 
 function slideScreens() {
-	if (isScreen1Visible) {
-		screen1.style.transform = 'translateX(-100%)';
-		screen2.style.transform = 'translateX(0)';
-	} else {
-		screen1.style.transform = 'translateX(0)';
-		screen2.style.transform = 'translateX(100%)';
-	}
+	console.log('Sliding screens...');
+	console.log(quizContainer.style);
+	quizIntro.style.transform = 'translateX(-100%)';
+	quizContainer.style.transform = 'translateX(0)';
 
-	isScreen1Visible = !isScreen1Visible;
-	screen2.style.visibility = 'visible';
+	quizContainer.style.visibility = 'visible';
 }
 
 export function initQuizChoiceButtons() {

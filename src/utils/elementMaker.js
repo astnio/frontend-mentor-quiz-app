@@ -139,8 +139,8 @@ const createQuizQuestionElement = (option, letter, currentQuestionNumber) => {
 	quizQuestionLabelElement.appendChild(quizQuestionBtnLabel);
 	quizQuestionLabelElement.appendChild(quizQuestionIsCorrectIcon);
 
-	quizQuestionLabelElement.dataset.correct = 'hidden'; //TODO: change when checking answer
-	quizQuestionLabelElement.dataset.userPicked = 'false'; //TODO: change when checking answer
+	quizQuestionLabelElement.dataset.correct = 'hidden'; //Changes when checking answer
+	quizQuestionLabelElement.dataset.userPicked = 'false'; //Changes when checking answer
 
 	return quizQuestionLabelElement;
 };
