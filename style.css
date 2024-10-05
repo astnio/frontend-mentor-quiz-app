@@ -147,6 +147,10 @@ body {
 
 /*** Quiz End Screen ***/
 
+#quiz-end-screen {
+	transform: translateX(100%);
+}
+
 .quiz-end-screen {
 	display: flex;
 	flex-direction: column;
