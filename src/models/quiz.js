@@ -47,6 +47,7 @@ export class Quiz {
 
 		const lastSectionSubmitBtn = this.getLastSectionSubmitButton();
 		console.log(this.getLastSection());
+		console.log(lastSectionSubmitBtn);
 		lastSectionSubmitBtn.addEventListener('click', () => {
 			if (this.getLastSection().currentQuestionAnswered) {
 				console.log('Last section question HAS BEEN answered!');
@@ -54,6 +55,11 @@ export class Quiz {
 				console.log('Last section question NOT answered!');
 			}
 		});
+
+		/* TODO: figure out what the heck is going on in the function above. for some reason this always returns as
+		   "not answered" despite it not only being answered but also the actual value it is looking for returns as
+		   "true" meaning it was answered. For some reason it just isnt updating correctly here. Ned to look into
+		   it more. */
 	}
 
 	get title() {
