@@ -1,20 +1,28 @@
-const quizIntro = document.getElementById('quiz-intro-container');
-const quizContainer = document.getElementById('quiz-container');
-const quizEndScreen = document.getElementById('quiz-end-screen');
-const quizChoiceButtons = document.querySelectorAll(
-	'.btn-quiz-category-choice'
-);
+export class ScreenTransitionManager {
+  static quizIntro = document.getElementById('quiz-intro-container');
+  static quizContainer = document.getElementById('quiz-container');
+  static quizEndScreen = document.getElementById('quiz-end-screen');
+  static quizChoiceButtons = document.querySelectorAll(
+    '.btn-quiz-category-choice'
+  );
 
-function slideScreens() {
-	quizIntro.style.transform = 'translateX(-100%)';
-	quizContainer.style.transform = 'translateX(0)';
-	quizEndScreen.style.transform = 'translateX(100%)';
+  static endSlideMainScreens() {
+    this.quizIntro.style.transform = 'translateX(-200%)';
+    this.quizContainer.style.transform = 'translateX(-100%)';
+    this.quizEndScreen.style.transform = 'translateX(0)';
+    this.quizContainer.style.visibility = 'visible';
+  }
 
-	quizContainer.style.visibility = 'visible';
-}
+  static initSlideMainScreens() {
+    this.quizIntro.style.transform = 'translateX(-100%)';
+    this.quizContainer.style.transform = 'translateX(0)';
+    this.quizEndScreen.style.transform = 'translateX(100%)';
+    this.quizContainer.style.visibility = 'visible';
+  }
 
-export function initQuizChoiceButtons() {
-	quizChoiceButtons.forEach((btn) => {
-		btn.addEventListener('click', slideScreens);
-	});
+  static initQuizChoiceButtons() {
+    this.quizChoiceButtons.forEach((btn) => {
+      btn.addEventListener('click', () => this.initSlideMainScreens());
+    });
+  }
 }

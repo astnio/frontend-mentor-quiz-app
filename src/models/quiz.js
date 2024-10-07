@@ -1,5 +1,6 @@
 import { QuizSection } from '../utils/elementMaker.js';
 import { QuizQuestion } from './quizQuestion.js';
+import { ScreenTransitionManager } from '../ui/screenTransitionManager.js';
 
 export class Quiz {
   _title = '';
@@ -48,6 +49,7 @@ export class Quiz {
       lastQuestionSubmitBtn.addEventListener('click', () => {
         if (lastQuestion.currentQuestionAnswered) {
           console.log('Last section question HAS BEEN answered!');
+          ScreenTransitionManager.endSlideMainScreens();
         } else {
           console.log('Last section question NOT answered!');
         }

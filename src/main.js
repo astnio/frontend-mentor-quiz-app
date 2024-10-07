@@ -1,6 +1,6 @@
 import { initLightToggle } from './ui/lightswitch.js';
 import { quizzes } from './quizManager.js';
-import { initQuizChoiceButtons } from './ui/screenTransitionManager.js';
+import { ScreenTransitionManager } from './ui/screenTransitionManager.js';
 
 const mainQuizContainer = document.getElementById('quiz-container');
 
@@ -65,5 +65,5 @@ function initQuizButtons() {
 }
 
 initLightToggle();
-initQuizChoiceButtons();
+ScreenTransitionManager.initQuizChoiceButtons();
 initQuizButtons();
