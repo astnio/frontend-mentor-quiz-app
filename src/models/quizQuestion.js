@@ -1,3 +1,5 @@
+import { ScreenTransitionManager } from '../ui/screenTransitionManager.js';
+
 export class QuizQuestion {
   _question = '';
   _options = {};
@@ -8,6 +10,7 @@ export class QuizQuestion {
   _currentQuestionAnswered = false;
   _section = null;
   _sectionPosition = null;
+  _finalQuestion = false;
 
   constructor(
     question,
@@ -88,14 +91,11 @@ export class QuizQuestion {
   }
 
   get currentQuestionAnswered() {
-    // console.log('GETTING currentQuestionAnswered!');
     return this._currentQuestionAnswered;
   }
 
   set currentQuestionAnswered(value) {
     this._currentQuestionAnswered = value;
-    console.log('Setting currentQuestionAnswered...');
-    console.log(this.currentQuestionAnswered);
   }
 
   get section() {
@@ -114,11 +114,23 @@ export class QuizQuestion {
     this._sectionPosition = value;
   }
 
+  get finalQuestion() {
+    return this._finalQuestion;
+  }
+
+  set finalQuestion(value) {
+    this._finalQuestion = value;
+  }
+
   handleSubmit = () => {
     if (!this.currentQuestionAnswered) {
       this.checkCorrectAnswer();
     } else {
-      this.moveAllSections();
+      if (!this.finalQuestion) {
+        this.moveAllSections();
+      } else {
+        ScreenTransitionManager.endSlideMainScreens();
+      }
     }
   };
 

@@ -44,17 +44,15 @@ export class Quiz {
 
   setupLastQuestionListener() {
     const lastQuestion = this.getLastQuestion();
-    if (lastQuestion) {
-      const lastQuestionSubmitBtn = lastQuestion.btnSubmit;
-      lastQuestionSubmitBtn.addEventListener('click', () => {
-        if (lastQuestion.currentQuestionAnswered) {
-          console.log('Last section question HAS BEEN answered!');
-          ScreenTransitionManager.endSlideMainScreens();
-        } else {
-          console.log('Last section question NOT answered!');
-        }
-      });
-    }
+    lastQuestion.finalQuestion = true;
+    // if (lastQuestion) {
+    //   const lastQuestionSubmitBtn = lastQuestion.btnSubmit;
+    //   lastQuestionSubmitBtn.addEventListener('click', () => {
+    //     if (lastQuestion.currentQuestionAnswered) {
+    //       ScreenTransitionManager.endSlideMainScreens();
+    //     }
+    //   });
+    // }
   }
 
   get title() {
@@ -98,9 +96,7 @@ export class Quiz {
   }
 
   addToScore() {
-    console.log('Score added!');
     this.score = this.score + 1;
-    console.log(this.score);
   }
 
   addQuestion(value) {
