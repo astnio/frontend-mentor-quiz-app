@@ -13,6 +13,7 @@ export class Quiz {
     this.icon = icon;
     this.moveAllSections = this.moveAllSections.bind(this);
     this.addToScore = this.addToScore.bind(this);
+    this.handleEndScreen = this.handleEndScreen.bind(this);
 
     let questionCounter = 0;
 
@@ -31,7 +32,8 @@ export class Quiz {
         element.answer,
         this.moveAllSections,
         this.addToScore,
-        quizSection
+        quizSection,
+        this.handleEndScreen
       );
       this.questions[questionCounter] = newQuestion;
 
@@ -81,7 +83,6 @@ export class Quiz {
   setupLastQuestionListener() {
     const lastQuestion = this.getLastQuestion();
     lastQuestion.finalQuestion = true;
-    this.handleEndScreen();
   }
 
   resetScore() {

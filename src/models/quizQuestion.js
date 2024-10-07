@@ -19,7 +19,7 @@ export class QuizQuestion {
     moveAllSectionsFunction,
     addToScore,
     section,
-    sectionPosition
+    handleEndScreen
   ) {
     this.question = question;
     this.options = options;
@@ -27,7 +27,7 @@ export class QuizQuestion {
     this.moveAllSections = moveAllSectionsFunction;
     this.addToScore = addToScore;
     this.section = section;
-    this.sectionPosition = sectionPosition;
+    this.handleEndScreen = handleEndScreen;
 
     this.btnSubmit = this.section.querySelector('.quiz-submit-question');
 
@@ -129,6 +129,7 @@ export class QuizQuestion {
       if (!this.finalQuestion) {
         this.moveAllSections();
       } else {
+        this.handleEndScreen();
         ScreenTransitionManager.endSlideMainScreens();
       }
     }
@@ -164,7 +165,11 @@ export class QuizQuestion {
           correctButton.dataset.correct = 'true';
           this.disableRadioButtons();
         }
-        this.btnSubmit.innerText = 'Next Question';
+        if (!this.finalQuestion) {
+          this.btnSubmit.innerText = 'Next Question';
+        } else {
+          this.btnSubmit.innerText = 'Finish Quiz';
+        }
       }
     });
 
