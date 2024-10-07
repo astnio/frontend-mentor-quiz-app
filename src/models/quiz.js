@@ -43,9 +43,9 @@ export class Quiz {
     const lastQuestionSubmitBtn = lastQuestion.btnSubmit;
 
     lastQuestionSubmitBtn.addEventListener('click', () => {
-      if (this.getLastSection().currentQuestionAnswered) {
+      if (this.lastQuestion.currentQuestionAnswered) {
         console.log('Last section question HAS BEEN answered!');
-      } else if (!this.getLastSection().currentQuestionAnswered) {
+      } else if (!this.lastQuestion.currentQuestionAnswered) {
         console.log('Last section question NOT answered!');
       }
     });
@@ -88,11 +88,13 @@ export class Quiz {
   }
 
   resetScore() {
-    this.quizScore = 0;
+    this.score = 0;
   }
 
   addToScore() {
-    this.quizScore = this.quizScore + 1;
+    console.log('Score added!');
+    this.score = this.score + 1;
+    console.log(this.score);
   }
 
   addQuestion(value) {
@@ -111,7 +113,6 @@ export class Quiz {
       question.sectionPosition = newPosition;
       question.section.style.transform = `translateX(${newPosition}%)`;
     });
-    console.log(this.score);
   }
 
   initMoveSections() {
