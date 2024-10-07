@@ -4,11 +4,13 @@ import { ScreenTransitionManager } from './ui/screenTransitionManager.js';
 
 const mainQuizContainer = document.getElementById('quiz-container');
 
-const appHeaderQuizCategory = document.querySelector(
+const appHeaderQuizCategories = document.querySelectorAll(
   '.app-header-quiz-category'
 );
 const currentQuizLabel = document.getElementById('current-category-label');
-const currentQuizImage = document.getElementById('current-quiz-label-image');
+const currentQuizImages = document.querySelectorAll(
+  '.current-quiz-label-image'
+);
 
 const btnHTMLQuiz = document.getElementById('btn-quiz-choice-html');
 const btnCSSQuiz = document.getElementById('btn-quiz-choice-css');
@@ -17,13 +19,22 @@ const btnAccessibilityQuiz = document.getElementById(
   'btn-quiz-choice-accessibility'
 );
 
+const endScreenCategory = document.getElementById('end-screen-category-label');
+
 function setAppHeaderCategoryIconBg(color) {
-  appHeaderQuizCategory.children[0].dataset.bgColor = color;
+  appHeaderQuizCategories.forEach((el) => {
+    el.children[0].dataset.bgColor = color;
+  });
 }
 
 function setCurrentQuizImage(value) {
-  appHeaderQuizCategory.dataset.quizActive = 'true';
-  currentQuizImage.src = `${value}`;
+  appHeaderQuizCategories.forEach((el) => {
+    el.dataset.quizActive = 'true';
+  });
+
+  currentQuizImages.forEach((el) => {
+    el.src = `${value}`;
+  });
 }
 
 function appendQuiz(quiz) {
@@ -39,6 +50,7 @@ function initQuizButtons() {
     setCurrentQuizImage(quizzes['HTML'].icon);
     setAppHeaderCategoryIconBg('orange');
     currentQuizLabel.innerText = 'HTML';
+    endScreenCategory.innerText = 'HTML';
     appendQuiz(quizzes['HTML']);
   });
 
@@ -46,6 +58,7 @@ function initQuizButtons() {
     setCurrentQuizImage(quizzes['CSS'].icon);
     setAppHeaderCategoryIconBg('green');
     currentQuizLabel.innerText = 'CSS';
+    endScreenCategory.innerText = 'CSS';
     appendQuiz(quizzes['CSS']);
   });
 
@@ -53,6 +66,7 @@ function initQuizButtons() {
     setCurrentQuizImage(quizzes['JavaScript'].icon);
     setAppHeaderCategoryIconBg('blue');
     currentQuizLabel.innerText = 'JavaScript';
+    endScreenCategory.innerText = 'JavaScript';
     appendQuiz(quizzes['JavaScript']);
   });
 
@@ -60,6 +74,7 @@ function initQuizButtons() {
     setCurrentQuizImage(quizzes['Accessibility'].icon);
     setAppHeaderCategoryIconBg('purple');
     currentQuizLabel.innerText = 'Accessibility';
+    endScreenCategory.innerText = 'Accessibility';
     appendQuiz(quizzes['Accessibility']);
   });
 }

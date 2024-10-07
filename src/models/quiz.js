@@ -1,4 +1,4 @@
-import { QuizSection } from '../utils/elementMaker.js';
+import { QuizSection } from '../utils/questionSectionCreator.js';
 import { QuizQuestion } from './quizQuestion.js';
 import { ScreenTransitionManager } from '../ui/screenTransitionManager.js';
 
@@ -42,11 +42,6 @@ export class Quiz {
     this.setupLastQuestionListener();
   }
 
-  setupLastQuestionListener() {
-    const lastQuestion = this.getLastQuestion();
-    lastQuestion.finalQuestion = true;
-  }
-
   get title() {
     return this._title;
   }
@@ -83,6 +78,12 @@ export class Quiz {
     return this.questions[lastKey];
   }
 
+  setupLastQuestionListener() {
+    const lastQuestion = this.getLastQuestion();
+    lastQuestion.finalQuestion = true;
+    this.handleEndScreen();
+  }
+
   resetScore() {
     this.score = 0;
   }
@@ -115,5 +116,15 @@ export class Quiz {
       question.sectionPosition = newPosition;
       question.section.style.transform = `translateX(${newPosition}%)`;
     });
+  }
+
+  handleEndScreen() {
+    const endScreenFinalScore = document.getElementById('final-score');
+    const endScreenTotalQuestions = document.getElementById(
+      'end-screen-total-questions'
+    );
+
+    endScreenFinalScore.innerText = this.score;
+    endScreenTotalQuestions.innerText = Object.keys(this.questions).length;
   }
 }

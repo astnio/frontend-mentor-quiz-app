@@ -1,176 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
 
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="32x32"
-			href="./assets/images/favicon-32x32.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png" />
 
-		<title>Frontend Mentor | Frontend quiz app</title>
+    <title>Frontend Mentor | Frontend quiz app</title>
 
-		<link
-			rel="stylesheet"
-			href="style.css" />
+    <link
+      rel="stylesheet"
+      href="style.css" />
 
-		<script
-			defer
-			type="module"
-			src="./src/main.js"></script>
-	</head>
-	<body>
-		<div class="app">
-			<nav class="app-header max-width auto-inline-margin">
-				<div
-					data-quiz-active="false"
-					class="app-header-quiz-category heading-s">
-					<span
-						data-bg-color="white"
-						class="quiz-button-icon-container quiz-category-icon-container"
-						><img
-							id="current-quiz-label-image"
-							src="./assets/images/icon-accessibility.svg"
-							alt="Accessibility"
-					/></span>
-					<span id="current-category-label">Category</span>
-				</div>
-				<div class="light-switch-container">
-					<span class="light-switch-icon light-switch-icon-light"></span>
-					<label class="switch">
-						<input
-							type="checkbox"
-							id="light-toggle"
-							checked />
-						<span class="slider round"></span>
-					</label>
-					<span class="light-switch-icon light-switch-icon-dark"></span>
-				</div>
-			</nav>
-			<header
-				id="quiz-intro-container"
-				class="quiz-intro-container app-screen">
-				<div class="title-container max-width">
-					<h1 class="title">
-						<span class="heading-l">Welcome to the</span>
-						<br />
-						<span class="heading-l bold">Frontend Quiz!</span>
-					</h1>
-					<p class="body-s subtitle">Pick a subject to get started.</p>
-				</div>
-				<nav class="quiz-choices-nav max-width">
-					<ul class="quiz-choices-list">
-						<li>
-							<button
-								id="btn-quiz-choice-html"
-								class="button btn-quiz-category-choice btn-quiz-button heading-s">
-								<span
-									data-bg-color="orange"
-									class="quiz-button-icon-container"
-									><img
-										src="./assets/images/icon-html.svg"
-										alt=""
-										srcset=""
-								/></span>
-								<span>HTML</span>
-							</button>
-						</li>
-						<li>
-							<button
-								id="btn-quiz-choice-css"
-								class="button btn-quiz-category-choice btn-quiz-button heading-s">
-								<span
-									data-bg-color="green"
-									class="quiz-button-icon-container"
-									><img
-										src="./assets/images/icon-css.svg"
-										alt=""
-										srcset=""
-								/></span>
-								<span>CSS</span>
-							</button>
-						</li>
-						<li>
-							<button
-								id="btn-quiz-choice-js"
-								class="button btn-quiz-category-choice btn-quiz-button heading-s">
-								<span
-									data-bg-color="blue"
-									class="quiz-button-icon-container"
-									><img
-										src="./assets/images/icon-js.svg"
-										alt=""
-										srcset=""
-								/></span>
-								<span>JavaScript</span>
-							</button>
-						</li>
-						<li>
-							<button
-								id="btn-quiz-choice-accessibility"
-								class="button btn-quiz-category-choice btn-quiz-button heading-s">
-								<span
-									data-bg-color="purple"
-									class="quiz-button-icon-container"
-									><img
-										src="./assets/images/icon-accessibility.svg"
-										alt=""
-										srcset=""
-								/></span>
-								<span>Accessibility</span>
-							</button>
-						</li>
-					</ul>
-				</nav>
-			</header>
-			<main
-				id="quiz-container"
-				class="quiz-container app-screen">
-				<!-- ------------------- -->
-				<!--Quiz Sections Go Here-->
-				<!-- ------------------- -->
-			</main>
-			<div
-				id="quiz-end-screen"
-				class="quiz-end-screen app-screen">
-				<div class="max-width auto-inline-margin quiz-end-content-container">
-					<div class="quiz-end-title-container">
-						<h3 class="heading-l">Quiz Completed</h3>
-						<p class="heading-l medium">You scored...</p>
-					</div>
+    <script
+      defer
+      type="module"
+      src="./src/main.js"></script>
+  </head>
+  <body>
+    <div class="app">
+      <nav class="app-header max-width auto-inline-margin">
+        <div
+          data-quiz-active="false"
+          class="app-header-quiz-category heading-s">
+          <span
+            data-bg-color="white"
+            class="quiz-button-icon-container quiz-category-icon-container"
+            ><img
+              class="current-quiz-label-image"
+              src="./assets/images/icon-accessibility.svg"
+              alt="Accessibility"
+          /></span>
+          <span id="current-category-label">Category</span>
+        </div>
+        <div class="light-switch-container">
+          <span class="light-switch-icon light-switch-icon-light"></span>
+          <label class="switch">
+            <input
+              type="checkbox"
+              id="light-toggle"
+              checked />
+            <span class="slider round"></span>
+          </label>
+          <span class="light-switch-icon light-switch-icon-dark"></span>
+        </div>
+      </nav>
+      <header
+        id="quiz-intro-container"
+        class="quiz-intro-container app-screen">
+        <div class="title-container max-width">
+          <h1 class="title">
+            <span class="heading-l">Welcome to the</span>
+            <br />
+            <span class="heading-l bold">Frontend Quiz!</span>
+          </h1>
+          <p class="body-s subtitle">Pick a subject to get started.</p>
+        </div>
+        <nav class="quiz-choices-nav max-width">
+          <ul class="quiz-choices-list">
+            <li>
+              <button
+                id="btn-quiz-choice-html"
+                class="button btn-quiz-category-choice btn-quiz-button heading-s">
+                <span
+                  data-bg-color="orange"
+                  class="quiz-button-icon-container"
+                  ><img
+                    src="./assets/images/icon-html.svg"
+                    alt=""
+                    srcset=""
+                /></span>
+                <span>HTML</span>
+              </button>
+            </li>
+            <li>
+              <button
+                id="btn-quiz-choice-css"
+                class="button btn-quiz-category-choice btn-quiz-button heading-s">
+                <span
+                  data-bg-color="green"
+                  class="quiz-button-icon-container"
+                  ><img
+                    src="./assets/images/icon-css.svg"
+                    alt=""
+                    srcset=""
+                /></span>
+                <span>CSS</span>
+              </button>
+            </li>
+            <li>
+              <button
+                id="btn-quiz-choice-js"
+                class="button btn-quiz-category-choice btn-quiz-button heading-s">
+                <span
+                  data-bg-color="blue"
+                  class="quiz-button-icon-container"
+                  ><img
+                    src="./assets/images/icon-js.svg"
+                    alt=""
+                    srcset=""
+                /></span>
+                <span>JavaScript</span>
+              </button>
+            </li>
+            <li>
+              <button
+                id="btn-quiz-choice-accessibility"
+                class="button btn-quiz-category-choice btn-quiz-button heading-s">
+                <span
+                  data-bg-color="purple"
+                  class="quiz-button-icon-container"
+                  ><img
+                    src="./assets/images/icon-accessibility.svg"
+                    alt=""
+                    srcset=""
+                /></span>
+                <span>Accessibility</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main
+        id="quiz-container"
+        class="quiz-container app-screen">
+        <!-- ------------------- -->
+        <!--Quiz Sections Go Here-->
+        <!-- ------------------- -->
+      </main>
+      <div
+        id="quiz-end-screen"
+        class="quiz-end-screen app-screen">
+        <div class="max-width auto-inline-margin quiz-end-content-container">
+          <div class="quiz-end-title-container">
+            <h3 class="heading-l">Quiz Completed</h3>
+            <p class="heading-l medium">You scored...</p>
+          </div>
 
-					<div class="quiz-end-score-reveal-container">
-						<div class="app-header-quiz-category heading-s">
-							<span
-								data-bg-color="white"
-								class="quiz-button-icon-container quiz-category-icon-container"
-								><img
-									id="current-quiz-label-image"
-									src="./assets/images/icon-accessibility.svg"
-									alt="Accessibility"
-							/></span>
-							<span id="current-category-label">Category</span>
-						</div>
-						<p>
-							<span
-								class="bold"
-								id="final-score"
-								>{score}</span
-							>
-						</p>
-						<p class="body-s">
-							out of <span class="total-questions">{total}</span>
-						</p>
-					</div>
-					<button class="button btn-question-submit quiz-submit-question">
-						<span class="medium">Play Again</span>
-					</button>
-				</div>
-			</div>
-		</div>
-	</body>
+          <div class="quiz-end-score-reveal-container">
+            <div class="app-header-quiz-category heading-s">
+              <span
+                data-bg-color="white"
+                class="quiz-button-icon-container quiz-category-icon-container"
+                ><img
+                  class="current-quiz-label-image"
+                  src="./assets/images/icon-accessibility.svg"
+                  alt="Accessibility"
+              /></span>
+              <span id="end-screen-category-label">{category}</span>
+            </div>
+            <p>
+              <span
+                class="bold"
+                id="final-score"
+                >{score}</span
+              >
+            </p>
+            <p class="body-s">
+              out of
+              <span
+                id="end-screen-total-questions"
+                class="total-questions"
+                >{total}</span
+              >
+            </p>
+          </div>
+          <button class="button btn-question-submit quiz-submit-question">
+            <span class="medium">Play Again</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

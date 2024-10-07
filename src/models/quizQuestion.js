@@ -198,6 +198,4 @@ export class QuizQuestion {
     }
     return null;
   }
-
-  transitionSection() {}
 }
