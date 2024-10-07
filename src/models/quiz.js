@@ -2,233 +2,123 @@ import { QuizSection } from '../utils/elementMaker.js';
 import { QuizQuestion } from './quizQuestion.js';
 
 export class Quiz {
-	_title = '';
-	_icon = '';
-	_questions = {};
-	_quizSections = {};
-	_quizSectionPositions = {};
-	_quizSectionScore = 0;
+  _title = '';
+  _icon = '';
+  _questions = {};
+  _score = 0;
 
-	constructor(title, icon, questions) {
-		this.title = title;
-		this.icon = icon;
-		this.questions = questions;
-		this.moveAllSections = this.moveAllSections.bind(this);
-		this.addToScore = this.addToScore.bind(this);
+  constructor(title, icon, questions) {
+    this.title = title;
+    this.icon = icon;
+    this.moveAllSections = this.moveAllSections.bind(this);
+    this.addToScore = this.addToScore.bind(this);
 
-		let questionCounter = 0;
+    let questionCounter = 0;
 
-		for (let element of questions) {
-			this.createQuizSection(
-				questionCounter,
-				questionCounter + 1,
-				Object.keys(questions).length,
-				element.question,
-				element.options,
-				element.answer
-			);
+    for (let element of questions) {
+      const quizSection = new QuizSection(
+        questionCounter + 1,
+        Object.keys(questions).length,
+        element.question,
+        element.options,
+        element.answer
+      );
 
-			const newQuestion = new QuizQuestion(
-				element.question,
-				element.options,
-				element.answer,
-				this.getQuizSectionSubmitButton(questionCounter),
-				this.getQuestionElements(questionCounter),
-				this.getNoAnswerWarningLabel(questionCounter),
-				this.moveAllSections,
-				this.addToScore
-			);
-			this.questions[questionCounter] = newQuestion;
+      const newQuestion = new QuizQuestion(
+        element.question,
+        element.options,
+        element.answer,
+        this.moveAllSections,
+        this.addToScore,
+        quizSection
+      );
+      this.questions[questionCounter] = newQuestion;
 
-			questionCounter++;
+      questionCounter++;
 
-			this.initMoveSections();
-		}
+      this.initMoveSections();
+    }
 
-		const lastSectionSubmitBtn = this.getLastSectionSubmitButton();
-		console.log(this.getLastSection());
-		console.log(lastSectionSubmitBtn);
-		lastSectionSubmitBtn.addEventListener('click', () => {
-			if (this.getLastSection().currentQuestionAnswered) {
-				console.log('Last section question HAS BEEN answered!');
-			} else if (!this.getLastSection().currentQuestionAnswered) {
-				console.log('Last section question NOT answered!');
-			}
-		});
+    const lastQuestion = this.getLastQuestion();
+    const lastQuestionSubmitBtn = lastQuestion.btnSubmit;
 
-		/* TODO: figure out what the heck is going on in the function above. for some reason this always returns as
-		   "not answered" despite it not only being answered but also the actual value it is looking for returns as
-		   "true" meaning it was answered. For some reason it just isnt updating correctly here. Ned to look into
-		   it more. */
-	}
+    lastQuestionSubmitBtn.addEventListener('click', () => {
+      if (this.getLastSection().currentQuestionAnswered) {
+        console.log('Last section question HAS BEEN answered!');
+      } else if (!this.getLastSection().currentQuestionAnswered) {
+        console.log('Last section question NOT answered!');
+      }
+    });
+  }
 
-	get title() {
-		return this._title;
-	}
+  get title() {
+    return this._title;
+  }
 
-	set title(value) {
-		this._title = value;
-	}
+  set title(value) {
+    this._title = value;
+  }
 
-	get icon() {
-		return this._icon;
-	}
+  get icon() {
+    return this._icon;
+  }
 
-	set icon(value) {
-		this._icon = value;
-	}
+  set icon(value) {
+    this._icon = value;
+  }
 
-	get questions() {
-		return this._questions;
-	}
+  get questions() {
+    return this._questions;
+  }
 
-	set questions(value) {
-		this._questions = value;
-	}
+  set questions(value) {
+    this._questions = value;
+  }
+  get score() {
+    return this._score;
+  }
 
-	get quizSections() {
-		return this._quizSections;
-	}
+  set score(value) {
+    this._score = value;
+  }
 
-	set quizSections(value) {
-		this._quizSections = value;
-	}
+  getLastQuestion() {
+    const lastKey = Object.keys(this.questions).length - 1;
+    return this.questions[lastKey];
+  }
 
-	get quizSectionPositions() {
-		return this._quizSectionPositions;
-	}
+  resetScore() {
+    this.quizScore = 0;
+  }
 
-	set quizSectionPositions(value) {
-		this._quizSectionPositions = value;
-	}
+  addToScore() {
+    this.quizScore = this.quizScore + 1;
+  }
 
-	get quizSectionScore() {
-		return this._quizSectionScore;
-	}
+  addQuestion(value) {
+    const newQuestion = new QuizQuestion(
+      value.question,
+      value.options,
+      value.answer
+    );
+    this.questions[value.question] = newQuestion;
+  }
 
-	set quizSectionScore(value) {
-		this._quizSectionScore = value;
-	}
+  moveAllSections() {
+    Object.entries(this.questions).forEach(([index, question]) => {
+      const currentPosition = question.sectionPosition;
+      const newPosition = currentPosition - 100;
+      question.sectionPosition = newPosition;
+      question.section.style.transform = `translateX(${newPosition}%)`;
+    });
+    console.log(this.score);
+  }
 
-	getLastSection() {
-		const lastKey = Object.keys(this.quizSections).length - 1;
-		return this.quizSections[lastKey];
-	}
-
-	getLastSectionSubmitButton() {
-		const lastKey = Object.keys(this.quizSections).length - 1;
-		return this.getQuizSectionSubmitButton(lastKey);
-	}
-
-	resetScore() {
-		this.quizSectionScore = 0;
-	}
-
-	addToScore() {
-		this.quizSectionScore++;
-	}
-
-	addQuestion(value) {
-		const newQuestion = new QuizQuestion(
-			value.question,
-			value.options,
-			value.answer
-		);
-		this.questions[value.question] = newQuestion;
-	}
-
-	createQuizSection = (
-		id,
-		currentQuestion,
-		totalQuestions,
-		question,
-		options,
-		answer
-	) => {
-		const quizSection = new QuizSection(
-			currentQuestion,
-			totalQuestions,
-			question,
-			options,
-			answer
-		);
-
-		this._quizSections[id] = quizSection;
-		return quizSection;
-	};
-
-	getQuizSection(id) {
-		return this._quizSections[id];
-	}
-
-	getAllQuizSections() {
-		return Object.values(this._quizSections);
-	}
-
-	removeQuizSection(id) {
-		if (this._quizSections[id]) {
-			delete this._quizSections[id];
-			return true;
-		}
-		return false;
-	}
-
-	getQuizSectionSubmitButton(sectionKey) {
-		const selectedSection = this.getQuizSection(sectionKey);
-		const submitButton = selectedSection.querySelector('.quiz-submit-question');
-		return submitButton;
-	}
-
-	updateQuizSection(
-		id,
-		currentQuestion,
-		totalQuestions,
-		question,
-		options,
-		answer
-	) {
-		if (this._quizSections[id]) {
-			this._quizSections[id] = createQuizSection(
-				currentQuestion,
-				totalQuestions,
-				question,
-				options,
-				answer
-			);
-			return true;
-		}
-		return false;
-	}
-
-	getQuestionElements(sectionKey) {
-		const questionElements = this.getQuizSection(sectionKey).querySelectorAll(
-			'.btn-quiz-question-option'
-		);
-		return questionElements;
-	}
-
-	getNoAnswerWarningLabel(sectionKey) {
-		const noAnswerWarningLabel = this.getQuizSection(sectionKey).querySelector(
-			'.no-answer-selected-label-container'
-		);
-		return noAnswerWarningLabel;
-	}
-
-	moveAllSections() {
-		Object.entries(this.quizSections).forEach(([index, section]) => {
-			const currentPosition = this.quizSectionPositions[index];
-			const newPosition = currentPosition - 100;
-			this.quizSectionPositions[index] = newPosition;
-			section.style.transform = `translateX(${newPosition}%)`;
-		});
-		console.log(this.quizSectionScore);
-	}
-
-	initMoveSections() {
-		Object.values(this.quizSections).forEach((section, index) => {
-			const newPosition = 100 * index;
-			this.quizSectionPositions[index] = newPosition;
-			section.style.transform = `translateX(${newPosition}%)`;
-		});
-	}
+  initMoveSections() {
+    Object.values(this.questions).forEach((question, index) => {
+      const newPosition = 100 * index;
+      question.sectionPosition = newPosition;
+      question.section.style.transform = `translateX(${newPosition}%)`;
+    });
+  }
 }

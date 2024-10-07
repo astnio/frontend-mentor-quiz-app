@@ -1,164 +1,190 @@
 export class QuizQuestion {
-	_question = '';
-	_options = {};
-	_answer = '';
-	_btnSubmit = null;
-	_optionElements = {};
-	_noAnswerWarningLabel = null;
-	_currentQuestionAnswered = undefined;
+  _question = '';
+  _options = {};
+  _answer = '';
+  _btnSubmit = null;
+  _optionElements = {};
+  _noAnswerWarningLabel = null;
+  _currentQuestionAnswered = undefined;
+  _section = null;
+  _sectionPosition = null;
 
-	constructor(
-		question,
-		options,
-		answer,
-		btnSubmit,
-		optionElements,
-		noAnswerWarningLabel,
-		moveAllSectionsFunction,
-		addToScore
-	) {
-		this.question = question;
-		this.options = options;
-		this.answer = answer;
-		this.btnSubmit = btnSubmit;
-		this.optionElements = optionElements;
-		this.noAnswerWarningLabel = noAnswerWarningLabel;
-		this.moveAllSections = moveAllSectionsFunction;
-		this.addToScore = addToScore;
+  constructor(
+    question,
+    options,
+    answer,
+    moveAllSectionsFunction,
+    addToScore,
+    section,
+    sectionPosition
+  ) {
+    this.question = question;
+    this.options = options;
+    this.answer = answer;
+    this.moveAllSections = moveAllSectionsFunction;
+    this.addToScore = addToScore;
+    this.section = section;
+    this.sectionPosition = sectionPosition;
 
-		this.btnSubmit.addEventListener('click', this.handleSubmit.bind(this));
-	}
+    this.btnSubmit = this.section.querySelector('.quiz-submit-question');
 
-	get question() {
-		return this._question;
-	}
+    this.optionElements = this.section.querySelectorAll(
+      '.btn-quiz-question-option'
+    );
 
-	set question(value) {
-		this._question = value;
-	}
+    this.noAnswerWarningLabel = this.section.querySelector(
+      '.no-answer-selected-label-container'
+    );
 
-	get options() {
-		return this._options;
-	}
+    this.btnSubmit.addEventListener('click', this.handleSubmit.bind(this));
+  }
 
-	set options(value) {
-		this._options = value;
-	}
+  get question() {
+    return this._question;
+  }
 
-	get answer() {
-		return this._answer;
-	}
+  set question(value) {
+    this._question = value;
+  }
 
-	set answer(value) {
-		this._answer = value;
-	}
+  get options() {
+    return this._options;
+  }
 
-	get btnSubmit() {
-		return this._btnSubmit;
-	}
+  set options(value) {
+    this._options = value;
+  }
 
-	set btnSubmit(value) {
-		this._btnSubmit = value;
-	}
+  get answer() {
+    return this._answer;
+  }
 
-	get optionElements() {
-		return this._optionElements;
-	}
+  set answer(value) {
+    this._answer = value;
+  }
 
-	set optionElements(value) {
-		this._optionElements = value;
-	}
+  get btnSubmit() {
+    return this._btnSubmit;
+  }
 
-	get noAnswerWarningLabel() {
-		return this._noAnswerWarningLabel;
-	}
+  set btnSubmit(value) {
+    this._btnSubmit = value;
+  }
 
-	set noAnswerWarningLabel(value) {
-		this._noAnswerWarningLabel = value;
-	}
+  get optionElements() {
+    return this._optionElements;
+  }
 
-	get currentQuestionAnswered() {
-		return this._currentQuestionAnswered;
-	}
+  set optionElements(value) {
+    this._optionElements = value;
+  }
 
-	set currentQuestionAnswered(value) {
-		this._currentQuestionAnswered = value;
-		console.log('Setting currentQuestionAnswered...');
-		console.log(this.currentQuestionAnswered);
-	}
+  get noAnswerWarningLabel() {
+    return this._noAnswerWarningLabel;
+  }
 
-	handleSubmit = () => {
-		if (!this.currentQuestionAnswered) {
-			this.checkCorrectAnswer();
-		} else {
-			this.moveAllSections();
-		}
-	};
+  set noAnswerWarningLabel(value) {
+    this._noAnswerWarningLabel = value;
+  }
 
-	checkCorrectAnswer = () => {
-		const options = Array.from(this.optionElements).filter(
-			(node) => node instanceof Element
-		);
+  get currentQuestionAnswered() {
+    return this._currentQuestionAnswered;
+  }
 
-		const correctButton = this.getCorrectQuestionButton();
+  set currentQuestionAnswered(value) {
+    this._currentQuestionAnswered = value;
+    console.log('Setting currentQuestionAnswered...');
+    console.log(this.currentQuestionAnswered);
+  }
 
-		let optionsChecked = 0;
+  get section() {
+    return this._section;
+  }
 
-		options.forEach((option) => {
-			const optionInput = option.querySelector('input');
-			const optionLabel = option;
-			if (optionInput.checked) {
-				this.noAnswerWarningLabel.style.visibility = 'hidden';
-				optionsChecked++;
-				if (optionInput.value === this.answer) {
-					// CORRECT
-					this.currentQuestionAnswered = true;
-					optionLabel.dataset.correct = 'true';
-					optionLabel.dataset.userPicked = 'true';
-					this.disableRadioButtons();
-					this.addToScore();
-				} else {
-					// WRONG
-					this.currentQuestionAnswered = true;
-					optionLabel.dataset.correct = 'false';
-					optionLabel.dataset.userPicked = 'true';
-					correctButton.dataset.correct = 'true';
-					this.disableRadioButtons();
-				}
-				this.btnSubmit.innerText = 'Next Question';
-			}
-		});
+  set section(value) {
+    this._section = value;
+  }
 
-		if (optionsChecked <= 0) {
-			this.currentQuestionAnswered = false;
-			this.noAnswerWarningLabel.style.visibility = 'visible';
-		}
-	};
+  get sectionPosition() {
+    return this._sectionPosition;
+  }
 
-	disableRadioButtons() {
-		const elements = Array.from(this.optionElements).filter(
-			(node) => node instanceof Element
-		);
+  set sectionPosition(value) {
+    this._sectionPosition = value;
+  }
 
-		elements.forEach((element) => {
-			const elInput = element.querySelector('input');
-			elInput.disabled = true;
-		});
-	}
+  handleSubmit = () => {
+    if (!this.currentQuestionAnswered) {
+      this.checkCorrectAnswer();
+    } else {
+      this.moveAllSections();
+    }
+  };
 
-	getCorrectQuestionButton() {
-		const elements = Array.from(this.optionElements).filter(
-			(node) => node instanceof Element
-		);
+  checkCorrectAnswer = () => {
+    const options = Array.from(this.optionElements).filter(
+      (node) => node instanceof Element
+    );
 
-		for (let i = 0; i < elements.length; i++) {
-			const elInput = elements[i].querySelector('input');
-			if (elInput.value === this.answer) {
-				return elements[i];
-			}
-		}
-		return null;
-	}
+    const correctButton = this.getCorrectQuestionButton();
 
-	transitionSection() {}
+    let optionsChecked = 0;
+
+    options.forEach((option) => {
+      const optionInput = option.querySelector('input');
+      const optionLabel = option;
+      if (optionInput.checked) {
+        this.noAnswerWarningLabel.style.visibility = 'hidden';
+        optionsChecked++;
+        if (optionInput.value === this.answer) {
+          // CORRECT
+          this.currentQuestionAnswered = true;
+          optionLabel.dataset.correct = 'true';
+          optionLabel.dataset.userPicked = 'true';
+          this.disableRadioButtons();
+          this.addToScore();
+        } else {
+          // WRONG
+          this.currentQuestionAnswered = true;
+          optionLabel.dataset.correct = 'false';
+          optionLabel.dataset.userPicked = 'true';
+          correctButton.dataset.correct = 'true';
+          this.disableRadioButtons();
+        }
+        this.btnSubmit.innerText = 'Next Question';
+      }
+    });
+
+    if (optionsChecked <= 0) {
+      this.currentQuestionAnswered = false;
+      this.noAnswerWarningLabel.style.visibility = 'visible';
+    }
+  };
+
+  disableRadioButtons() {
+    const elements = Array.from(this.optionElements).filter(
+      (node) => node instanceof Element
+    );
+
+    elements.forEach((element) => {
+      const elInput = element.querySelector('input');
+      elInput.disabled = true;
+    });
+  }
+
+  getCorrectQuestionButton() {
+    const elements = Array.from(this.optionElements).filter(
+      (node) => node instanceof Element
+    );
+
+    for (let i = 0; i < elements.length; i++) {
+      const elInput = elements[i].querySelector('input');
+      if (elInput.value === this.answer) {
+        return elements[i];
+      }
+    }
+    return null;
+  }
+
+  transitionSection() {}
 }
