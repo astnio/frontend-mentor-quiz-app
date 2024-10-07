@@ -45,14 +45,6 @@ export class Quiz {
   setupLastQuestionListener() {
     const lastQuestion = this.getLastQuestion();
     lastQuestion.finalQuestion = true;
-    // if (lastQuestion) {
-    //   const lastQuestionSubmitBtn = lastQuestion.btnSubmit;
-    //   lastQuestionSubmitBtn.addEventListener('click', () => {
-    //     if (lastQuestion.currentQuestionAnswered) {
-    //       ScreenTransitionManager.endSlideMainScreens();
-    //     }
-    //   });
-    // }
   }
 
   get title() {
