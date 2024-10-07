@@ -35,20 +35,24 @@ export class Quiz {
       this.questions[questionCounter] = newQuestion;
 
       questionCounter++;
-
-      this.initMoveSections();
     }
 
-    const lastQuestion = this.getLastQuestion();
-    const lastQuestionSubmitBtn = lastQuestion.btnSubmit;
+    this.initMoveSections();
+    this.setupLastQuestionListener();
+  }
 
-    lastQuestionSubmitBtn.addEventListener('click', () => {
-      if (this.lastQuestion.currentQuestionAnswered) {
-        console.log('Last section question HAS BEEN answered!');
-      } else if (!this.lastQuestion.currentQuestionAnswered) {
-        console.log('Last section question NOT answered!');
-      }
-    });
+  setupLastQuestionListener() {
+    const lastQuestion = this.getLastQuestion();
+    if (lastQuestion) {
+      const lastQuestionSubmitBtn = lastQuestion.btnSubmit;
+      lastQuestionSubmitBtn.addEventListener('click', () => {
+        if (lastQuestion.currentQuestionAnswered) {
+          console.log('Last section question HAS BEEN answered!');
+        } else {
+          console.log('Last section question NOT answered!');
+        }
+      });
+    }
   }
 
   get title() {

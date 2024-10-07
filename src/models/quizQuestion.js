@@ -5,7 +5,7 @@ export class QuizQuestion {
   _btnSubmit = null;
   _optionElements = {};
   _noAnswerWarningLabel = null;
-  _currentQuestionAnswered = undefined;
+  _currentQuestionAnswered = false;
   _section = null;
   _sectionPosition = null;
 
@@ -88,6 +88,7 @@ export class QuizQuestion {
   }
 
   get currentQuestionAnswered() {
+    // console.log('GETTING currentQuestionAnswered!');
     return this._currentQuestionAnswered;
   }
 
