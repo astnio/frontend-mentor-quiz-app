@@ -144,7 +144,8 @@
           </div>
 
           <div class="quiz-end-score-reveal-container">
-            <div class="app-header-quiz-category heading-s">
+            <div
+              class="app-header-quiz-category end-screen-quiz-category heading-s">
               <span
                 data-bg-color="white"
                 class="quiz-button-icon-container quiz-category-icon-container"
@@ -162,7 +163,7 @@
                 >{score}</span
               >
             </p>
-            <p class="body-s">
+            <p class="body-s end-screen-total-out-of-label">
               out of
               <span
                 id="end-screen-total-questions"
@@ -171,8 +172,10 @@
               >
             </p>
           </div>
-          <button class="button btn-question-submit quiz-submit-question">
-            <span class="medium">Play Again</span>
+          <button
+            id="btn-play-again"
+            class="button btn-question-submit quiz-submit-question">
+            <span class="">Play Again</span>
           </button>
         </div>
       </div>

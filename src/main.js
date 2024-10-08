@@ -21,6 +21,8 @@ const btnAccessibilityQuiz = document.getElementById(
 
 const endScreenCategory = document.getElementById('end-screen-category-label');
 
+const playAgainButton = document.getElementById('btn-play-again');
+
 function setAppHeaderCategoryIconBg(color) {
   appHeaderQuizCategories.forEach((el) => {
     el.children[0].dataset.bgColor = color;
@@ -82,3 +84,7 @@ function initQuizButtons() {
 initLightToggle();
 ScreenTransitionManager.initQuizChoiceButtons();
 initQuizButtons();
+
+playAgainButton.addEventListener('click', () => {
+  //todo: stuff
+});
