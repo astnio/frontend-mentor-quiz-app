@@ -886,6 +886,10 @@ body[data-light-mode='light'] {
     background-image: url(./assets/images/pattern-background-tablet-light.svg);
   }
 
+  .quiz-end-title-container {
+    line-height: 400%;
+  }
+
   .quiz-question-body {
     font-size: 36px;
     margin-top: 2rem;
@@ -1088,5 +1092,40 @@ body[data-light-mode='light'] {
 
   #quiz-progress-bar-container {
     margin-top: 14rem;
+  }
+
+  .quiz-end-content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8rem;
+  }
+
+  .quiz-end-title-container {
+    justify-content: start;
+    margin: 0;
+    height: 100%;
+    max-height: 456px;
+    width: 100%;
+    max-width: calc(1160px / 2);
+    padding-left: 2rem;
+  }
+
+  .quiz-end-summary-container {
+    margin-block: auto;
+    height: 100%;
+    max-height: 456px;
+    width: 100%;
+    max-width: calc(1160px / 2);
+    padding-right: 2rem;
+  }
+
+  .quiz-end-score-reveal-container {
+    margin-top: 0;
+    min-height: 388px;
+  }
+
+  div.max-width.auto-inline-margin.quiz-end-content-container {
+    max-width: 100%;
   }
 }

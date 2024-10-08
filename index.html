@@ -143,40 +143,42 @@
             <p class="heading-l medium">You scored...</p>
           </div>
 
-          <div class="quiz-end-score-reveal-container">
-            <div
-              class="app-header-quiz-category end-screen-quiz-category heading-s">
-              <span
-                data-bg-color="white"
-                class="quiz-button-icon-container quiz-category-icon-container"
-                ><img
-                  class="current-quiz-label-image"
-                  src="./assets/images/icon-accessibility.svg"
-                  alt="Accessibility"
-              /></span>
-              <span id="end-screen-category-label">{category}</span>
+          <div class="quiz-end-summary-container">
+            <div class="quiz-end-score-reveal-container">
+              <div
+                class="app-header-quiz-category end-screen-quiz-category heading-s">
+                <span
+                  data-bg-color="white"
+                  class="quiz-button-icon-container quiz-category-icon-container"
+                  ><img
+                    class="current-quiz-label-image"
+                    src="./assets/images/icon-accessibility.svg"
+                    alt="Accessibility"
+                /></span>
+                <span id="end-screen-category-label">{category}</span>
+              </div>
+              <p>
+                <span
+                  class="bold"
+                  id="final-score"
+                  >{score}</span
+                >
+              </p>
+              <p class="body-s end-screen-total-out-of-label">
+                out of
+                <span
+                  id="end-screen-total-questions"
+                  class="total-questions"
+                  >{total}</span
+                >
+              </p>
             </div>
-            <p>
-              <span
-                class="bold"
-                id="final-score"
-                >{score}</span
-              >
-            </p>
-            <p class="body-s end-screen-total-out-of-label">
-              out of
-              <span
-                id="end-screen-total-questions"
-                class="total-questions"
-                >{total}</span
-              >
-            </p>
+            <button
+              id="btn-play-again"
+              class="button btn-question-submit quiz-submit-question">
+              <span class="">Play Again</span>
+            </button>
           </div>
-          <button
-            id="btn-play-again"
-            class="button btn-question-submit quiz-submit-question">
-            <span class="">Play Again</span>
-          </button>
         </div>
       </div>
     </div>
