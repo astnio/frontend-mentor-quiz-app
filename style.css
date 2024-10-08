@@ -1058,4 +1058,35 @@ body[data-light-mode='light'] {
     max-width: calc(1160px / 2);
     padding-right: 2rem;
   }
+
+  #quiz-container > section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8rem;
+  }
+
+  .question-header {
+    justify-content: start;
+    margin: 0;
+    height: 100%;
+    max-height: 456px;
+    max-width: calc(1160px / 2);
+    padding-left: 2rem;
+    padding-top: 0;
+  }
+
+  .quiz-section-questions-container {
+    margin-block: auto;
+    height: 100%;
+    max-height: 456px;
+    max-width: calc(1160px / 2);
+    padding-right: 2rem;
+
+    margin-inline: 0;
+  }
+
+  #quiz-progress-bar-container {
+    margin-top: 14rem;
+  }
 }
