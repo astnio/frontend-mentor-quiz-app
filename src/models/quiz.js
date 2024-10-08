@@ -1,6 +1,5 @@
 import { QuizSection } from '../utils/questionSectionCreator.js';
 import { QuizQuestion } from './quizQuestion.js';
-import { ScreenTransitionManager } from '../ui/screenTransitionManager.js';
 
 export class Quiz {
   _title = '';
@@ -14,6 +13,7 @@ export class Quiz {
     this.moveAllSections = this.moveAllSections.bind(this);
     this.addToScore = this.addToScore.bind(this);
     this.handleEndScreen = this.handleEndScreen.bind(this);
+    this.initMoveSections = this.initMoveSections.bind(this);
 
     let questionCounter = 0;
 
@@ -42,6 +42,15 @@ export class Quiz {
 
     this.initMoveSections();
     this.setupLastQuestionListener();
+
+    const playAgainButton = document.getElementById('btn-play-again');
+    playAgainButton.addEventListener('click', () => {
+      this.score = 0;
+      this.initMoveSections();
+      for (let key in this.questions) {
+        this.questions[key].resetQuestion();
+      }
+    });
   }
 
   get title() {

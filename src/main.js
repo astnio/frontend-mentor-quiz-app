@@ -80,5 +80,9 @@ initQuizButtons();
 playAgainButton.addEventListener('click', () => {
   mainQuizContainer.innerHTML = '';
 
+  appHeaderQuizCategories.forEach((el) => {
+    el.dataset.quizActive = 'false';
+  });
+
   ScreenTransitionManager.resetScreens();
 });

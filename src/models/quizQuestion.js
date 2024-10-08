@@ -131,6 +131,7 @@ export class QuizQuestion {
       } else {
         this.handleEndScreen();
         ScreenTransitionManager.endSlideMainScreens();
+        this.resetQuestion();
       }
     }
   };
@@ -190,6 +191,17 @@ export class QuizQuestion {
     });
   }
 
+  enableRadioButtons() {
+    const elements = Array.from(this.optionElements).filter(
+      (node) => node instanceof Element
+    );
+
+    elements.forEach((element) => {
+      const elInput = element.querySelector('input');
+      elInput.disabled = false;
+    });
+  }
+
   getCorrectQuestionButton() {
     const elements = Array.from(this.optionElements).filter(
       (node) => node instanceof Element
@@ -202,5 +214,26 @@ export class QuizQuestion {
       }
     }
     return null;
+  }
+
+  resetQuestion() {
+    console.log('Resetting question!');
+    const options = Array.from(this.optionElements).filter(
+      (node) => node instanceof Element
+    );
+
+    const correctButton = this.getCorrectQuestionButton();
+
+    options.forEach((option) => {
+      const optionInput = option.querySelector('input');
+      const optionLabel = option;
+      this.noAnswerWarningLabel.style.visibility = 'hidden';
+      this.currentQuestionAnswered = false;
+      optionLabel.dataset.correct = 'hidden';
+      optionLabel.dataset.userPicked = 'false';
+      correctButton.dataset.correct = 'hidden';
+      this.enableRadioButtons();
+      this.btnSubmit.innerText = 'Submit Answer';
+    });
   }
 }
