@@ -78,5 +78,7 @@ ScreenTransitionManager.initQuizChoiceButtons();
 initQuizButtons();
 
 playAgainButton.addEventListener('click', () => {
-  //todo: stuff
+  mainQuizContainer.innerHTML = '';
+
+  ScreenTransitionManager.resetScreens();
 });

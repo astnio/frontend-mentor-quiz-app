@@ -11,6 +11,7 @@ export class ScreenTransitionManager {
     this.quizContainer.style.transform = 'translateX(-100%)';
     this.quizEndScreen.style.transform = 'translateX(0)';
     this.quizContainer.style.visibility = 'visible';
+    this.quizEndScreen.style.visibility = 'visible';
   }
 
   static initSlideMainScreens() {
@@ -18,6 +19,15 @@ export class ScreenTransitionManager {
     this.quizContainer.style.transform = 'translateX(0)';
     this.quizEndScreen.style.transform = 'translateX(100%)';
     this.quizContainer.style.visibility = 'visible';
+    this.quizEndScreen.style.visibility = 'visible';
+  }
+
+  static resetScreens() {
+    this.quizContainer.style.visibility = 'hidden';
+    this.quizEndScreen.style.visibility = 'hidden';
+    this.quizIntro.style.transform = 'translateX(0)';
+    this.quizContainer.style.transform = 'translateX(100%)';
+    this.quizEndScreen.style.transform = 'translateX(200%)';
   }
 
   static initQuizChoiceButtons() {
