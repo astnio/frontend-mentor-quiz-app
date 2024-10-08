@@ -873,11 +873,11 @@ body[data-light-mode='light'] {
 
 /*** Tablet Color Scheme BG ***/
 
-:root {
-  --radius: 24px; /* Desktop */
-}
-
 @media screen and (min-width: 768px) {
+  :root {
+    --radius: 24px; /* Desktop */
+  }
+
   body[data-light-mode='dark'] {
     background-image: url(./assets/images/pattern-background-tablet-dark.svg);
   }
@@ -899,6 +899,24 @@ body[data-light-mode='light'] {
     margin-top: 2rem;
 
     font-size: 28px;
+  }
+
+  div.no-answer-selected-label-container > p {
+    font-size: 24px;
+  }
+
+  #quiz-progress-bar-container {
+    margin-block: 4.5rem;
+  }
+
+  /*** App Header ***/
+
+  .app-header {
+    margin-top: 3rem;
+  }
+
+  .question-header {
+    padding-top: 4rem;
   }
 
   /*** Quiz Questions Fieldset ***/
