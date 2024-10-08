@@ -30,7 +30,6 @@
   --clr-success: var(--clr-green);
   --clr-error: var(--clr-red);
 
-  --radius: 24px; /* Desktop */
   --radius: 12px; /* Mobile */
 
   font-size: 12px;
@@ -833,7 +832,7 @@ p,
 }
 
 .quiz-question-body {
-  font-size: 20px;
+  font-size: 20px; /* Mobile */
   line-height: 120%;
 }
 
@@ -874,6 +873,10 @@ body[data-light-mode='light'] {
 
 /*** Tablet Color Scheme BG ***/
 
+:root {
+  --radius: 24px; /* Desktop */
+}
+
 @media screen and (min-width: 768px) {
   body[data-light-mode='dark'] {
     background-image: url(./assets/images/pattern-background-tablet-dark.svg);
@@ -881,6 +884,11 @@ body[data-light-mode='light'] {
 
   body[data-light-mode='light'] {
     background-image: url(./assets/images/pattern-background-tablet-light.svg);
+  }
+
+  .quiz-question-body {
+    font-size: 36px;
+    margin-top: 2rem;
   }
 
   .title-container {
@@ -925,6 +933,8 @@ body[data-light-mode='light'] {
     width: 56px; /* Desktop */
 
     height: 56px; /* Desktop */
+
+    font-size: 28px;
   }
 
   /*** Utility ***/
@@ -979,16 +989,8 @@ body[data-light-mode='light'] {
   /*** Light Toggle Icons ***/
 
   .light-switch-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 16px;
-    height: 16px;
-
-    background-repeat: no-repeat;
-    background-position: 50%;
-    background-size: cover;
+    width: 24px;
+    height: 24px;
   }
 }
 
