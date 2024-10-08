@@ -422,6 +422,10 @@ ul {
 }
 
 li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 100%;
 }
 
@@ -443,12 +447,9 @@ label.button,
   background-color: var(--clr-surface-2);
 
   width: 100%;
-  max-width: 564px;
 
-  min-height: 96px; /* Desktop */
   min-height: 64px; /* Mobile */
 
-  padding-inline: 20px; /* Desktop */
   padding-inline: 12px; /* Mobile */
 
   overflow: hidden;
@@ -525,16 +526,12 @@ button.button.btn-quiz-button {
 
   flex-shrink: 0;
 
-  margin-right: 32px; /* Desktop */
   margin-right: 16px; /* Mobile */
 
-  padding: 8px; /* Desktop */
   padding: 4px; /* Mobile */
 
-  width: 56px; /* Desktop */
   width: 40px; /* Mobile */
 
-  height: 56px; /* Desktop */
   height: 40px; /* Mobile */
 
   aspect-ratio: 1;
@@ -787,7 +784,7 @@ input:checked + .slider:before {
 }
 
 .max-width {
-  max-width: 327px;
+  max-width: 327px; /* Mobile */
   padding-inline: 1rem;
 }
 
@@ -808,7 +805,6 @@ p.medium {
 h1,
 h2,
 .heading-l {
-  font-size: 64px; /* Desktop */
   font-size: 40px; /* Mobile */
   font-weight: 300;
 }
@@ -823,7 +819,6 @@ h4,
 h5,
 h6,
 .heading-s {
-  font-size: 28px; /* Desktop */
   font-size: 18px; /* Mobile */
   font-weight: 600;
 }
@@ -835,7 +830,6 @@ p,
 }
 
 .body-s {
-  font-size: 20px; /* Desktop */
   font-size: 14px; /* Mobile */
   line-height: 150%;
   color: var(--clr-on-surface-2);
@@ -890,6 +884,60 @@ body[data-light-mode='light'] {
 
   body[data-light-mode='light'] {
     background-image: url(./assets/images/pattern-background-tablet-light.svg);
+  }
+
+  .title-container {
+    width: 100%;
+  }
+
+  /*** Lists ***/
+
+  ul {
+    gap: 2rem; /* Desktop */
+  }
+
+  /*** Buttons ***/
+
+  button.button,
+  label.button,
+  .question-container.button {
+    min-height: 96px; /* Desktop */
+
+    padding-inline: 20px; /* Desktop */
+  }
+
+  /*** Quiz Button Icon ***/
+
+  .quiz-button-icon-container {
+    margin-right: 32px; /* Desktop */
+
+    padding: 8px; /* Desktop */
+
+    width: 56px; /* Desktop */
+
+    height: 56px; /* Desktop */
+  }
+
+  /*** Utility ***/
+  .max-width {
+    max-width: 640px;
+    padding-inline: 1rem;
+  }
+
+  h1,
+  h2,
+  .heading-l {
+    font-size: 64px; /* Desktop */
+  }
+
+  h5,
+  h6,
+  .heading-s {
+    font-size: 28px; /* Desktop */
+  }
+
+  .body-s {
+    font-size: 20px; /* Desktop */
   }
 }
 
